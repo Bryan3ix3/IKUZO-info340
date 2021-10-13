@@ -1,0 +1,18 @@
+body {
+    font-size: 16px;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background-color: lightblue;
+}
+
+p {
+    line-height: 1.5;
+}
+
+img {
+    max-height: 400px;
+}
+
+.colored {
+    background-color: lightblue;
+    color: darkblue;
+}
