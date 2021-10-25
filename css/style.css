@@ -42,10 +42,9 @@
   
   .friends {
     display: none;
-    flex-basis: 400px;
+    flex-basis: 250px;
     flex-grow: 0;
     flex-shrink: 0;
-    width: 400px;
     background-color: white;
   }
   
@@ -72,10 +71,36 @@
     box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
   }
   
+  .friend-card {
+    display: flex;
+    border-radius: 30px;
+    flex: 0 0 200px;
+    background-color: darkgray;
+    margin: .5rem;
+    padding: .5rem .5rem;
+    box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
+  }
+
+  .friend-card > p {
+    margin: 0.3rem .2rem .2rem 0.5rem;
+  }
+
+  .friends > div {
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+
   img {
     border-radius: 10px;
     width: 450px;
     height: 280px;
+    object-fit: cover;
+  }
+
+  .friend-card img {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
   }
 
