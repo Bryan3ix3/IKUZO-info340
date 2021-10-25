@@ -27,19 +27,26 @@
   }
   
   .filters {
-    flex-basis: 240px;
+    display: none;
+    flex-basis: 400px;
+    flex: 0;
+    flex-grow: 0;
+    background-color: white;
   }
   
   .events {
     flex: 1;
     flex-grow: 1;
-    background-color: #eee;
+    background-color: darkgray;
   }
   
   .friends {
-    flex-basis: 180px;
+    display: none;
+    flex-basis: 400px;
     flex-grow: 0;
     flex-shrink: 0;
+    width: 400px;
+    background-color: white;
   }
   
   .box {
@@ -61,14 +68,45 @@
     flex: 0 0 250px;
     background-color: white;
     margin: .5rem;
-    padding: .5rem 1rem;
+    padding: .8rem .8rem;
     box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
   }
   
   img {
     border-radius: 10px;
-    width: 400px;
+    width: 450px;
+    height: 280px;
+    object-fit: cover;
   }
+
+
+
+
+
+
+
   
-  
+@media (min-width: 598px) {
+}
+
+@media (min-width: 768px) {
+  .friends {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .filters {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    background-color: blue;
+  }
+  .events > div {
+    justify-content: left;
+  }
+}
   
