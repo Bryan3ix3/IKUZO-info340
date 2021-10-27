@@ -113,6 +113,7 @@
 
 .login-page header {
   text-align: center;
+  font-family: "Reggae One", sans-serif;
   font-size: 38px;
 }
 
@@ -190,7 +191,7 @@
 .login-btn:hover, .login-btn:focus {
   cursor: pointer;
   box-shadow: 0 0.5em 0.5em -0.4em rgba(0, 0, 0, 0.6);
-  transform: translateY(-0.25em);
+  transform: translateY(-0.2em);
 }
 
 
