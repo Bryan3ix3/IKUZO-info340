@@ -11,20 +11,29 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <!-- Page Title -->
-        <h1>Ikuzo</h1>
-        <p>Ikuzo aims to connect people with similar physical activity interests</p>
+    <header class="navigation">
+        <p class="nav-brand-name"><a class="text-white" href="index.html">Ikuzo</a></p>
+        <form class="m-2 m-lg-0 search-box">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success m-2 m-sm-0" type="submit">Search</button>
+        </form>
+        <nav class="navbar navbar-expand-lg nav-bg">
+            <ul class="nav nav-pills navbar-fixed-top">
+                <li class="nav-item ml-2" role="presentation"><a class="nav-link text-white" href="#">Add Event</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link text-white" href="aboutUs.html">About</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link text-white" href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <section>
-            <h2>Problem Description</h2>
+            <h2>About Us</h2>
             <ul>
                 <li>
                     Overview
                     <ul>
                         <li>
-                            Maintaining and improving physical and mental health can be a challenge for university students. As a student, I find it challenging to connect with people who share a similar interest in physical activity. Our group would like to create an information system to help connect students who have identical availability and interest in physical activities to help them better maintain their health.
+                            Maintaining and improving physical and mental health can be a challenge for university students. Students usally find it challenging to connect with people who share a similar interest in physical activity. We created an information system to help connect students who have identical availability and interest in physical activities to help them better maintain their health.
                         </li>
                     </ul>
                 </li>
@@ -37,7 +46,7 @@
                     </ul>
                 </li>
                 <li>
-                    Existing Solution Analysis
+                    Why Ikuzo?
                     <ul>
                         <li>
                             Fitness web apps such as <a href="https://www.crossfit.com/">CrossFit</a>  and <a href="https://www.fitnessblender.com/">Fitness Blender</a> attempt to solve this problem; however, they focus on workout routines for people who go to the gym. In addition, these web apps include virtual fitness events and ways of finding local gyms nearby. But, they lack the aspects for community and local connections with other individuals. We want to solve this problem by incorporating a wide range of fitness opportunities for university students, apart from just going to the gym.
@@ -47,27 +56,17 @@
             </ul>
         </section>
         <section>
-            <h2>Proposed Application</h2>
+            <h2> Ikuzo's Solution</h2>
             <ul>
                 <li>
-                    Our intended audience for this application is university students, specifically those who attend UW.
+                    Here at Ikuzo, we have tailored our platform to cater to our audeince who are university students that attend the University of Washington. 
+                    Students will be able to create their own profile, share interests, connect with other students, and contact other students. 
+                    Students will also be able to view the profiles of other students who have the same interests and also view current outdoor events the student is attending. 
+                    Ikuzo will connect students by interest which will create motivation for students to get together to socialize and also excercise. 
+
                 </li>
             </ul>
-            <ul>
-                <li>
-                    Students using this site will view the profiles of other students who share a similar interest in physical activities. They will also find outdoor events on the home page.
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    Students will be able to create their profiles and provide information such as: what sport they like, what times are they available, and any other interests/information they would like to provide to connect with fellow students. They will also be able to join events and send messages to their friends.
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    Students who have a busy schedule or difficulty commuting to campus may have trouble connecting with other students to exercise with. This application will help connect students with the same interest in sports or physical activity to promote exercise.
-                </li>
-            </ul>
+        
         </section>
     </main>
 </body>
