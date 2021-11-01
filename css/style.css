@@ -9,6 +9,7 @@ body {
   margin: 0;
   flex-direction: column;
   height: inherit;
+  background: linear-gradient(#ccceec, #8940e9);
 }
 
 main {
