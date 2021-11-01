@@ -32,6 +32,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     background-color: darkgray;
+    border-right: solid;
   }
 
   .events {
@@ -46,6 +47,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     background-color: darkgray;
+    border-left: solid;
   }
 
   .spacer {
@@ -65,7 +67,7 @@
   }
 
   .event-card > p {
-    padding: .5rem .1rem;
+    padding: 1rem 0rem 0rem;
   }
 
   .event-card {
@@ -142,6 +144,16 @@
     width: 35px;
     height: 35px;
     object-fit: cover;
+  }
+
+  div > .overImg {
+    position: absolute;
+    margin: 10px;
+  }
+
+  .overImg > img {
+    width: 380px;
+    height: 55px;
   }
 
 /* Login page rules*/

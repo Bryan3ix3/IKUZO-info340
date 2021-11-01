@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="authors" content="William, Jerry, Kassim, Brian">
-    <meta description" content="This is the home page for our final project. Users
+    <meta description content="This is the home page for our final project. Users
     are able to explore events on our event feed and filter them accordingly with
     the filter tool. There is a recommended friends list to help connect users with
     the community.">
@@ -27,12 +27,17 @@
                     <div class="event-card">
                         <!-- Card 1 -->
                         <img src="img/running.jpg" alt="image of running event">
+                        <div class="overImg">
+                            <img src="img/white.png" alt="image of white background">
+                            <h2 class="overImg">Husky Campus Run</h2>
+                        </div>
+                        
                         <p>
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 more info
                             </button>
                         </p>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="collapseOne">
                             <div class="card card-body">
                                 Drop down content
                             </div>
@@ -41,13 +46,18 @@
 
                     <div class="event-card">
                         <!-- Card 2 -->
-                        <img src="img/basketBall.jpg" alt="image of bascketball event">
+                        <img src="img/basketBall.jpg" alt="image of running event">
+                        <div class="overImg">
+                            <img src="img/white.png" alt="image of white background">
+                            <h2 class="overImg">Pick-Up Basketball</h2>
+                        </div>
+                        
                         <p>
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 more info
                             </button>
                         </p>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="collapseTwo">
                             <div class="card card-body">
                                 Drop down content
                             </div>
@@ -56,13 +66,18 @@
 
                     <div class="event-card">
                         <!-- Card 3 -->
-                        <img src="img/tennis.webp" alt="image of tennis event">
+                        <img src="img/tennis.webp" alt="image of running event">
+                        <div class="overImg">
+                            <img src="img/white.png" alt="image of white background">
+                            <h2 class="overImg">IMA Tennis Games</h2>
+                        </div>
+                       
                         <p>
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 more info
                             </button>
                         </p>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="collapseThree">
                             <div class="card card-body">
                                 Drop down content
                             </div>
@@ -74,25 +89,25 @@
             <section class="spacer"></section>
 
             <section class="box friends">
-                <h1>Recommend Friends</h1>
+                <h1>Recommend Friends:</h1>
                 <p>Recommend Friends Section</p>
                 <div>
                     <div class="friend-card">
                         <!-- Card 1 -->
                         <img src="img/pfp3.jpg" alt="abstract art">
-                        <p><b>Firstname Lastname</b></p>
+                        <p><b>Serena Williams</b></p>
                     </div>
 
                     <div class="friend-card">
                         <!-- Card 2 -->
                         <img src="img/pfp1.png" alt="abstract art">
-                        <p><b>Firstname Lastname</b></p>
+                        <p><b>Among Us</b></p>
                     </div>
 
                     <div class="friend-card">
                         <!-- Card 3 -->
                         <img src="img/pfp2.png" alt="abstract art">
-                        <p><b>Firstname Lastname</b></p>
+                        <p><b>Rafael Nadal</b></p>
                     </div>
                 </div>
             </section>
@@ -106,8 +121,6 @@
         <button id="friend-icon">
             <img src="img/friend.png" alt="image of friend icon">
         </button>
-
-
     </main>
 
 
