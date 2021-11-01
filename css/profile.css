@@ -1,0 +1,62 @@
+/*van bar rules*/
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: black;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+.nav-brand-name {
+    font-size: 28px;
+    font-family: "Reggae One", sans-serif;
+    margin-right: auto;
+    align-self: center;
+    padding-top: 15px;
+    padding-left: 20px;
+  }
+  
+  .nav-brand-name a:link {
+    text-decoration: none;
+  }
+  
+  .nav-brand-name a:hover {
+    text-shadow: 2px 2px 8px #6f7777;
+  }
+  
+    .nav-link:hover {
+    background-color: #4382CD;
+  }
+  
+  .search-box {
+    display: flex;
+    flex-basis: 600px;
+  }
+
+.banner {
+    background-image: url("../img/gradienta-TwWTV4jElEI-unsplash.jpg");
+    background-size: 100%;
+
+}
+
+
+.banner img {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    background-image: url("../img/pexels-tony-jamesandersson-1674752.jpg");
+    background-size: cover;
+    object-fit: cover;
+    position: relative;
+    top: 90px;
+    left: 50px;
+}
+
+.banner button {
+    position: relative;
+    top: 190px;
+    right: 30px;
+}   
+
