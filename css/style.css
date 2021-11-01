@@ -81,6 +81,10 @@
     box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
   }
 
+  .btn-group {
+    margin: 1rem 0px 1rem;
+  }
+
   .friend-card {
     display: flex;
     border-radius: 35px;
