@@ -4,7 +4,7 @@
 
   body {
     display: flex;
-    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-family: "Overpass", sans-serif;
     margin: 0;
     flex-direction: column;
     height: inherit;
@@ -31,14 +31,14 @@
     flex-basis: 200px;
     flex-grow: 0;
     flex-shrink: 0;
-    background-color: darkgray;
+    background: linear-gradient(#ccceec, #8940e9);
     border-right: solid;
   }
 
   .events {
     flex: 1rem;
     flex-grow: 1rem;
-    background-color: darkgray;
+    background: linear-gradient(#ccceec, #8940e9);
   }
 
   .friends {
@@ -46,14 +46,14 @@
     flex-basis: 200px;
     flex-grow: 0;
     flex-shrink: 0;
-    background-color: darkgray;
+    background: linear-gradient(#ccceec, #8940e9);
     border-left: solid;
   }
 
   .spacer {
     flex: 1;
     flex-grow: 1;
-    background-color: darkgray;
+    background: linear-gradient(#ccceec, #8940e9);
   }
 
   .box {
@@ -75,7 +75,7 @@
     flex-direction: column;
     flex: 1;
     border-radius: 10px;
-    background-color: white;
+    background-color: #eaedf5dc;
     margin: .5rem;
     padding: .8rem .8rem;
     box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
@@ -85,7 +85,7 @@
     display: flex;
     border-radius: 35px;
     flex: 0 0 200px;
-    background-color: white;
+    background-color: #eaedf5dc;
     margin: .5rem;
     padding: .5rem .5rem;
     box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
@@ -153,7 +153,7 @@
 
   .overImg > img {
     width: 380px;
-    height: 55px;
+    height: 50px;
   }
 
 /* Login page rules*/
