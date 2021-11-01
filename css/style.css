@@ -16,10 +16,6 @@ main {
   flex: 1;
 }
 
-html {
-  height: 100%;
-}
-
 div {
   display: flex;
 }
@@ -76,6 +72,7 @@ main > div {
   background-color: #eaedf5dc;
   margin: .5rem;
   padding: .8rem .8rem;
+  max-width: 625px;
   box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
 }
 
