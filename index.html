@@ -3,20 +3,39 @@
 <head>
     <meta charset="utf-8">
     <meta name="authors" content="William, Jerry, Kassim, Brian">
-    <meta description" content="This is the home page for our final project. Users
+    <meta name="description" content="This is the home page for our final project. Users
     are able to explore events on our event feed and filter them accordingly with
     the filter tool. There is a recommended friends list to help connect users with
     the community.">
     <title>Ikuzo-home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass&family=Reggae+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header class="navigation">
+        <p class="nav-brand-name"><a class="text-white" href="index.html">Ikuzo</a></p>
+        <form class="m-2 m-lg-0 search-box">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success m-2 m-sm-0" type="submit">Search</button>
+        </form>
+        <nav class="navbar navbar-expand-lg nav-bg">
+            <ul class="nav nav-pills navbar-fixed-top">
+                <li class="nav-item ml-2" role="presentation"><a class="nav-link text-white" href="#">Add Event</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link text-white" href="aboutUs.html">About</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link text-white" href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <div>
             <section class="box filters">
                 <h1>Filter</h1>
-                <p>Filters Section</p>
+                <div class="dropdown">
+
+                </div>
+                <button class="btn btn-outline-primary" type="filter" disabled>Filter</button>
             </section>
 
             <button id="filter-icon">
@@ -25,19 +44,19 @@
 
             <section class="box events">
                 <div>
-                    <div class="card">
+                    <div class="individual-card">
                         <!-- Card 1 -->
                         <img src="img/running.jpg" alt="image of running event">
                         <p>running card description</p>
                     </div>
 
-                    <div class="card">
+                    <div class="individual-card">
                         <!-- Card 2 -->
                         <img src="img/basketBall.jpg" alt="image of bascketball event">
                         <p>basketball card description</p>
                     </div>
 
-                    <div class="card">
+                    <div class="individual-card">
                         <!-- Card 3 -->
                         <img src="img/tennis.webp" alt="image of tennis event">
                         <p>tennis card description</p>
@@ -70,6 +89,10 @@
             </section>
         </div>
     </main>
-
+    <footer>
+        <p>Copyright &copy; 2021 INFO 340 Group BB2</p>
+        <p>Contact Info: jwu23@uw.edu,
+        </p>
+    </footer>
 </body>
 </html>

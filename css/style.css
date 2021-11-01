@@ -2,122 +2,174 @@
     box-sizing: border-box;
   }
 
-  body {
-    display: flex;
-    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
-    margin: 0;
-    flex-direction: column;
-    height: inherit;
-  }
+/* Home page styles */
+body {
+  display: flex;
+  font-family: "Overpass", sans-serif;
+  margin: 0;
+  flex-direction: column;
+  height: inherit;
+}
 
-  main {
-    flex: 1;
-  }
+main {
+  flex: 1;
+}
 
-  html {
-    height: 100%;
-  }
+html {
+  height: 100%;
+}
 
-  div {
-    display: flex;
-  }
+div {
+  display: flex;
+}
 
-  main > div {
-    height: 100%;
-  }
+main > div {
+  height: 100%;
+}
 
-  .filters {
-    display: none;
-    flex-basis: 400px;
-    flex: 0;
-    flex-grow: 0;
-    background-color: white;
-  }
+.filters {
+  display: none;
+  flex-basis: 400px;
+  flex: 0;
+  flex-grow: 0;
+  background-color: white;
+}
 
-  .events {
-    flex: 1;
-    flex-grow: 1;
-    background-color: darkgray;
-  }
+.events {
+  flex: 1;
+  flex-grow: 1;
+  background-color: darkgray;
+}
 
-  .friends {
-    display: none;
-    flex-basis: 250px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    background-color: white;
-  }
+.friends {
+  display: none;
+  flex-basis: 250px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background-color: white;
+}
 
-  .box {
-    padding: 1em;
-  }
+.box {
+  padding: 1em;
+}
 
-  .events > div {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.events > div {
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  .card > p {
-    padding: .5rem 1rem;
-  }
+.individual-card > p {
+  padding: .5rem 1rem;
+}
 
-  .card {
-    display: inline-block;
-    border-radius: 10px;
-    flex: 0 0 250px;
-    background-color: white;
-    margin: .5rem;
-    padding: .8rem .8rem;
-    box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
-  }
+.individual-card {
+  display: inline-block;
+  border-radius: 10px;
+  flex: 0 0 250px;
+  background-color: white;
+  margin: .5rem;
+  padding: .8rem .8rem;
+  box-shadow: 01px 3px rgba(0,0,0,0.16),0 1px 3px rgba(0,0,0,0.23);
+}
 
-  .friend-card {
-    display: flex;
-    border-radius: 30px;
-    flex: 0 0 200px;
-    background-color: darkgray;
-    margin: .5rem;
-    padding: .5rem .5rem;
-    box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
-  }
+.friend-card {
+  display: flex;
+  border-radius: 30px;
+  flex: 0 0 200px;
+  background-color: darkgray;
+  margin: .5rem;
+  padding: .5rem .5rem;
+  box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
+}
 
-  .friend-card > p {
-    margin: 0.3rem .2rem .2rem 0.5rem;
-  }
+.friend-card > p {
+  margin: 0.3rem .2rem .2rem 0.5rem;
+}
 
-  .friends > div {
-    flex-wrap: wrap;
-    justify-content: left;
-  }
+.friends > div {
+  flex-wrap: wrap;
+  justify-content: left;
+}
 
-  img {
-    border-radius: 10px;
-    width: 450px;
-    height: 280px;
-    object-fit: cover;
-  }
+img {
+  border-radius: 10px;
+  width: 450px;
+  height: 280px;
+  object-fit: cover;
+}
 
-  .friend-card img {
-    border-radius: 50px;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-  }
+.friend-card img {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
 
-  #filter-icon {
-    position: fixed;
-    left: 10px;
-    bottom: 10px;
-  }
+#filter-icon {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+}
 
-  #filter-icon img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-  }
+#filter-icon img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+/* Navbar rules */
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: black;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.nav-brand-name {
+  font-size: 28px;
+  font-family: "Reggae One", sans-serif;
+  margin-right: auto;
+  align-self: center;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+.nav-brand-name a:link {
+  text-decoration: none;
+}
+
+.nav-brand-name a:hover {
+  text-shadow: 2px 2px 8px #6f7777;
+}
+
+  .nav-link:hover {
+  background-color: #4382CD;
+}
+
+.search-box {
+  display: flex;
+  flex-basis: 600px;
+}
+
+/* Filter panel styles */
 
 
-/* Login page rules*/
+/* Footer styles */
+footer {
+  background-color: black;
+  text-align: center;
+  color: white;
+  width: 100%;
+  font-size: 15px;
+  padding: 20px;
+  font-family: inherit;
+}
+
+/* Login page styles*/
 .login-page {
   font-family: "Overpass", sans-serif;
   background-color: #eaedf5dc;
