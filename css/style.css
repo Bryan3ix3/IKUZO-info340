@@ -9,6 +9,7 @@ body {
   margin: 0;
   flex-direction: column;
   height: inherit;
+  background: linear-gradient(#ccceec, #8940e9);
 }
 
 main {
@@ -32,14 +33,12 @@ main > div {
   flex-basis: 200px;
   flex-grow: 0;
   flex-shrink: 0;
-  background: linear-gradient(#ccceec, #8940e9);
   border-right: solid;
 }
 
 .events {
   flex: 1rem;
   flex-grow: 1rem;
-  background: linear-gradient(#ccceec, #8940e9);
 }
 
 .friends {
@@ -47,14 +46,12 @@ main > div {
   flex-basis: 200px;
   flex-grow: 0;
   flex-shrink: 0;
-  background: linear-gradient(#ccceec, #8940e9);
   border-left: solid;
 }
 
 .spacer {
   flex: 1;
   flex-grow: 1;
-  background: linear-gradient(#ccceec, #8940e9);
 }
 
 .box {
@@ -82,8 +79,10 @@ main > div {
   box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
 }
 
-.btn-group {
-  margin: 1rem 0px 1rem;
+.btn_group > .btn {
+  margin: .7rem 0rem 0rem;
+  display: flex;
+  flex-grow: 1;
 }
 
 .friend-card {
