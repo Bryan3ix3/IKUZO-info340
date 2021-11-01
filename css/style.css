@@ -12,6 +12,10 @@ body {
   background: linear-gradient(#ccceec, #8940e9);
 }
 
+html {
+  height: 100%;
+}
+
 main {
   flex: 1;
 }
@@ -211,8 +215,7 @@ footer {
 
 /* Login page styles*/
 .login-page {
-  font-family: "Overpass", sans-serif;
-  background-color: #eaedf5dc !important;
+  background: #eaedf5dc;
 }
 
 .login-page header {
