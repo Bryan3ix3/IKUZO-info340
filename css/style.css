@@ -213,7 +213,7 @@ footer {
 /* Login page styles*/
 .login-page {
   font-family: "Overpass", sans-serif;
-  background-color: #eaedf5dc;
+  background-color: #eaedf5dc !important;
 }
 
 .login-page header {
@@ -297,7 +297,6 @@ footer {
   box-shadow: 0 0.5em 0.5em -0.4em rgba(0, 0, 0, 0.6);
   transform: translateY(-0.25em);
 }
-
 
 @media (min-width: 598px) {
 }
