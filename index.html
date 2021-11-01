@@ -38,61 +38,117 @@
                 <button class="btn btn-outline-primary" type="filter" disabled>Filter</button>
             </section>
 
-            <button id="filter-icon">
-                <img src="img/filter.png" alt="image of filter icon">
-            </button>
+            <section class="spacer"></section>
 
             <section class="box events">
                 <div>
-                    <div class="individual-card">
+                    <div class="event-card">
                         <!-- Card 1 -->
                         <img src="img/running.jpg" alt="image of running event">
-                        <p>running card description</p>
+                        <div class="overImg">
+                            <img src="img/white.png" alt="image of white background">
+                            <h2 class="overImg"><strong>Husky Campus Run</strong></h2>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                expand
+                            </button>
+                            <button class="btn btn-share" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                share
+                            </button>
+                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                join
+                            </button>
+                        </div>
+                        <div class="collapse" id="collapseOne">
+                            <div class="card card-body">
+                                Running event extended description.
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="individual-card">
+                    <div class="event-card">
                         <!-- Card 2 -->
-                        <img src="img/basketBall.jpg" alt="image of bascketball event">
-                        <p>basketball card description</p>
-                    </div>
+                        <img src="img/basketBall.jpg" alt="image of running event">
+                        <div class="overImg">
+                            <img src="img/white.png" alt="image of white background">
+                            <h2 class="overImg"><strong>Pick-Up Basketball</strong></h2>
+                        </div>
 
-                    <div class="individual-card">
+                        <p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                more info
+                            </button>
+                        </p>
+                        <div class="collapse" id="collapseTwo">
+                            <div class="card card-body">
+                                Basketball event extended description.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card">
                         <!-- Card 3 -->
-                        <img src="img/tennis.webp" alt="image of tennis event">
-                        <p>tennis card description</p>
+                        <img src="img/tennis.webp" alt="image of running event">
+                        <div class="overImg">
+                            <img src="img/white.png" alt="image of white background">
+                            <h2 class="overImg"><strong>Tennis Games</strong></h2>
+                        </div>
+
+                        <p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                more info
+                            </button>
+                        </p>
+                        <div class="collapse" id="collapseThree">
+                            <div class="card card-body">
+                                Tennis event extended description.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
+            <section class="spacer"></section>
+
             <section class="box friends">
-                <h1>Recommended Friends</h1>
-                <p>Recommended Friends Section</p>
+                <h1>Recommend Friends:</h1>
+                <p>Recommend Friends Section</p>
                 <div>
                     <div class="friend-card">
                         <!-- Card 1 -->
-                        <img src="img/running.jpg" alt="abstract art">
-                        <p><b>Firstname Lastname</b></p>
+                        <img src="img/pfp3.jpg" alt="abstract art">
+                        <p><b>Serena Williams</b></p>
                     </div>
 
                     <div class="friend-card">
                         <!-- Card 2 -->
-                        <img src="img/basketBall.jpg" alt="abstract art">
-                        <p><b>Firstname Lastname</b></p>
+                        <img src="img/pfp1.png" alt="abstract art">
+                        <p><b>Among Us</b></p>
                     </div>
 
                     <div class="friend-card">
                         <!-- Card 3 -->
-                        <img src="img/tennis.webp" alt="abstract art">
-                        <p><b>Firstname Lastname</b></p>
+                        <img src="img/pfp2.png" alt="abstract art">
+                        <p><b>Rafael Nadal</b></p>
                     </div>
                 </div>
             </section>
         </div>
+
+        <button id="filter-icon">
+            <img src="img/filter.png" alt="image of filter icon">
+        </button>
+
+        <button id="friend-icon">
+            <img src="img/friend.png" alt="image of friend icon">
+        </button>
     </main>
     <footer>
         <p>Copyright &copy; 2021 INFO 340 Group BB2</p>
         <p>Contact Info: jwu23@uw.edu,
         </p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
