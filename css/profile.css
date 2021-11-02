@@ -1,11 +1,15 @@
-/*van bar rules*/
+html {
+  height: 100%;
+}
+
+/* Navbar styles */
 .navigation {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: black;
   }
-  
+
   .hidden {
     display: none !important;
   }
@@ -17,19 +21,19 @@
     padding-top: 15px;
     padding-left: 20px;
   }
-  
+
   .nav-brand-name a:link {
     text-decoration: none;
   }
-  
+
   .nav-brand-name a:hover {
     text-shadow: 2px 2px 8px #6f7777;
   }
-  
+
     .nav-link:hover {
     background-color: #4382CD;
   }
-  
+
   .search-box {
     display: flex;
     flex-basis: 600px;
@@ -58,5 +62,15 @@
     position: relative;
     top: 190px;
     right: 30px;
-}   
+}
 
+/* Footer styles */
+footer {
+  background-color: black;
+  text-align: center;
+  color: white;
+  width: 100%;
+  font-size: 15px;
+  padding: 20px;
+  font-family: inherit;
+}
