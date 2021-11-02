@@ -2,6 +2,10 @@
     box-sizing: border-box;
   }
 
+html {
+  height: 100%;
+}
+
 /* Home page styles */
 body {
   display: flex;
@@ -9,15 +13,7 @@ body {
   margin: 0;
   flex-direction: column;
   height: inherit;
-  background: linear-gradient(#ccceec, #8940e9);
-}
-
-html {
-  height: 100%;
-}
-
-main {
-  flex: 1;
+  background: linear-gradient(#ccceec, #8940e9) fixed;
 }
 
 div {
@@ -227,6 +223,7 @@ footer {
 .login-page main {
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 .login-box {
