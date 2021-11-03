@@ -1,4 +1,8 @@
-/*van bar rules*/
+html {
+  height: 100%;
+}
+
+/* Navbar styles */
 .navigation {
     display: flex;
     justify-content: flex-end;
@@ -54,7 +58,7 @@
     position: relative;
     top: 190px;
     right: 30px;
-}   
+}
 
 .banner p {
     position: relative;
