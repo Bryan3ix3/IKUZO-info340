@@ -5,8 +5,10 @@
     <meta name="authors" content="William, Jerry, Kassim, Brian">
     <meta name="description" content="This is the home page for our final project. Users
     are able to explore events on our event feed and filter them accordingly with
-    the filter tool. There is a recommended friends list to help connect users with
+    the filter tool. There is a recom
+    mended friends list to help connect users with
     the community.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ikuzo-home</title>
     <link href="https://fonts.googleapis.com/css2?family=Overpass&family=Reggae+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
@@ -31,11 +33,93 @@
     <main>
         <div>
             <section class="box filters">
-                <h1>Filter</h1>
-                <div class="dropdown">
+                <h1 class="mb-2">Sort By:</h1>
 
+                <!-- Date Filter -->
+                <div class="card mt-3 mb-3">
+                        <div class="card-header">
+                            <strong>Date</strong>
+                        </div>
+                        <div class="card-body d-block">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dateRadioBtn" id="dateInput1">
+                                <label class="form-check-label" for="dateInput1">
+                                    One week
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dateRadioBtn" id="dateInput2">
+                                <label class="form-check-label" for="dateInput2">
+                                    Two weeks
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dateRadioBtn" id="dateInput3">
+                                <label class="form-check-label" for="dateInput3">
+                                    One Month
+                                </label>
+                            </div>
+                        </div>
                 </div>
-                <button class="btn btn-primary" type="filter" disabled>Filter</button>
+                <!-- Location Filter -->
+                <div class="card mt-3 mb-3">
+                    <div class="card-header">
+                            <strong>Location</strong>
+                    </div>
+                    <div class="card-body d-block">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="locationRadioBtn" id="locationCheck1" checked>
+                            <label class="form-check-label" for="locationCheck1">
+                                IMA
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="locationRadioBtn" id="locationCheck2">
+                            <label class="form-check-label" for="locationCheck2">
+                                Denny Field
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="locationRadioBtn" id="locationCheck3">
+                            <label class="form-check-label" for="locationCheck3">
+                                Husky Track
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="locationRadioBtn" id="locationCheck4">
+                            <label class="form-check-label" for="locationCheck4">
+                                Tennis Court
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Time of Day -->
+                <div class="card mt-3 mb-3">
+                    <div class="card-header">
+                            <strong>Time of Day</strong>
+                    </div>
+                    <div class="card-body d-block">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="timeOfDayRadioBtn" id="timeOfDayCheck1">
+                            <label class="form-check-label" for="timeOfDayCheck1">
+                                Morning
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="timeOfDayRadioBtn" id="timeOfDayCheck2" checked>
+                            <label class="form-check-label" for="timeOfDayCheck2">
+                                Afternoon
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="timeOfDayRadioBtn" id="timeOfDayCheck3">
+                            <label class="form-check-label" for="timeOfDayCheck3">
+                                Evening
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-2" type="filter">Filter</button>
             </section>
 
             <section class="spacer"></section>
@@ -127,24 +211,23 @@
 
             <section class="box friends">
                 <h1>Recommend Friends:</h1>
-                <p>Recommend Friends Section</p>
                 <div>
                     <div class="friend-card">
                         <!-- Card 1 -->
-                        <img src="img/pfp3.jpg" alt="abstract art">
-                        <p><b>Serena Williams</b></p>
+                        <img src="img/pfp3.jpg" alt="serena williams pic">
+                        <p><strong>Serena Williams</strong></p>
                     </div>
 
                     <div class="friend-card">
                         <!-- Card 2 -->
-                        <img src="img/pfp1.png" alt="abstract art">
-                        <p><b>Among Us</b></p>
+                        <img src="img/pfp1.png" alt="among us pic">
+                        <p><strong>Among Us</strong></p>
                     </div>
 
                     <div class="friend-card">
                         <!-- Card 3 -->
-                        <img src="img/pfp2.png" alt="abstract art">
-                        <p><b>Rafael Nadal</b></p>
+                        <img src="img/pfp2.png" alt="Rafael Nadal pic">
+                        <p><strong>Rafael Nadal</strong></p>
                     </div>
                 </div>
             </section>

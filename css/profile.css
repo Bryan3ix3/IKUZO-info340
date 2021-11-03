@@ -22,22 +22,22 @@ html {
     padding-left: 20px;
   }
 
-  .nav-brand-name a:link {
-    text-decoration: none;
-  }
+.nav-brand-name a:link {
+  text-decoration: none;
+}
 
-  .nav-brand-name a:hover {
-    text-shadow: 2px 2px 8px #6f7777;
-  }
+.nav-brand-name a:hover {
+  text-shadow: 2px 2px 8px #6f7777;
+}
 
-    .nav-link:hover {
-    background-color: #4382CD;
-  }
+.nav-link:hover {
+  background-color: #4382CD;
+}
 
-  .search-box {
-    display: flex;
-    flex-basis: 600px;
-  }
+.search-box {
+  display: flex;
+  flex-basis: 600px;
+}
 
 .banner {
     background-image: url("../img/gradienta-TwWTV4jElEI-unsplash.jpg");

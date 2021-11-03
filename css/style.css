@@ -187,13 +187,12 @@ div > .overImg {
   text-shadow: 2px 2px 8px #6f7777;
 }
 
-  .nav-link:hover {
+.nav-link:hover {
   background-color: #4382CD;
 }
 
 .search-box {
-  display: flex;
-  flex-basis: 600px;
+  display: none;
 }
 
 /* Filter panel styles */
@@ -298,6 +297,7 @@ footer {
   transform: translateY(-0.25em);
 }
 
+/* Media queries */
 @media (min-width: 598px) {
 }
 
@@ -324,6 +324,11 @@ footer {
     width: 500px;
     height: 300px;
     object-fit: cover;
+  }
+
+  .search-box {
+    display: flex;
+    flex-basis: 600px;
   }
 }
 
