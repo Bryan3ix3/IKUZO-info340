@@ -13,7 +13,6 @@ body {
   margin: 0;
   flex-direction: column;
   height: inherit;
-  /* background: linear-gradient(#ccceec, #8940e9) fixed; */
 }
 
 div {
@@ -67,7 +66,7 @@ main > div {
   flex-direction: column;
   flex: 1;
   border-radius: 10px;
-  background-color: #eaedf5dc;
+  background-color: black;
   margin: .5rem;
   padding: .8rem .8rem;
   max-width: 625px;
@@ -84,13 +83,14 @@ main > div {
   display: flex;
   border-radius: 35px;
   flex: 0 0 200px;
-  background-color: #eaedf5dc;
+  background-color: black;
   margin: .5rem;
   padding: .5rem .5rem;
   box-shadow: 01px3pxrgba(0,0,0,0.16),01px3pxrgba(0,0,0,0.23);
 }
 
 .friend-card > p {
+  color: white;
   margin: 0.2rem .15rem .15rem 0.5rem;
 }
 
@@ -149,11 +149,31 @@ main > div {
 div > .overImg {
   position: absolute;
   margin: 10px;
+  padding: 10px 10px 0px 10px;
+  border-radius: 10px;
+  background-color: black;
+  opacity: .8;
 }
 
-.overImg > img {
-  width: 380px;
-  height: 50px;
+.overImg > h2 {
+  color: white;
+}
+
+div > .underImg {
+  position: absolute;
+  margin: 75px 0px 0px 10px;
+  padding: 10px 10px 0px 10px;
+  border-radius: 10px;
+  background-color: black;
+  opacity: .8;
+}
+
+.underImg > h2 {
+  color: white;
+}
+
+.btn {
+  justify-content: center;
 }
 
 .filter-border {
