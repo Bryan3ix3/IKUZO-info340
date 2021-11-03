@@ -4,11 +4,12 @@
     justify-content: flex-end;
     align-items: center;
     background-color: black;
-  }
+}
   
-  .hidden {
+.hidden {
     display: none !important;
-  }
+}
+
 .nav-brand-name {
     font-size: 28px;
     font-family: "Reggae One", sans-serif;
@@ -16,31 +17,24 @@
     align-self: center;
     padding-top: 15px;
     padding-left: 20px;
-  }
-  
-  .nav-brand-name a:link {
-    text-decoration: none;
-  }
-  
-  .nav-brand-name a:hover {
-    text-shadow: 2px 2px 8px #6f7777;
-  }
-  
-    .nav-link:hover {
-    background-color: #4382CD;
-  }
-  
-  .search-box {
-    display: flex;
-    flex-basis: 600px;
-  }
-
-.banner {
-    background-image: url("../img/gradienta-TwWTV4jElEI-unsplash.jpg");
-    background-size: 100%;
-
 }
 
+.nav-brand-name a:link {
+    text-decoration: none;
+}
+  
+.nav-brand-name a:hover {
+    text-shadow: 2px 2px 8px #6f7777;
+}
+  
+.nav-link:hover {
+    background-color: #4382CD;
+}
+
+.banner {
+    background-image: url("../img/johny-goerend-Oz2ZQ2j8We8-unsplash.jpg");
+    background-size: cover;
+}
 
 .banner img {
     border-radius: 50%;
@@ -49,6 +43,8 @@
     background-image: url("../img/pexels-tony-jamesandersson-1674752.jpg");
     background-size: cover;
     object-fit: cover;
+    border: 2px solid #508ca4ff;
+    filter: drop-shadow(0 0 8px #004f2dff);
     position: relative;
     top: 90px;
     left: 50px;
@@ -60,3 +56,64 @@
     right: 30px;
 }   
 
+.banner p {
+    position: relative;
+    top: 4.5em;
+    left: 3em;
+    font-size: x-large;
+}
+
+.content {
+    margin: auto;
+}
+
+.d-flex .card {
+    margin-top: 100px;
+    width: 100%;
+}
+
+h1 {
+    font-size: x-large;
+}
+
+/*can't figure out how to position right after content so I'll work on it later on in project*/
+.mark-box {
+    position: relative;
+    background-color: red;
+    size: 200px;
+    display: none;
+}
+
+.ikuzo-mark {
+    font-family: "Reggae One", sans-serif;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: rgba(0,0,0,.5);
+}
+/* Footer styles */
+footer {
+    background-color: black;
+    text-align: center;
+    color: white;
+    width: 100%;
+    font-size: 15px;
+    padding: 20px;
+    font-family: inherit;
+}
+
+@media (min-width: 598px) {
+    
+}
+
+@media (min-width: 992px) {
+    .content {
+        width: 57rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .content {
+        width: 70rem;
+    }
+}
