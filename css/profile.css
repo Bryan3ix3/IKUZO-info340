@@ -35,6 +35,12 @@ html {
     background-color: #4382CD;
 }
 
+.hamburger-menu {
+    color: white;
+    margin-right: 20px;
+    font-size: 36px;
+}
+
 /*banner styles*/
 .banner {
     background-image: url("../img/johny-goerend-Oz2ZQ2j8We8-unsplash.jpg");

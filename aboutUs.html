@@ -5,7 +5,9 @@
     <meta name="authors" content="William, Jerry, Kassim, Brian">
     <meta description content="This is the about page for our final project. Users
     are able to read about Ikuzo and learn more about Ikuzo and why we created Ikuzo.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ikuzo-about</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -13,17 +15,20 @@
 <body>
     <header class="navigation">
         <p class="nav-brand-name"><a class="text-white" href="index.html">Ikuzo</a></p>
-        <form class="m-2 m-lg-0 search-box">
+        <form class="m-2 m-lg-0 search-box hidden">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success m-2 m-sm-0" type="submit">Search</button>
         </form>
-        <nav class="navbar navbar-expand-lg nav-bg">
+        <nav class="navbar navbar-expand-lg nav-bg navigation-links">
             <ul class="nav nav-pills navbar-fixed-top">
                 <li class="nav-item ml-2" role="presentation"><a class="nav-link text-white" href="#">Add Event</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link text-white" href="aboutUs.html">About</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link text-white" href="profile.html">Profile</a></li>
             </ul>
         </nav>
+        <div class="hamburger-menu">
+            <span class="material-icons">menu</span>
+        </div>
     </header>
     <main>
         <section class="about_us">
@@ -59,14 +64,14 @@
             <h2> Ikuzo's Solution</h2>
             <ul>
                 <li>
-                    Here at Ikuzo, we have tailored our platform to cater to our audeince who are university students that attend the University of Washington. 
-                    Students will be able to create their own profile, share interests, connect with other students, and contact other students. 
-                    Students will also be able to view the profiles of other students who have the same interests and also view current outdoor events the student is attending. 
-                    Ikuzo will connect students by interest which will create motivation for students to get together to socialize and also excercise. 
+                    Here at Ikuzo, we have tailored our platform to cater to our audeince who are university students that attend the University of Washington.
+                    Students will be able to create their own profile, share interests, connect with other students, and contact other students.
+                    Students will also be able to view the profiles of other students who have the same interests and also view current outdoor events the student is attending.
+                    Ikuzo will connect students by interest which will create motivation for students to get together to socialize and also excercise.
 
                 </li>
             </ul>
-        
+
         </section>
     </main>
 </body>

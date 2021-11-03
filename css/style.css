@@ -191,8 +191,14 @@ div > .overImg {
   background-color: #4382CD;
 }
 
-.search-box {
+.search-box, .navigation-links {
   display: none;
+}
+
+.hamburger-menu {
+  color: white;
+  margin-right: 20px;
+  font-size: 36px;
 }
 
 /* Filter panel styles */
@@ -309,6 +315,14 @@ footer {
   #friend-icon {
     display: none;
   }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .navigation-links {
+    display: flex;
+  }
 }
 
 @media (min-width: 992px) {
@@ -330,6 +344,8 @@ footer {
     display: flex;
     flex-basis: 600px;
   }
+
+
 }
 
 @media (min-width: 1200px) {
