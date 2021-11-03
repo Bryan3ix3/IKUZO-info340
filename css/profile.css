@@ -9,7 +9,7 @@ html {
     align-items: center;
     background-color: black;
 }
-  
+
 .hidden {
     display: none !important;
 }
@@ -26,11 +26,11 @@ html {
 .nav-brand-name a:link {
     text-decoration: none;
 }
-  
+
 .nav-brand-name a:hover {
     text-shadow: 2px 2px 8px #6f7777;
 }
-  
+
 .nav-link:hover {
     background-color: #4382CD;
 }
@@ -113,7 +113,7 @@ footer {
 
 /*media queries*/
 @media (min-width: 598px) {
-    
+
 }
 
 @media (min-width: 992px) {
