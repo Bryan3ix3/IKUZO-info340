@@ -35,6 +35,7 @@ html {
     background-color: #4382CD;
 }
 
+/*banner styles*/
 .banner {
     background-image: url("../img/johny-goerend-Oz2ZQ2j8We8-unsplash.jpg");
     background-size: cover;
@@ -67,6 +68,9 @@ html {
     font-size: x-large;
 }
 
+/*friend profiles styles goes here*/
+
+/*content styles*/
 .content {
     margin: auto;
 }
@@ -95,6 +99,7 @@ h1 {
     right: 0;
     color: rgba(0,0,0,.5);
 }
+
 /* Footer styles */
 footer {
     background-color: black;
@@ -106,6 +111,7 @@ footer {
     font-family: inherit;
 }
 
+/*media queries*/
 @media (min-width: 598px) {
     
 }
@@ -119,5 +125,27 @@ footer {
 @media (min-width: 1200px) {
     .content {
         width: 70rem;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    .card {
+        background-color: black;
+    }
+
+    .accordion-button {
+        background-color: black;
+        color: white;
+    }
+
+    #flush-collapseOne {
+        background-color: black;
+        color: white;
     }
 }
