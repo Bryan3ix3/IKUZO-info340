@@ -1,7 +1,6 @@
-html {
-  height: 100%;
+html, body {
+    height: 100%;
 }
-
 /* Navbar styles */
 .navigation {
     display: flex;

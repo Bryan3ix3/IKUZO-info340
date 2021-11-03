@@ -25,10 +25,9 @@ main > div {
 
 .filters {
   display: none;
-  flex-basis: 200px;
+  flex-basis: 300px;
   flex-grow: 0;
   flex-shrink: 0;
-  border-right: solid;
 }
 
 .events {
@@ -41,7 +40,6 @@ main > div {
   flex-basis: 200px;
   flex-grow: 0;
   flex-shrink: 0;
-  border-left: solid;
 }
 
 .spacer {
@@ -178,6 +176,15 @@ div > .underImg {
   justify-content: center;
 }
 
+.filter-border {
+  flex-direction: column;
+  padding: 30px;
+  margin: 20px;
+  align-items: center;
+  border: 1px solid black;
+}
+
+
 /* Navbar styles */
 .navigation {
   display: flex;
@@ -221,7 +228,19 @@ div > .underImg {
   font-size: 36px;
 }
 
-/* Filter panel styles */
+/* About Us page styles */
+.detail-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+  padding: 30px;
+}
+
+.details {
+  font-size: 20px;
+}
 
 
 /* Footer styles */
@@ -236,9 +255,6 @@ footer {
 }
 
 /* Login page styles*/
-.login-page {
-  background: #eaedf5dc;
-}
 
 .login-page header {
   text-align: center;
@@ -256,7 +272,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(#ccceec, #8940e9);
+  background: linear-gradient(white, rgb(61, 60, 60));
   max-height: 80%;
   padding: 0 50px;
   color: white;
