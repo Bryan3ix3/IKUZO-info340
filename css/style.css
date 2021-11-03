@@ -99,7 +99,7 @@ main > div {
   justify-content: left;
 }
 
-img {
+.event-card > img {
   border-radius: 10px;
   width: 400px;
   height: 240px;
@@ -350,7 +350,7 @@ footer {
     display: none;
   }
 
-  img {
+  .event-card > img {
     width: 500px;
     height: 300px;
     object-fit: cover;
@@ -365,7 +365,7 @@ footer {
 }
 
 @media (min-width: 1200px) {
-  img {
+  .event-card > img {
     width: 600px;
     height: 360px;
     object-fit: cover;
