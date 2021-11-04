@@ -95,13 +95,12 @@ h1 {
     font-size: x-large;
 }
 
-/*can't figure out how to position right after content so I'll work on it later on in project*/
+/*can't figure out how to position right after content so I'll work on it later on in project
 .mark-box {
     position: relative;
     background-color: red;
-    size: 200px;
     display: none;
-}
+} */
 
 .ikuzo-mark {
     font-family: "Reggae One", sans-serif;
