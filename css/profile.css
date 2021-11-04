@@ -75,7 +75,7 @@ html, body {
 .banner p {
     position: relative;
     top: 4.5em;
-    left: 3em;
+    margin-left: 3em;
     font-size: x-large;
 }
 
@@ -139,7 +139,6 @@ footer {
     }
 }
 
-
 @media (prefers-color-scheme: dark) {
     body {
         background-color: black;
@@ -159,8 +158,16 @@ footer {
         background-color: black;
         color: white;
     }
+<<<<<<< HEAD
+
+  
+}
+body {
+    width: 100%;
+=======
 }
 
 .content {
     height: 100%;
+>>>>>>> 6290445646e8e1cc27bd7da4e8bd09122a729a76
 }
