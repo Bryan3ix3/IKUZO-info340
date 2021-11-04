@@ -252,6 +252,7 @@ footer {
   font-size: 15px;
   padding: 20px;
   font-family: inherit;
+  align-self: flex-end;
 }
 
 /* Login page styles*/
@@ -339,8 +340,6 @@ footer {
 }
 
 /* Media queries */
-@media (min-width: 598px) {
-}
 
 @media (min-width: 768px) {
   .friends {
@@ -379,8 +378,6 @@ footer {
     display: flex;
     flex-basis: 600px;
   }
-
-
 }
 
 @media (min-width: 1200px) {
