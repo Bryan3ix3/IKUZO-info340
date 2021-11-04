@@ -64,7 +64,7 @@ html {
 .banner p {
     position: relative;
     top: 4.5em;
-    left: 3em;
+    margin-left: 3em;
     font-size: x-large;
 }
 
@@ -128,7 +128,6 @@ footer {
     }
 }
 
-
 @media (prefers-color-scheme: dark) {
     body {
         background-color: black;
@@ -148,4 +147,9 @@ footer {
         background-color: black;
         color: white;
     }
+
+  
+}
+body {
+    width: 100%;
 }
