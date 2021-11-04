@@ -1,5 +1,9 @@
-html {
-  height: 100%;
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 /* Navbar styles */
@@ -35,10 +39,17 @@ html {
     background-color: #4382CD;
 }
 
+.hamburger-menu {
+    color: white;
+    margin-right: 20px;
+    font-size: 36px;
+}
+
 /*banner styles*/
 .banner {
     background-image: url("../img/johny-goerend-Oz2ZQ2j8We8-unsplash.jpg");
     background-size: cover;
+    width: 100%;
 }
 
 .banner img {
@@ -109,12 +120,12 @@ footer {
     font-size: 15px;
     padding: 20px;
     font-family: inherit;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
 }
 
 /*media queries*/
-@media (min-width: 598px) {
-
-}
 
 @media (min-width: 992px) {
     .content {
@@ -147,9 +158,16 @@ footer {
         background-color: black;
         color: white;
     }
+<<<<<<< HEAD
 
   
 }
 body {
     width: 100%;
+=======
+}
+
+.content {
+    height: 100%;
+>>>>>>> 6290445646e8e1cc27bd7da4e8bd09122a729a76
 }
