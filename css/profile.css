@@ -95,13 +95,12 @@ h1 {
     font-size: x-large;
 }
 
-/*can't figure out how to position right after content so I'll work on it later on in project*/
+/*can't figure out how to position right after content so I'll work on it later on in project
 .mark-box {
     position: relative;
     background-color: red;
-    size: 200px;
     display: none;
-}
+} */
 
 .ikuzo-mark {
     font-family: "Reggae One", sans-serif;
@@ -157,6 +156,7 @@ footer {
     #flush-collapseOne {
         background-color: black;
         color: white;
+<<<<<<< HEAD
     } */
 <<<<<<< HEAD
 
@@ -165,9 +165,11 @@ footer {
 body {
     width: 100%;
 =======
+=======
+    }
+>>>>>>> 96394613c25f6b36507a2c4ea6e8884d429945c2
 }
 
 .content {
     height: 100%;
->>>>>>> 6290445646e8e1cc27bd7da4e8bd09122a729a76
 }
