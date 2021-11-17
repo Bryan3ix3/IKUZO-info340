@@ -121,7 +121,7 @@ footer {
     padding: 20px;
     font-family: inherit;
     margin-top: 20px;
-    position: fixed;
+    position: relative;
     bottom: 0;
 }
 
@@ -139,7 +139,7 @@ footer {
     }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     body {
         background-color: black;
         color: white;
@@ -157,7 +157,7 @@ footer {
     #flush-collapseOne {
         background-color: black;
         color: white;
-    }
+    } */
 <<<<<<< HEAD
 
   
