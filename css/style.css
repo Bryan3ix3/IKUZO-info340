@@ -312,11 +312,8 @@ footer {
 /* Media queries */
 
 @media (min-width: 768px) {
-  .friends {
-    display: block;
-  }
 
-  #friend-icon, .hamburger-menu {
+   .hamburger-menu {
     display: none;
   }
 
@@ -326,11 +323,12 @@ footer {
 }
 
 @media (min-width: 992px) {
-  .filters {
+
+  .friends {
     display: block;
   }
 
-  #filter-icon {
+  #friend-icon {
     display: none;
   }
 
@@ -341,7 +339,7 @@ footer {
 
   .search-box {
     display: flex;
-    flex-basis: 600px;
+    flex-basis: 500px;
   }
 }
 
@@ -349,5 +347,13 @@ footer {
   .event-card > img {
     width: 600px;
     height: 360px;
+  }
+
+  .filters {
+    display: block;
+  }
+
+  #filter-icon {
+    display: none;
   }
 }
