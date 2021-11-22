@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
 import { NavBar } from './Navigation';
-import { Filter } from './Filter';
+import { Filter, } from './Filter';
 import { Footer } from './Footer';
 import { Events } from './Events';
+import { Friends, FriendsButton } from './Friends';
 
 
 function App() {
@@ -11,8 +12,15 @@ function App() {
     <body className="general">
       <NavBar />
       <main>
-        <Filter />
-        <Events />
+        <div>
+          <Filter />
+          <div class="spacer"></div>
+          <Events />
+          <div class="spacer"></div>
+          <Friends />
+        </div>
+        <FriendsButton />
+        <
       </main>
       <Footer />
     </body>

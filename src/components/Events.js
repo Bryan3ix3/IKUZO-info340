@@ -98,8 +98,7 @@ export function Events() {
                 </div>
             </div>
             <div className="event-card">
-                <!-- Card 4 -->
-                <img src="img/football.jpg" alt="Football event">
+                <img src="img/football.jpg" alt="Football event" />
                 <div className="overImg">
                     <h2><strong>Huskies Football Game</strong></h2>
                 </div>
