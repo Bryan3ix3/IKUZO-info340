@@ -25,7 +25,9 @@ export function Friends() {
 }
 
 export function FriendsButton() {
-    <button id="filter-icon">
-        <img src={"img/filter.png"} alt="Filter icon" />
-    </button>
+    return(
+        <button id="friend-icon">
+            <img src={"img/friend.png"} alt="Friend icon" />
+        </button>
+    )
 }

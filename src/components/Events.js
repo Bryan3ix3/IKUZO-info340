@@ -1,6 +1,11 @@
 import React from 'react';
 
-export function Events() {
+
+function EventCard(props) {
+    
+}
+
+export function Events(props) {
   return (
     <section className="box events">
         <div>
