@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
 import { NavBar } from './Navigation';
-import { Filter, FilterButton, } from './Filter';
+import { HomeScreen } from './Home';
 import { Footer } from './Footer';
-import { Events } from './Events';
-import { Friends, FriendsButton } from './Friends';
-
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
-    <body className="general">
-      <NavBar />
-      <main>
-        <div>
-          <Filter />
-          <div class="spacer"></div>
-          <Events />
-          <div class="spacer"></div>
-          <Friends />
-        </div>
-        <FilterButton />
-        <FriendsButton />
-      </main>
-      <Footer />
-    </body>
+    <BrowserRouter>
+      <body className="general">
+        <NavBar />
+        <main>
+          <Routes>
+            <Route exact path="/" element={<HomeScreen />}></Route>
+          </Routes>
+        </main>
+        <Footer />
+      </body>
+    </BrowserRouter>
   );
 }
 
