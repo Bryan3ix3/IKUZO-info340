@@ -110,6 +110,10 @@ h1 {
     color: rgba(0,0,0,.5);
 }
 
+.btn {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
 /* Footer styles */
 footer {
     background-color: black;
