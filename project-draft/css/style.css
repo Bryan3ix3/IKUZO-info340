@@ -253,6 +253,36 @@ div > .underImg {
   height: auto;
 }
 
+/* Events Page */
+form {
+  text-align: center;
+}
+
+.eventname { 
+  margin: auto;
+}
+
+.date { 
+  margin: auto;
+}
+
+.time { 
+  margin: auto; 
+}
+
+.location { 
+  margin: auto;
+}
+
+.events { 
+  text-align: center;
+  max-height: 100%;;
+}
+
+.input { 
+  text-align: center;
+
+}
 
 
 /* Footer styles */
