@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
+import { Collapse } from 'bootstrap';
 
 
 function EventCard(props) {
     let event = props.event;
+    const [toggle, setToggle] = useState(false);
+    useEffect(() => {
+        var myCollapse = document.getElementById('collapseTarget')
+        var bsCollapse = new Collapse(myCollapse, {toggle: false})
+        toggle ? bsCollapse.show() : bsCollapse.hide()
+    })
+
     return (
         <div className="event-card">
             <img src={"img/running.jpg"} alt="Running event" />
@@ -14,7 +22,7 @@ function EventCard(props) {
             </div>
 
             <div className="btn_group">
-                <button className="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <button className="btn btn-info" onClick={setToggle(!open)} type="button" data-toggle="collapse" data-target="#collapseTarget" aria-expanded="false" aria-controls="collapseTarget">
                     Details
                 </button>
                 <button className="btn btn-share" type="button">
@@ -25,7 +33,7 @@ function EventCard(props) {
                 </button>
             </div>
 
-            <div className="collapse" id="collapseOne">
+            <div className="collapse" id="collapseTarget">
                 <div className="card card-body">
                     <p>{event.time}</p>
                     <p>{event.location}</p>
