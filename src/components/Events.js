@@ -44,7 +44,7 @@ export function Events(props) {
     return (
         <section className="box events">
             <div>
-            
+                {cards}
             </div>
         </section>
     );
