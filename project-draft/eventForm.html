@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="authors" content="William, Jerry, Kassim, Brian">
+    <meta name="description" content="This is the create event page for our final project. Users
+    are able to create and event and publish so other users can register">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Create Event</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass&family=Reggae+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/mountain.png">
+</head>
+<body>
+    <header class="navigation">
+        <p class="nav-brand-name"><a class="text-white" href="index.html">Ikuzo</a></p>
+        <form class="m-2 m-lg-0 search-box hidden">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success m-2 m-sm-0" type="submit">Search</button>
+        </form>
+        <nav class="navbar navbar-expand-lg nav-bg navigation-links">
+            <ul class="nav nav-pills navbar-fixed-top">
+                <li class="nav-item ml-2" role="presentation"><a class="nav-link text-white" href="#">Add Event</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link text-white" href="aboutUs.html">About</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link text-white" href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu">
+            <span class="material-icons" aria-label="hamburger menu icon">menu</span>
+        </div>
+    </header>
+
+    <main class="eventForm">
+        <h1> Events Form </h1>
+        <h2> Input event information and details below </h2>
+        
+        <div class="formContainer">
+            <form>
+                <div>
+                    <label for="Ename">Event Name:</label>
+                    <input type="text" id="Ename" name="Ename" value="">
+                </div>
+
+                <div>
+                    <label for="Lname">Location Name:</label>
+                    <input type="text" id="Lname" name="Lname" value="">
+                </div>
+                <div>
+                    <label for="Edate">Event Date:</label>
+                    <input type="date" id="Edate" name="Edate" value="">
+                </div>
+                <div>
+                    <label for="Etime">Event Date:</label>
+                    <input type="time" id="Etime" name="Etime" value="">
+                </div>
+                <div>
+                    <label for="Edes">Event Description:</label>
+                    <textarea id="Edes" name="Edes" rows="4" cols="50"></textarea>
+                </div>
+                <div>
+                    <label for="Eimg">Upload Image:</label>
+                    <input class="imgUpload" type="file" id="Eimg" name="filename">
+                </div>
+                <div>
+                    <input type="submit" value="Create Event">
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2021 INFO 340 Group BB2</p>
+        <p>Contact Info: jwu23@uw.edu, wzhang26@uw.edu, kassim2@uw.edu, btac3ix3@uw.edu </p>
+    </footer>
+</body>

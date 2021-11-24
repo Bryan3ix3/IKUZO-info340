@@ -253,6 +253,36 @@ div > .underImg {
   height: auto;
 }
 
+/* Events Page */
+form {
+  text-align: center;
+}
+
+.eventname { 
+  margin: auto;
+}
+
+.date { 
+  margin: auto;
+}
+
+.time { 
+  margin: auto; 
+}
+
+.location { 
+  margin: auto;
+}
+
+.events { 
+  text-align: center;
+  max-height: 100%;;
+}
+
+.input { 
+  text-align: center;
+
+}
 
 
 /* Footer styles */
@@ -322,6 +352,33 @@ footer {
   box-shadow: 0 0.5em 0.5em -0.4em rgba(0, 0, 0, 0.6);
   transform: translateY(-0.25em);
 }
+
+/* Login page styles */
+.eventForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.formContainer label, .formContainer input {
+  display: inline-block;
+  width:180px;
+  text-align: center;
+}
+
+.formContainer .imgUpload {
+  display: inline-block;
+  width:400px;
+  text-align: center;
+}
+
+.formContainer div {
+  padding: 10px;
+}
+
+
 
 /* Media queries */
 
