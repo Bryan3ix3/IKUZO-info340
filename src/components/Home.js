@@ -1,17 +1,19 @@
 import React from 'react';
 
-import { Filter } from './Filter';
+import { FilterMenu, FilterButton } from './Filter';
 import { Events } from './Events';
-import { Friends, FriendsButton } from './Friends';
+import { FriendList, FriendsButton } from './Friends';
 
 export function HomeScreen(props) {
   return (
     <div>
-      <Filter />
+      <FilterMenu filters={props.filters} />
       <div className="spacer"></div>
-      <Events events={props.events}/>
+      <Events events={props.events} />
       <div className="spacer"></div>
-      <Friends />
+      <FriendList friends={props.friends} />
+      <FilterButton />
+      <FriendsButton />
     </div>
   );
 }

@@ -1,0 +1,17 @@
+[
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "Serena Williams pic",
+    "name": "Serena Williams"
+  },
+  {
+    "img": "img/pfp1.png",
+    "alt": "Among Us pic",
+    "name": "Among Us"
+  },
+  {
+    "img": "img/pfp2.png",
+    "alt": "Rafael Nadal pic",
+    "name": "Rafael Nadal"
+  }
+]

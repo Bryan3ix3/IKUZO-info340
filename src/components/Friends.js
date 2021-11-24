@@ -1,33 +1,33 @@
 import React from 'react';
 
-export function Friends() {
+function FriendChoice({friend}) {
   return (
-    <section class="box friends">
-        <h1>Recommend Friends:</h1>
-        <div>
-            <div className="friend-card">
-                <img src={"img/pfp3.jpg"} alt="Serena Williams pic" />
-                <p><strong>Serena Williams</strong></p>
-            </div>
+    <div className="friend-card">
+      <img src={friend.img} alt={friend.alt} />
+      <p><strong>{friend.name}</strong></p>
+    </div>
+  );
+}
 
-            <div className="friend-card">
-                <img src={"img/pfp1.png"} alt="Among Us pic" />
-                <p><strong>Among Us</strong></p>
-            </div>
+export function FriendList(props) {
+  const recommendedFriends = props.friends.map((item) => {
+    return <FriendChoice friend={item} key={item.name}/>
+  });
 
-            <div className="friend-card">
-                <img src={"img/pfp2.png"} alt="Rafael Nadal pic" />
-                <p><strong>Rafael Nadal</strong></p>
-            </div>
-        </div>
+  return (
+    <section className="box friends">
+      <h1>Recommend Friends:</h1>
+      <div>
+        {recommendedFriends};
+      </div>
     </section>
   );
 }
 
 export function FriendsButton() {
-    return(
-        <button id="friend-icon">
-            <img src={"img/friend.png"} alt="Friend icon" />
-        </button>
-    )
+  return(
+    <button id="friend-icon">
+        <img src={"img/friend.png"} alt="Friend icon" />
+    </button>
+  );
 }

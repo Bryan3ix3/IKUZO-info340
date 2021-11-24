@@ -258,28 +258,28 @@ form {
   text-align: center;
 }
 
-.eventname { 
+.eventname {
   margin: auto;
 }
 
-.date { 
+.date {
   margin: auto;
 }
 
-.time { 
-  margin: auto; 
-}
-
-.location { 
+.time {
   margin: auto;
 }
 
-.events { 
+.location {
+  margin: auto;
+}
+
+.events {
   text-align: center;
   max-height: 100%;;
 }
 
-.input { 
+.input {
   text-align: center;
 
 }
@@ -353,7 +353,7 @@ footer {
   transform: translateY(-0.25em);
 }
 
-/* Login page styles */
+/* Event Form styles */
 .eventForm {
   height: 100%;
   display: flex;

@@ -1,0 +1,20 @@
+[
+  {
+    "category": "Date",
+    "type": "radio",
+    "options": ["One week", "Two Week", "One Month"],
+    "name": "dateRadioBtn"
+  },
+  {
+    "category": "Location",
+    "type": "checkbox",
+    "options": ["IMA", "Denny Field", "Husky Track", "Tennis Court"],
+    "name": "locationRadioBtn"
+  },
+  {
+    "category": "Time of Day",
+    "type": "checkbox",
+    "options": ["Morning", "Afternoon", "Evening"],
+    "name": "timeOfDayRadioBtn"
+  }
+]
