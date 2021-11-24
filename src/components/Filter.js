@@ -2,8 +2,7 @@ import React from 'react';
 
 export function Filter() {
   return (
-    <div>
-      <section className="box filters">
+     <section className="box filters">
       <div className="filter-border">
         <h2 className="mb-2">Sort By:</h2>
         {/* <!-- Date Filter --> */}
@@ -93,6 +92,5 @@ export function Filter() {
         <button className="btn btn-info mt-2" type="button">Filter</button>
       </div>
     </section>
-    </div>
   );
 }
