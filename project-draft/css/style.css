@@ -353,6 +353,33 @@ footer {
   transform: translateY(-0.25em);
 }
 
+/* Login page styles */
+.eventForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.formContainer label, .formContainer input {
+  display: inline-block;
+  width:180px;
+  text-align: center;
+}
+
+.formContainer .imgUpload {
+  display: inline-block;
+  width:400px;
+  text-align: center;
+}
+
+.formContainer div {
+  padding: 10px;
+}
+
+
+
 /* Media queries */
 
 @media (min-width: 768px) {

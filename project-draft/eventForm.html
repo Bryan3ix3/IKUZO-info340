@@ -34,32 +34,42 @@
         </div>
     </header>
 
-    <main>
+    <main class="eventForm">
+        <h1> Events Form </h1>
+        <h2> Input event information and details below </h2>
+        
+        <div class=formContainer>
+            <form>
+                <div>
+                    <label for="Ename">Event Name:</label>
+                    <input type="text" id="Ename" name="Ename" value="">
+                </div>
 
-        <h1 class="events"> Events Form </h1>
-        <p class="input"> Input event information and details below </p>
-        <section class="eventname">
-            <form id="form">
-                <label>Event Name <input type="text"></label>
-                <br><br>  
+                <div>
+                    <label for="Lname">Location Name:</label>
+                    <input type="text" id="Lname" name="Lname" value="">
+                </div>
+                <div>
+                    <label for="Edate">Event Date:</label>
+                    <input type="date" id="Edate" name="Edate" value="">
+                </div>
+                <div>
+                    <label for="Etime">Event Date:</label>
+                    <input type="time" id="Etime" name="Etime" value="">
+                </div>
+                <div>
+                    <label for="Edes">Event Description:</label>
+                    <textarea id="Edes" name="Edes" rows="4" cols="50"></textarea>
+                </div>
+                <div>
+                    <label for="Eimg">Upload Image:</label>
+                    <input class="imgUpload" type="file" id="Eimg" name="filename">
+                </div>
+                <div>
+                    <input type="submit" value="Create Event">
+                </div>
             </form>
-        </section>
-        <section class=Date>
-            <form id="form">
-                <label> Date <input type="Date"</label>
-            </form>
-        </section>
-        <section class=time>
-            <form id="form">
-                <label>Time <input type="time"</label>
-            </form>
-        </section>
-        <section class=location >
-            <form id="form">
-                <label> Location <input type="location"</label>
-            </form>
-        </section>
-        <button type="Create">Create Event</button>
+        </div>
     </main>
     <footer>
         <p>Copyright &copy; 2021 INFO 340 Group BB2</p>
