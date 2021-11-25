@@ -1,13 +1,13 @@
 * {
     box-sizing: border-box;
 }
-
+/* 
 html, body {
     height: 100%;
-}
+} */
 
 /* Navbar styles */
-.navigation {
+/* .navigation {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -43,11 +43,14 @@ html, body {
     color: white;
     margin-right: 20px;
     font-size: 36px;
-}
+} */
 
+.search-box {
+    display: none;
+}
 /*banner styles*/
 .banner {
-    background-image: url("../img/johny-goerend-Oz2ZQ2j8We8-unsplash.jpg");
+    background-image: url("../../public/img/johny-goerend-Oz2ZQ2j8We8-unsplash.jpg");
     background-size: cover;
     width: 100%;
 }
@@ -56,7 +59,7 @@ html, body {
     border-radius: 50%;
     height: 200px;
     width: 200px;
-    background-image: url("../img/pexels-tony-jamesandersson-1674752.jpg");
+    background-image: url("../../public/img/pexels-tony-jamesandersson-1674752.jpg");
     background-size: cover;
     object-fit: cover;
     border: 2px solid #508ca4ff;

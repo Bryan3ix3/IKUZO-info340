@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import './index.css';
+import './profile.css';
+
 
 import SAMPLE_EVENTS from './data/events.json';
 import FILTERS from './data/filters.json';
