@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
+import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import PhotoUpload  from './PhotoUpload';
 import ScriptTag from 'react-script-tag';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -24,17 +24,17 @@ export function ProfileScreen() {
         console.log("newBio");
         newBio = textValue;
         return newBio;
-        
+
     }
     // newBio = textValue;
     return (
-        <React.Fragment>          
+        <React.Fragment>
             <section className='banner mb-2'>
                 <img src="/img/pexels-tony-jamesandersson-1674752.jpg" className="profile-pic" alt="profiles"/>
-                <PhotoUpload/>                
-                <p className='userName'><strong>Annaka Harris</strong></p> 
+                <PhotoUpload/>
+                <p className='userName'><strong>Annaka Harris</strong></p>
             </section>
-            
+
 
             <section className="content">
                 <section className="d-flex justify-content-center">
@@ -52,7 +52,7 @@ export function ProfileScreen() {
                         </section>
                     </section>
                 </section>
-                
+
                 <section className="accordion accordion-flush m-auto" id="accordionFlushExample">
                     <section className="accordion-item">
                         <h2 className="accordion-header" id="flush-headingOne">
@@ -60,7 +60,7 @@ export function ProfileScreen() {
                                 Athletic Interests
                             </button>
                         </h2>
-                        
+
                         <section id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <section className="accordion-body">
                                 <section className="card text-center">

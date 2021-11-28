@@ -31,7 +31,7 @@ export function EventForm() {
             </div>
             <div>
               <label for="Eimg">Upload Image:</label>
-              <input class="imgUpload" type="file" id="Eimg" name="filename" />
+              <input className="imgUpload" type="file" id="Eimg" name="filename" />
             </div>
             <div>
               <input type="submit" value="Create Event" />

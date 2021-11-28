@@ -186,6 +186,11 @@ div > .overImg, div > .underImg {
   opacity: .8;
 }
 
+.btn-share {
+  color: black;
+  background-color: white;
+}
+
 div > .overImg {
   margin: 10px;
 }
