@@ -121,6 +121,28 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
+.share-event {
+  font-size: 18px;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.share-btn {
+  display: inline;
+  align-self: center;
+  background-color: black;
+  color: white;
+  padding: 8px 30px;
+  margin: 15px;
+  border-radius: 15px;
+  border:rgba(0, 0, 0, 0.6);
+}
+
+.share-btn:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  color: white;
+}
+
 .btn_group > .btn {
   margin: .7rem 0rem 0rem;
 }
