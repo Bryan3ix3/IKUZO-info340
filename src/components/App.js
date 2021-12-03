@@ -14,15 +14,22 @@ function App(props) {
 
   }
 
+  
+  const eventArray = props.events;
+
+  function addEvent(eventObj){
+    events.push(eventObj);
+  }
+
   return (
     <BrowserRouter>
       <body className="general">
         <NavBar />
         <main>
           <Routes>
-            <Route exact path="/" element={<HomeScreen events={props.events} friends={props.friends} />}></Route>
+            <Route exact path="/" element={<HomeScreen events={eventArray} friends={props.friends} />}></Route>
             <Route path="/about" element={<AboutScreen />}></Route>
-            <Route path="/addEvent" element={<EventForm />}></Route>
+            <Route path="/addEvent" element={<EventForm addEventCallback={addEvent}/>}></Route>
             <Route path="/profile" element={<ProfileScreen />}></Route>
           </Routes>
         </main>
