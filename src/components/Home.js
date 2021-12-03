@@ -7,7 +7,7 @@ import { FriendList, FriendsButton } from './Friends';
 export function HomeScreen(props) {
   return (
     <div>
-      <FilterMenu filters={props.filters} />
+      <FilterMenu />
       <div className="spacer"></div>
       <Events events={props.events} />
       <div className="spacer"></div>

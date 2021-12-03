@@ -39,8 +39,8 @@ function EventCard({event}) {
       <Collapse in={toggleDetail}>
         <div className="collapse" id="collapseDetail">
           <div className="card card-body">
-            <p>{event.time}</p>
-            <p>{event.location}</p>
+            <p>Time: {event.time}</p>
+            <p>Location: {event.location}</p>
             <p>{event.detail}</p>
           </div>
         </div>
