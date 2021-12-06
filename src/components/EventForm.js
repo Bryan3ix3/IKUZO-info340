@@ -12,8 +12,7 @@ export function EventForm(props) {
 
   function handleSubmit(){
     let eventObj = {name:""+name, location:""+location, date:""+date, time:""+time, detail:""+detail, img:""+img};
-    console.log(eventObj);
-    //props.addEventCallback(eventObj);
+    props.addEventCallback(eventObj);
   }
 
   return (
@@ -24,44 +23,44 @@ export function EventForm(props) {
       <div className="formContainer">
         <form>
             <div>
-              <label for="Ename">Event Name:</label>
+              <label>Event Name:</label>
               <input 
-                type="text" id="Ename" name="Ename" 
+                type="text" 
                 value={name}
                 onChange={(e) => setName(e.target.value)}/>
             </div>
             <div>
-              <label for="Lname">Location Name:</label>
+              <label>Location Name:</label>
               <input 
-                type="text" id="Lname" name="Lname" 
+                type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}/>
             </div>
             <div>
-              <label for="Edate">Event Date:</label>
+              <label>Event Date:</label>
               <input 
-                type="date" id="Edate" name="Edate" 
+                type="date"
                 value={date} 
                 onChange={(e) => setDate(e.target.value)}/>
             </div>
             <div>
-              <label for="Etime">Event Time:</label>
+              <label>Event Time:</label>
               <input 
-                type="time" id="Etime" name="Etime" 
+                type="time"
                 value={time} 
                 onChange={(e) => setTime(e.target.value)}/>
             </div>
             <div>
-              <label for="Edetail">Event Description:</label>
+              <label>Event Description:</label>
               <textarea 
-                type = "text" id="Edetail" name="Edetail" rows="4" cols="50"
+                type = "text" rows="4" cols="50"
                 value={detail}
                 onChange={(e) => setDetail(e.target.value)} />
             </div>
             {/*<div>
-              <label for="Eimg">Upload Image:</label>
+              <label>Upload Image:</label>
               <input 
-                className="imgUpload" type="file" id="Eimg" name="filename" 
+                className="imgUpload" type="file" 
                 value={img}
                 onChange={(e) => setImg(e.target.value)}/>
             </div>*/}
