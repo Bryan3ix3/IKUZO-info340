@@ -22,7 +22,7 @@ function App(props) {
 
   return (
     <BrowserRouter>
-      <body className="general">
+      <div className="general">
         <NavBar />
         <main>
           <Routes>
@@ -33,7 +33,7 @@ function App(props) {
           </Routes>
         </main>
         <Footer />
-      </body>
+      </div>
     </BrowserRouter>
   );
 }
