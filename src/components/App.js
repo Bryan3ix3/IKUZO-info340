@@ -18,6 +18,7 @@ function App(props) {
   function addEvent(eventObj){
     console.log("event added");
     setEventArr(eventArr.push(eventObj));
+    console.log(eventArr[4]);
   }
 
   return (
