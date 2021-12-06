@@ -2,7 +2,8 @@
   {
     "name":"Husky Campus Run",
     "date":"NOV 05", "time":"10:00 AM (PST)",
-    "location":"Husky Track", "img":"img/running.jpg",
+    "location":"Husky Track", 
+    "img":"img/running.jpg",
     "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"
   },
   {

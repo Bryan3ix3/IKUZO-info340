@@ -9,16 +9,16 @@ import { Footer } from './Footer';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App(props) {
+  const [eventArr, setEventArr] = useState(props.events);
 
   const applyFilters = () => {
 
   }
 
-  
-  const eventArray = props.events;
-
   function addEvent(eventObj){
-    events.push(eventObj);
+    console.log("event added");
+    setEventArr(eventArr.push(eventObj));
+
   }
 
   return (
@@ -27,7 +27,7 @@ function App(props) {
         <NavBar />
         <main>
           <Routes>
-            <Route exact path="/" element={<HomeScreen events={eventArray} friends={props.friends} />}></Route>
+            <Route exact path="/" element={<HomeScreen events={eventArr} friends={props.friends} />}></Route>
             <Route path="/about" element={<AboutScreen />}></Route>
             <Route path="/addEvent" element={<EventForm addEventCallback={addEvent}/>}></Route>
             <Route path="/profile" element={<ProfileScreen />}></Route>

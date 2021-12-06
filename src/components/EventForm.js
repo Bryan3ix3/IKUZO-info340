@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { propTypes } from 'react-bootstrap/esm/Image';
 
-export function EventForm() {
+export function EventForm(props) {
 
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [detail, setDetail] = useState("");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState("img/running.jpg");
 
-  function handleSubmit(event){
-    let eventObj = {name:name, location:location, date:date, time:time, detail:detail, img:img};
-    event.addEventCallback(eventObj);
+  function handleSubmit(){
+    let eventObj = {name:""+name, location:""+location, date:""+date, time:""+time, detail:""+detail, img:""+img};
+    console.log(eventObj);
+    //props.addEventCallback(eventObj);
   }
 
   return (
@@ -21,7 +22,7 @@ export function EventForm() {
       <h2> Input event information and details below </h2>
 
       <div className="formContainer">
-        <form onSubmit={handleSubmit}>
+        <form>
             <div>
               <label for="Ename">Event Name:</label>
               <input 
@@ -29,7 +30,6 @@ export function EventForm() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}/>
             </div>
-
             <div>
               <label for="Lname">Location Name:</label>
               <input 
@@ -56,17 +56,17 @@ export function EventForm() {
               <textarea 
                 type = "text" id="Edetail" name="Edetail" rows="4" cols="50"
                 value={detail}
-                onChange={(e) => setDetail(e.target.value)}></textarea>
+                onChange={(e) => setDetail(e.target.value)} />
             </div>
-            <div>
+            {/*<div>
               <label for="Eimg">Upload Image:</label>
               <input 
                 className="imgUpload" type="file" id="Eimg" name="filename" 
                 value={img}
                 onChange={(e) => setImg(e.target.value)}/>
-            </div>
+            </div>*/}
             <div>
-              <input type="submit" value="Create Event" />
+              <input type="submit" value="Create Event" onClick={handleSubmit}/>
             </div>
           </form>
         </div>
