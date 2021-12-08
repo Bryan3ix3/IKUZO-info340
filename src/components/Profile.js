@@ -3,6 +3,7 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import PhotoUpload  from './PhotoUpload';
 import ScriptTag from 'react-script-tag';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { getDatabase, ref, set as firebaseSet } from 'firebase/database';
 // import { NavBar } from './Navigation';
 // import { Footer } from './Footer';
 
