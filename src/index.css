@@ -152,18 +152,20 @@ footer, .login-img {
 }
 
 .join-button-active {
-  background-color: orange;
+  background-color: green;
 }
 
 .join-button-active:focus {
   color: none;
-  background-color: orange;
+  background-color: green;
   box-shadow: none;
   
 }
 
 .btn_group > .btn {
   margin: .7rem 0rem 0rem;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .friend-card {
