@@ -3,13 +3,12 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import PhotoUpload  from './PhotoUpload';
 import ScriptTag from 'react-script-tag';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { getDatabase } from 'firebase/database';
-
+import { getDatabase, ref, set as firebaseSet } from 'firebase/database';
 // import { NavBar } from './Navigation';
 // import { Footer } from './Footer';
 
 export function ProfileScreen() {
-    
+
     const [editBioIsDisplayed, setEditBioIsDisplayed] = useState('none');
     const [interestsFormIsDisplayed, setInterestsFormIsDisplayed] = useState('none');
 
@@ -24,12 +23,12 @@ export function ProfileScreen() {
     }
 
     let updateBio = () => {    //handle "check" button
-        console.log("adios");
         let bioPar = document.getElementById('p-body');
-        //console.log(bioPar);
         let newBio= bioPar.textContent = textValue;
+
+        const bioRef = ref(db, "Profile/bio")
+        firebaseSet(bioRef, newBio);
         setEditBioIsDisplayed('none');
-        // console.log(temp+' temp');
         return newBio;
     }
 
@@ -100,7 +99,7 @@ export function ProfileScreen() {
                             </section>
                         </section>
 
-                        
+
                     </section>
 
                     <section className="accordion-item">
