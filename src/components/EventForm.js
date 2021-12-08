@@ -18,7 +18,8 @@ export function EventForm(props) {
   
   function handleSubmit(){
     let eventObj = {"name":name, "location":location, "date":date, "time":time, "detail":detail, "img":img};
-    const eventRef = ref(db, "Events/4") //  dir/key for reference
+    var index = props.events.length
+    const eventRef = ref(db, "Events/" + index) //  dir/key for reference
     console.log("event form submit");
     fbset(eventRef, eventObj);
   }
