@@ -1,13 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 
 import { FilterMenu, FilterButton } from './Filter';
 import { Events } from './Events';
 import { FriendList, FriendsButton } from './Friends';
+import { getDatabase, ref, set as fbset, onValue } from 'firebase/database'
+
 
 export function HomeScreen(props) {
   const [currentEvents, setCurrentEvents] = useState(props.events);
   const [filterWarning, setFilterWarning] = useState(false);
+
+  const db = getDatabase(); //get database address from firebase servers
+  useEffect(() => {
+    const eventArrRef = ref(db, "Events") //  dir/key for reference
+    //addEventListener for database value change
+    onValue(eventArrRef, (snapshot) => {
+      const newValue = snapshot.val(); //extract the value from snapshot
+      setCurrentEvents(newValue);
+      console.log(newValue);
+    })
+  }, []);
 
   const handleFilters = (selectedFiltersArray) => {
     const radioValueObj = selectedFiltersArray[0];
