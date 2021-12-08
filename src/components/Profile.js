@@ -3,7 +3,7 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import PhotoUpload  from './PhotoUpload';
 import ScriptTag from 'react-script-tag';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { getDataBase } from 'firebase/database';
+import { getDatabase } from 'firebase/database';
 // import { NavBar } from './Navigation';
 // import { Footer } from './Footer';
 
@@ -40,7 +40,7 @@ export function ProfileScreen() {
         setInterestsFormIsDisplayed('none');
     }
 
-    const db = getDataBase();
+    const db = getDatabase();
     return (
         <React.Fragment>
             <section className='banner mb-2'>
