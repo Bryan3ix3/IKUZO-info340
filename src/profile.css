@@ -71,7 +71,6 @@ html, body {
     left: 50px;
 }
 
-
 .uploadButton {
     position: relative;
     top: 190px;
@@ -126,10 +125,40 @@ html, body {
     color: rgba(0,0,0,.5);
 }
 
+.form-popup {
+    position: relative;
+    display: inline-block;
+
+}
+
+.form-popup .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    padding: 0px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -106px;
+}
+
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
 .btn {
     background-color: #17a2b8;
     border-color: #17a2b8;
 }
+
+.form-container .danger {
+    width: 100%;
+    color: white;
+    z-index: 4;
+}
+
+
 /* Footer styles */
 footer {
     background-color: black;
