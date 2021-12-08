@@ -34,5 +34,13 @@
     "location":"IMA",
     "img":"img/football.jpg",
     "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"
+  },
+  {
+    "name":"", 
+    "location":"", 
+    "date":"", 
+    "time":"", 
+    "detail":"", 
+    "img":"img/running.jpg"
   }
 ]
