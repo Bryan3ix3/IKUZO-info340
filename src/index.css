@@ -151,6 +151,16 @@ footer, .login-img {
   color: white;
 }
 
+.join-button-active {
+  background-color: orange;
+}
+
+.join-button-active:focus {
+  color: none;
+  background-color: orange;
+  box-shadow: none;
+}
+
 .btn_group > .btn {
   margin: .7rem 0rem 0rem;
 }
