@@ -7,11 +7,11 @@ html, .login-img > img {
 }
 
 /* General rules */
-body, div, .event-card, .btn_group > .btn, .friend-card, .navigation, .detail-box, .login-page main, .login-box {
+div, .general, .event-card, .btn_group > .btn, .friend-card, .navigation, .detail-box, .login-page main, .login-box {
   display: flex;
 }
 
-body, .events > div, .event-card, .filter-border, .detail-box, .login-box {
+.general, .events > div, .event-card, .filter-border, .detail-box, .login-box {
   flex-direction: column;
 }
 
@@ -68,7 +68,7 @@ footer, .login-img {
 }
 
 /* Home page styles */
-body {
+.general {
   font-family: "Overpass", sans-serif;
   margin: 0;
   height: inherit;
@@ -99,6 +99,14 @@ body {
   padding: 1em;
 }
 
+.warning {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: white;
+  background-color: rgb(241, 87, 87);
+}
+
 .events > div, .friends > div {
   flex-wrap: wrap;
 }
@@ -119,6 +127,39 @@ body {
   padding: .8rem .8rem;
   max-width: 625px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.share-event {
+  font-size: 18px;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.share-btn {
+  display: inline;
+  align-self: center;
+  background-color: black;
+  color: white;
+  padding: 8px 30px;
+  margin: 15px;
+  border-radius: 15px;
+  border:rgba(0, 0, 0, 0.6);
+}
+
+.share-btn:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  color: white;
+}
+
+.join-button-active {
+  background-color: orange;
+}
+
+.join-button-active:focus {
+  color: none;
+  background-color: orange;
+  box-shadow: none;
+  
 }
 
 .btn_group > .btn {
@@ -184,6 +225,11 @@ div > .overImg, div > .underImg {
   position: absolute;
   padding: 10px 10px 0px 10px;
   opacity: .8;
+}
+
+.btn-share {
+  color: black;
+  background-color: white;
 }
 
 div > .overImg {

@@ -1,6 +1,38 @@
 [
-  {"name":"Husky Campus Run", "date":"NOV 05", "time":"Time: 10:00 AM (PST)", "location":"Location: IMA Track Field", "img":"img/running.jpg", "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"},
-  {"name":"Pick-Up Basketball", "date":"NOV 06", "time":"Time: 10:00 AM (PST)", "location":"Location: IMA Basketball Courts", "img":"img/basketBall.jpg", "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"},
-  {"name":"Tennis Games", "date":"NOV 07", "time":"Time: 3:00 PM (PST)", "location":"Location: IMA Tennis Courts", "img":"img/tennis.webp", "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"},
-  {"name":"Huskies Football Game", "date":"NOV 08", "time":"Time: 1:00 PM (PST)", "location":"Location: IMA Soccer Field", "img":"img/football.jpg", "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"}
+  {
+    "name":"Husky Campus Run",
+    "upcoming_date":"now",
+    "upcoming_days": 0,
+    "time":"10:00 AM",
+    "location":"Husky Track",
+    "img":"img/running.jpg",
+    "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"
+  },
+  {
+    "name":"Pick-Up Basketball",
+    "upcoming_date":"one week",
+    "upcoming_days": 7,
+    "time":"11:00 PM",
+    "location":"IMA",
+    "img":"img/basketBall.jpg",
+    "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"
+  },
+  {
+    "name":"Tennis Games",
+    "upcoming_date":"two weeks",
+    "upcoming_days": 14,
+    "time":"3:00 PM",
+    "location":"IMA",
+    "img":"img/tennis.webp",
+    "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"
+  },
+  {
+    "name":"Huskies Football Game",
+    "upcoming_date":"one month",
+    "upcoming_days": 30,
+    "time":"1:00 PM",
+    "location":"IMA",
+    "img":"img/football.jpg",
+    "detail":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo voluptates sint laudantium quaerat commodi!"
+  }
 ]

@@ -1,14 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function FilterOption({filterItem}) {
-  const optionList = filterItem.options.map((item, index) => {
-    index = index + 1;
-    const optionID = filterItem.type + index;
+const checkboxOptions = [{category: "Location", options: ["IMA", "Denny Field", "Husky Track", "Golf Range", "Waterfront"], name: "locationRadioBtn"},{category: "Time of Day", options: ["Morning", "Afternoon", "Evening"], name: "timeOfDayRadioBtn"}];
+const radioOptions =[{value: "one week", text: "One Week"}, {value: "two weeks", text: "Two Weeks"}, {value: "one month", text: "One Month"}];
+
+function CheckboxOptionMenu(props) {
+  const [checkedState, setCheckedState] = useState(new Array(props.filterItem.options.length).fill(false));
+
+  const handleOnChange = (position) => {
+    const updateCheckedState = checkedState.map((item, index) => {
+      return index === position ? !item : item;
+    });
+    setCheckedState(updateCheckedState);
+    props.handleCheckboxCallback(updateCheckedState, props.filterItem.category);
+  }
+
+  const optionList = props.filterItem.options.map((item, index) => {
+    const optionID = "checkBox" + index;
     return (
       <div className="form-check" key={optionID}>
-        <input className="form-check-input" type={filterItem.type} name={filterItem.name} id={optionID} />
+        <input className="form-check-input" type="checkbox" name={props.name} id={optionID} onChange={() => handleOnChange(index)} />
         <label className="form-check-label" htmlFor={optionID}>
           {item}
+        </label>
+      </div>
+    )
+  });
+
+  return (
+    <div className="card mt-3 mb-3">
+      <div className="card-header">
+        <strong>{props.filterItem.category}</strong>
+      </div>
+      <div className="card-body d-block">
+        {optionList}
+      </div>
+    </div>
+  )
+}
+
+function RadioOptionMenu(props) {
+
+  const handleSelectDate = (event) => {
+    const value = event.target.value;
+    props.handleRadioBtnCallback(value);
+  }
+
+  const optionList = radioOptions.map((item, index) => {
+    index = index + 1;
+    const optionID = "radio" + index;
+    return(
+      <div className="form-check" key={optionID}>
+        <input className="form-check-input" type="radio" name="dateRadioBtn" value={item.value} id={optionID} onChange={handleSelectDate} />
+        <label className="form-check-label" htmlFor={optionID}>
+          {item.text}
         </label>
       </div>
     );
@@ -17,26 +61,50 @@ function FilterOption({filterItem}) {
   return (
     <div className="card mt-3 mb-3">
       <div className="card-header">
-        <strong>{filterItem.category}</strong>
+        <strong>Upcoming Events</strong>
       </div>
       <div className="card-body d-block">
         {optionList}
       </div>
     </div>
-  );
+  )
 }
 
 export function FilterMenu(props) {
-  const filterCategories = props.filters.map((item) => {
-    return <FilterOption filterItem={item} key={item.category} />
+  const [checkboxValues, setCheckboxValues] = useState({});
+  const [radioValue, setRadioValue] = useState({});
+
+  const handleRadioBtn = (radioBtnValue) => {
+    setRadioValue({upcoming_event: radioBtnValue});
+  }
+
+  const handleCheckbox = (checkboxArray, category) => {
+    let results = [];
+    let optionsArray = [];
+    if(category === "Location") {
+      category = category.toLowerCase();
+      optionsArray = checkboxOptions[0];
+    } else {
+      category = "time_of_day";
+      optionsArray = checkboxOptions[1];
+    }
+    results = optionsArray.options.filter((item, index) => {
+      return checkboxArray[index];
+    });
+    setCheckboxValues({...checkboxValues, [category]: results})
+  }
+
+  const checkboxCategories = checkboxOptions.map((item) => {
+    return <CheckboxOptionMenu filterItem={item} key={item.category} handleCheckboxCallback={handleCheckbox} />
   });
 
   return (
      <section className="box filters">
       <div className="filter-border">
         <h2 className="mb-2">Sort By:</h2>
-        {filterCategories}
-        <button className="btn btn-info mt-2" type="button">Filter</button>
+        <RadioOptionMenu handleRadioBtnCallback={handleRadioBtn} />
+        {checkboxCategories}
+        <button className="btn btn-info mt-2" type="button" onClick={() => props.handleFiltersCallback([radioValue, checkboxValues])}>Filter</button>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export function FriendList(props) {
     <section className="box friends">
       <h1>Recommend Friends:</h1>
       <div>
-        {recommendedFriends};
+        {recommendedFriends}
       </div>
     </section>
   );
