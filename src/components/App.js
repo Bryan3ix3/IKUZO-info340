@@ -11,7 +11,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { getDatabase, ref, set as fbset, onValue } from 'firebase/database'
 
 
-function App(props) {
+function App() {
   const db = getDatabase(); //get database address from firebase servers
   const [eventArr, setEventArr] = useState([{}]);
   const [friendArr, setFriendArr] = useState([{}])

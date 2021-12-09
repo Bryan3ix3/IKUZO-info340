@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
 import { getDatabase, ref, set as fbset } from 'firebase/database'
+import { Link, NavLink } from 'react-router-dom';
+
 //import { propTypes } from 'react-bootstrap/esm/Image';
 
 export function EventForm(props) {
@@ -20,8 +21,8 @@ export function EventForm(props) {
     let eventObj = {"name":name, "location":location, "date":date, "time":time, "detail":detail, "img":img};
     var index = props.events.length
     const eventRef = ref(db, "Events/" + index) //  dir/key for reference
-    console.log("event form submit");
     fbset(eventRef, eventObj);
+    return <Link exact to="/" ></Link>
   }
   
 
@@ -75,8 +76,9 @@ export function EventForm(props) {
                 {/*onChange={(e) => setImg(e.target.value)}/>
             </div>*/}
             <div>
-              <input type="submit" value="Create Event" 
-              onClick={() => handleSubmit()}/>
+              <Link exact to="/" className="text-white">
+                <input type="submit" value="Create Event" onClick={() => handleSubmit()}/>
+              </Link>
             </div>
           </form>
         </div>
