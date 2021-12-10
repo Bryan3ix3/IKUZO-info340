@@ -2,16 +2,78 @@
   {
     "img": "img/pfp3.jpg",
     "alt": "Serena Williams pic",
-    "name": "Serena Williams"
+    "name": "Serena Williams",
+    "activity": "Tennis",
+    "hobby": "Reading"
   },
   {
     "img": "img/pfp1.png",
     "alt": "Among Us pic",
-    "name": "Among Us"
+    "name": "Among Us",
+    "activity": "SUS",
+    "hobby": "vent"
   },
   {
-    "img": "img/pfp2.png",
-    "alt": "Rafael Nadal pic",
-    "name": "Rafael Nadal"
+    "img": "img/pfp3.jpg",
+    "alt": "Bob Bobby pic",
+    "name": "Bob Bobby",
+    "activity": "Soccer",
+    "hobby": "Gaming"
+  },
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "Joe Momma pic",
+    "name": "Joe Momma",
+    "activity": "Hockey",
+    "hobby": "Movies"
+  },
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "Bill Smith pic",
+    "name": "Bill Smith",
+    "activity": "Running",
+    "hobby": "Cooking"
+  },
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "John Cook pic",
+    "name": "John Cook",
+    "activity": "Hiking",
+    "hobby": "Streaming"
+  },
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "Audrey Stephens pic",
+    "name": "Audrey Stephens",
+    "activity": "Ping Pong",
+    "hobby": "Gaming"
+  },
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "Clarence Houston pic",
+    "name": "Clarence Houston",
+    "activity": "Basketball",
+    "hobby": "Eating"
+  },
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "Carlie Ayala pic",
+    "name": "Carlie Ayala",
+    "activity": "Basketball",
+    "hobby": "Coding"
+  },
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "Aurelia Christensen pic",
+    "name": "Aurelia Christensen",
+    "activity": "Football",
+    "hobby": "Poetry"
+  },
+  {
+    "img": "img/pfp3.jpg",
+    "alt": "Asad Washington pic",
+    "name": "Asad Washington",
+    "activity": "Badminton",
+    "hobby": "Gaming"
   }
 ]
