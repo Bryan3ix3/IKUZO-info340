@@ -8,7 +8,6 @@ function EventCard({event}) {
   const [toggleDetail, setToggleDetail] = useState(false);
   const [toggleShare, setToggleShare] = useState(false);
   const [currentFriends, setCurrentFriends] = useState([]);
-  const [joinValue, setJoinValue] = useState("Join");
   // const toggleCollapse = () => {
   //   setToggle(!toggle);
   // }
@@ -38,11 +37,9 @@ function EventCard({event}) {
         <button className="btn btn-share" onClick={() => {setToggleShare(!toggleShare); setToggleDetail(false)}} type="button" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare">
             Share
         </button>
-        <button className={`btn btn-info ${joinValue == "Joined"? "join-button-active" : ""}`} onClick={() => {if(joinValue === "Join") {setJoinValue("Joined");  } else {setJoinValue("Join")}}} type="button">
-            {joinValue}
+        <button className="btn btn-info" type="button">
+            Join
         </button>
-
-        
       </div>
       <Collapse in={toggleDetail}>
         <div className="collapse" id="collapseDetail">
@@ -72,6 +69,12 @@ export function Events(props) {
   const cards = props.events.map(event => {
     return <EventCard event={event} key={event.name} />
   });
+  /*used for non index based mapping
+  const cards = props.eventKeys.map(eventKey => {
+    const event = props.events[eventKey];
+    return <EventCard event={event} key={event.name} />
+  });
+  */
   return (
     <section className="box events">
       <div className={props.isActive ? "warning" : "hidden"}>No Events Found</div>

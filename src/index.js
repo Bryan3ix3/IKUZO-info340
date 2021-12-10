@@ -30,4 +30,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-ReactDOM.render(<App events={SAMPLE_EVENTS} friends={FRIENDS} />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

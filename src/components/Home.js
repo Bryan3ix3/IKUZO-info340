@@ -10,6 +10,7 @@ import { getDatabase, ref, set as fbset, onValue } from 'firebase/database'
 export function HomeScreen(props) {
   const [currentEvents, setCurrentEvents] = useState(props.events);
   const [filterWarning, setFilterWarning] = useState(false);
+  //const [currEventKeys, setCurrectEventKeys] = useState(Object.keys(props.events)); used for non index based mapping
 
   const db = getDatabase(); //get database address from firebase servers
   useEffect(() => {
@@ -17,7 +18,9 @@ export function HomeScreen(props) {
     //addEventListener for database value change
     onValue(eventArrRef, (snapshot) => {
       const newValue = snapshot.val(); //extract the value from snapshot
+      //const newValueKeyArr = Object.keys(newValue); used for non index based mapping
       setCurrentEvents(newValue);
+      //setCurrectEventKeys(newValueKeyArr); used for non index based mapping
       console.log(newValue);
     })
   }, []);
@@ -84,7 +87,7 @@ export function HomeScreen(props) {
     <div>
       <FilterMenu handleFiltersCallback={handleFilters}/>
       <div className="spacer"></div>
-      <Events events={currentEvents} isActive={filterWarning} />
+      <Events events={currentEvents} isActive={filterWarning} /*{eventKeys={currEventKeys}} <-used for non index based mapping*//>
       <div className="spacer"></div>
       <FriendList friends={props.friends} />
       <FilterButton />

@@ -11,9 +11,10 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { getDatabase, ref, set as fbset, onValue } from 'firebase/database'
 
 
-function App(props) {
+function App() {
   const db = getDatabase(); //get database address from firebase servers
-  const [eventArr, setEventArr] = useState(props.events);
+  const [eventArr, setEventArr] = useState([{}]);
+  const [friendArr, setFriendArr] = useState([{}])
 
   //const applyFilters = () => {}
 
@@ -21,9 +22,19 @@ function App(props) {
     const eventArrRef = ref(db, "Events") //  dir/key for reference
     //addEventListener for database value change
     onValue(eventArrRef, (snapshot) => {
-      const newValue = snapshot.val(); //extract the value from snapshot
-      setEventArr(newValue);
-      console.log(newValue);
+      const newEvents = snapshot.val(); //extract the value from snapshot
+      setEventArr(newEvents);
+      console.log(newEvents);
+    })
+  }, []);
+
+  useEffect(() => {
+    const friendArrRef = ref(db, "Friends") //  dir/key for reference
+    //addEventListener for database value change
+    onValue(friendArrRef, (snapshot) => {
+      const newFriends = snapshot.val(); //extract the value from snapshot
+      setFriendArr(newFriends);
+      console.log(newFriends);
     })
   }, []);
 
@@ -33,9 +44,9 @@ function App(props) {
         <NavBar />
         <main>
           <Routes>
-            <Route exact path="/" element={<HomeScreen events={eventArr} friends={props.friends} />}></Route>
+            <Route exact path="/" element={<HomeScreen events={eventArr} friends={friendArr} />}></Route>
             <Route path="/about" element={<AboutScreen />}></Route>
-            <Route path="/addEvent" element={<EventForm /*addEventCallback={addEvent}*//>}></Route>
+            <Route path="/addEvent" element={<EventForm events={eventArr} />}></Route>
             <Route path="/profile" element={<ProfileScreen />}></Route>
           </Routes>
         </main>

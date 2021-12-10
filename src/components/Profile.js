@@ -38,8 +38,8 @@ export function ProfileScreen() {
     let updateBio = () => {    //handle "check" button
         let bioPar = document.getElementById('p-body');
         let newBio= bioPar.textContent = textValue;
-        
-        const bioRef = ref(db, "Profile/bio");
+
+        const bioRef = ref(db, "Profile/bio")
         firebaseSet(bioRef, newBio);
         setEditBioIsDisplayed('none');
     }
@@ -135,7 +135,7 @@ export function ProfileScreen() {
                             </section>
                         </section>
 
-                        
+
                     </section>
 
                     <section className="accordion-item">
