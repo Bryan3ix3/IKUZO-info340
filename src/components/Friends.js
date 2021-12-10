@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getDatabase, ref, set as fbset, onValue } from 'firebase/database'
 
 function FriendChoice({friend}) {
   return (
@@ -10,8 +11,31 @@ function FriendChoice({friend}) {
 }
 
 export function FriendList(props) {
+  const [userInterests, setUserInterests] = useState([{}]);
+  const [userHobbies, setUserHobbies] = useState([{}]);
+  const db = getDatabase(); //get database address from firebase servers
+  useEffect(() => {
+    const interestArrRef = ref(db, "Profile/interests") //  dir/key for reference
+    const hobbyArrRef = ref(db, "Profile/hobbies") //  dir/key for reference
+    //addEventListener for database value change
+    onValue(interestArrRef, (snapshot) => {
+      const interests = snapshot.val(); //extract the value from snapshot
+      //const interestsKeyArr = Object.keys(interests); used for non index based mapping
+      setUserInterests(interests);
+      //setCurrectEventKeys(interestsKeyArr); used for non index based mapping
+    })
+    onValue(hobbyArrRef, (snapshot) => {
+      const hobbies = snapshot.val(); //extract the value from snapshot
+      //const interestsKeyArr = Object.keys(interests); used for non index based mapping
+      setUserHobbies(hobbies);
+      //setCurrectEventKeys(interestsKeyArr); used for non index based mapping
+    })
+  }, []);
+
   const recommendedFriends = props.friends.map((item) => {
-    return <FriendChoice friend={item} key={item.name}/>
+    if (userInterests.includes(item.activity) || userHobbies.includes(item.hobby)) {
+      return <FriendChoice friend={item} key={item.name}/>
+    }
   });
 
   return (
