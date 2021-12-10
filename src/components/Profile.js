@@ -1,52 +1,91 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import PhotoUpload  from './PhotoUpload';
 import ScriptTag from 'react-script-tag';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { getDatabase, ref, set as firebaseSet } from 'firebase/database';
-// import { NavBar } from './Navigation';
-// import { Footer } from './Footer';
+import { getDatabase, ref, set as firebaseSet, onValue } from 'firebase/database';
 
 export function ProfileScreen() {
-    
     const [editBioIsDisplayed, setEditBioIsDisplayed] = useState('none');
     const [interestsFormIsDisplayed, setInterestsFormIsDisplayed] = useState('none');
+    const [hobbiesFormIsDisplayed, setHobbiesFormIsDisplayed] = useState('none');
+    const [textValue, setTextValue] = useState(''); //text value for bio input
+    const [bioTextValue, setBioTextValue] = useState('');
+    const [interestsArray, setInterestsArray] = useState('');
+    const [hobbiesArray, setHobbiesArray] = useState('');
+    const [name, setName] = useState('');
 
-    const [textValue, setTextValue] = useState('');
+    useEffect(() => {
+        const profileRef = ref(db, "Profile");
+        onValue(profileRef, (snapshot) => {
+            const newValue = snapshot.val(); //extract  value from snapshot
+            console.log(newValue);
+            setBioTextValue(newValue.bio);
+            setInterestsArray(newValue.interests);
+            setHobbiesArray(newValue.hobbies);
+            setName(newValue.name);
+        })
+    }, []);
 
-    const handleClick = () => {
+    const handleClick = () => { //handle edit bio click
         return setEditBioIsDisplayed('block');
     }
-    const handleInput = (event) => {
-        setTextValue(event.target.value);
 
+    const handleInput = (event) => { //handle bio text field input
+        setTextValue(event.target.value);
     }
 
     let updateBio = () => {    //handle "check" button
         let bioPar = document.getElementById('p-body');
         let newBio= bioPar.textContent = textValue;
         
-        const bioRef = ref(db, "Profile/bio")
+        const bioRef = ref(db, "Profile/bio");
         firebaseSet(bioRef, newBio);
         setEditBioIsDisplayed('none');
-        return newBio;
     }
 
+    // interests form handlers show/close
     const showInterestsForm = () => {
         setInterestsFormIsDisplayed('block');
     }
 
-    const closeForm = () => {
+    const closeInterestsForm = () => {
+        const formValueArray = [];
+        const obj = document.querySelectorAll('.interestsClass input');
+        for (let i=0; i<obj.length;i++) {
+            formValueArray.push(obj[i].value);
+        };
+        console.log(formValueArray);
+        const interestsRef = ref(db, "Profile/interests");
+        firebaseSet(interestsRef, formValueArray);
         setInterestsFormIsDisplayed('none');
     }
 
+    // hobbies form handlers show/close
+    const showHobbiesForm = () => {
+        setHobbiesFormIsDisplayed('block');
+    }
+
+    const closeHobbiesForm = () => {
+        const formValueArray = [];
+        const obj = document.querySelectorAll('.hobbiesClass input');
+        for (let i=0; i<obj.length;i++) {
+            formValueArray.push(obj[i].value);
+        };
+        console.log(formValueArray);
+        const hobbiesRef = ref(db, "Profile/hobbies");
+        firebaseSet(hobbiesRef, formValueArray);
+        setHobbiesFormIsDisplayed('none');
+    }
+    
     const db = getDatabase();
+
     return (
         <React.Fragment>
             <section className='banner mb-2'>
                 <img src="/img/pexels-tony-jamesandersson-1674752.jpg" className="profile-pic" alt="profiles"/>
                 <PhotoUpload/>
-                <p className='userName'><strong>Annaka Harris</strong></p>
+                <p className='userName'><strong>{name}</strong></p>
             </section>
 
 
@@ -55,7 +94,7 @@ export function ProfileScreen() {
                     <section className="card">
                         <section className="card-body">
                         <h1 className="card-title">Bio</h1>
-                        <p className="card-text" id="p-body"></p>
+                        <p className="card-text" id="p-body">{bioTextValue}</p>
                         <button className="btn btn-info" onClick={handleClick}>Edit Bio</button>
                         </section>
                         <section style={{display: editBioIsDisplayed}}>
@@ -79,18 +118,15 @@ export function ProfileScreen() {
                             <section className="accordion-body">
                                 <section className="card text-center">
                                     <ul className="list-group list-group-flush">
-                                        <li className="list-group-item">Weightlifting</li>
-                                        <li className="list-group-item">Track</li>
-                                        <li className="list-group-item">Swimming</li>
+                                        <li className="list-group-item">{interestsArray[0]}</li>
+                                        <li className="list-group-item">{interestsArray[1]}</li>
+                                        <li className="list-group-item">{interestsArray[2]}</li>
                                         <section className="form-popup" id="myForm" style={{display: interestsFormIsDisplayed}}>
-                                            <form action="/action_page.php" className="form-container">
-
+                                            <form action="/action_page.php" className="form-container interestsClass">
                                                 <input type="text" className='form-control' placeholder="Interest #1"/>
-
                                                 <input type="text" className='form-control' placeholder="Interest #2"/>
                                                 <input type="text" className='form-control' placeholder="Interest #3"/>
-
-                                                <button type="button" class="btn btn-danger mt-1" onClick={closeForm}>Done</button>
+                                                <button type="button" class="btn btn-danger mt-1" onClick={closeInterestsForm}>Done</button>
                                             </form>
                                         </section>
                                         <button className="btn btn-info fa fa-edit" onClick={showInterestsForm}></button>
@@ -112,12 +148,18 @@ export function ProfileScreen() {
                             <section className="accordion-body">
                                 <section className="card text-center">
                                     <ul className="list-group list-group-flush">
-                                        <li className="list-group-item">Horror Movies</li>
-                                        <li className="list-group-item">Chess</li>
-                                        <li className="list-group-item" >Italian Cuisine</li>
-                                        <li className="list-group-item">U.S History</li>
-                                        <li className="list-group-item">Java</li>
-                                        <li className="list-group-item">Power Rangers</li>
+                                        <li className="list-group-item">{hobbiesArray[0]}</li>
+                                        <li className="list-group-item">{hobbiesArray[1]}</li>
+                                        <li className="list-group-item" >{hobbiesArray[2]}</li>
+                                        <section className="form-popup" id="myForm" style={{display: hobbiesFormIsDisplayed}}>
+                                            <form action="/action_page.php" className="form-container hobbiesClass">
+                                                <input type="text" className='form-control' placeholder="Hobbie #1"/>
+                                                <input type="text" className='form-control' placeholder="Hobbie #2"/>
+                                                <input type="text" className='form-control' placeholder="Hobbie #3"/>
+                                                <button type="button" class="btn btn-danger mt-1" onClick={closeHobbiesForm}>Done</button>
+                                            </form>
+                                        </section>
+                                        <button className="btn btn-info fa fa-edit" onClick={showHobbiesForm}></button>
                                     </ul>
                                 </section>
                             </section>
