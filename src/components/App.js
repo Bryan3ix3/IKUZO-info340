@@ -8,7 +8,7 @@ import { ProfileScreen } from './Profile';
 import { Footer } from './Footer';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
-import { getDatabase, ref, set as fbset, onValue } from 'firebase/database'
+import { getDatabase, ref, onValue } from 'firebase/database'
 
 
 function App() {

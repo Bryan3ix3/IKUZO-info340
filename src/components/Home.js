@@ -4,13 +4,13 @@ import _ from 'lodash';
 import { FilterMenu, FilterButton } from './Filter';
 import { Events } from './Events';
 import { FriendList, FriendsButton } from './Friends';
-import { getDatabase, ref, set as fbset, onValue } from 'firebase/database'
+import { getDatabase, ref, onValue } from 'firebase/database'
 
 
 export function HomeScreen(props) {
   const [currentEvents, setCurrentEvents] = useState(props.events);
   const [filterWarning, setFilterWarning] = useState(false);
-  //const [currEventKeys, setCurrectEventKeys] = useState(Object.keys(props.events)); used for non index based mapping
+  const [currEventKeys, setCurrectEventKeys] = useState(Object.keys(props.events));
 
   const db = getDatabase(); //get database address from firebase servers
   useEffect(() => {
@@ -18,9 +18,9 @@ export function HomeScreen(props) {
     //addEventListener for database value change
     onValue(eventArrRef, (snapshot) => {
       const newValue = snapshot.val(); //extract the value from snapshot
-      //const newValueKeyArr = Object.keys(newValue); used for non index based mapping
+      const newValueKeyArr = Object.keys(newValue);
       setCurrentEvents(newValue);
-      //setCurrectEventKeys(newValueKeyArr); used for non index based mapping
+      setCurrectEventKeys(newValueKeyArr);
       console.log(newValue);
     })
   }, []);
@@ -87,7 +87,7 @@ export function HomeScreen(props) {
     <div>
       <FilterMenu handleFiltersCallback={handleFilters}/>
       <div className="spacer"></div>
-      <Events events={currentEvents} isActive={filterWarning} /*{eventKeys={currEventKeys}} <-used for non index based mapping*//>
+      <Events events={currentEvents} isActive={filterWarning} eventKeys={currEventKeys} />
       <div className="spacer"></div>
       <FriendList friends={props.friends} />
       <FilterButton />

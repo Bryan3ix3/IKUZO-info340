@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, set as fbset, onValue } from 'firebase/database'
+import { getDatabase, ref, onValue } from 'firebase/database'
 
 function FriendChoice({friend}) {
   return (
