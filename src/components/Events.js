@@ -8,6 +8,7 @@ function EventCard({event}) {
   const [toggleDetail, setToggleDetail] = useState(false);
   const [toggleShare, setToggleShare] = useState(false);
   const [currentFriends, setCurrentFriends] = useState([]);
+  const [joinValue, setJoinValue] = useState("Join");
   // const toggleCollapse = () => {
   //   setToggle(!toggle);
   // }
@@ -37,8 +38,8 @@ function EventCard({event}) {
         <button className="btn btn-share" onClick={() => {setToggleShare(!toggleShare); setToggleDetail(false)}} type="button" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare">
             Share
         </button>
-        <button className="btn btn-info" type="button">
-            Join
+        <button className={`btn btn-info ${joinValue == "Joined"? "join-button-active" : ""}`} onClick={() => {if(joinValue === "Join") {setJoinValue("Joined");  } else {setJoinValue("Join")}}} type="button">
+            {joinValue}
         </button>
       </div>
       <Collapse in={toggleDetail}>
