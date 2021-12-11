@@ -14,9 +14,7 @@ import { getDatabase, ref, onValue } from 'firebase/database'
 function App() {
   const db = getDatabase(); //get database address from firebase servers
   const [eventArr, setEventArr] = useState([{}]);
-  const [friendArr, setFriendArr] = useState([{}])
-
-  //const applyFilters = () => {}
+  const [friendArr, setFriendArr] = useState([{}]);
 
   useEffect(() => {
     const eventArrRef = ref(db, "Events") //  dir/key for reference
@@ -24,7 +22,6 @@ function App() {
     onValue(eventArrRef, (snapshot) => {
       const newEvents = snapshot.val(); //extract the value from snapshot
       setEventArr(newEvents);
-      console.log(newEvents);
     })
   }, []);
 

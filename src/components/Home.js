@@ -8,9 +8,29 @@ import { getDatabase, ref, onValue } from 'firebase/database'
 
 
 export function HomeScreen(props) {
-  const [currentEvents, setCurrentEvents] = useState(props.events);
+  const [currentEvents, setCurrentEvents] = useState([{}]);
   const [filterWarning, setFilterWarning] = useState(false);
   const [currEventKeys, setCurrectEventKeys] = useState(Object.keys(props.events));
+  const todayDate = new Date();
+
+  const removePastEvents = (eventsArr) => {
+    const result = eventsArr.filter((event) => {
+      const eventDate = new Date(event.date);
+      if(eventDate.getFullYear() - todayDate.getFullYear() > 0) {
+        return true;
+      } else {
+        if(eventDate.getFullYear() - todayDate.getFullYear() === 0){
+          if(eventDate.getMonth() - todayDate.getMonth() < 0) return false;
+          if(eventDate.getDate() - todayDate.getDate() >= 0) {
+            return true;
+          }
+          return false;
+        }
+        return false;
+      }
+    });
+    return result;
+  }
 
   const db = getDatabase(); //get database address from firebase servers
   useEffect(() => {
@@ -19,9 +39,8 @@ export function HomeScreen(props) {
     onValue(eventArrRef, (snapshot) => {
       const newValue = snapshot.val(); //extract the value from snapshot
       const newValueKeyArr = Object.keys(newValue);
-      setCurrentEvents(newValue);
+      setCurrentEvents(removePastEvents(newValue));
       setCurrectEventKeys(newValueKeyArr);
-      console.log(newValue);
     })
   }, []);
 
@@ -33,11 +52,13 @@ export function HomeScreen(props) {
     } else { //update current event cards
       let filteredEvents = [];
       filteredEvents = props.events.filter((item) => {
-        let eventRequirementsArray = [];
+        const eventRequirementsArray = [];
         let applicableFilters = 0;
         if("upcoming_event" in radioValueObj) {
-          const upcomingEventFilter = radioValueObj.upcoming_event.replace('_', ' ');
-          if(item.upcoming_date === upcomingEventFilter) {
+          const eventDate = new Date(item.date);
+          const differenceDays = Math.ceil(Math.abs(eventDate - todayDate) / (1000 * 60 * 60 * 24));
+          const upcomingEventValue = radioValueObj.upcoming_event;
+          if(differenceDays <= upcomingEventValue) {
             applicableFilters++;
             eventRequirementsArray.push(true);
           } else {

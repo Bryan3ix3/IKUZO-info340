@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
+const largestNum = Math.max();
 const checkboxOptions = [{category: "Location", options: ["IMA", "Denny Field", "Husky Track", "Golf Range", "Waterfront"], name: "locationRadioBtn"},{category: "Time of Day", options: ["Morning", "Afternoon", "Evening"], name: "timeOfDayRadioBtn"}];
-const radioOptions =[{value: "one week", text: "One Week"}, {value: "two weeks", text: "Two Weeks"}, {value: "one month", text: "One Month"}];
+const radioOptions =[{value: 7, text: "One Week"}, {value: 14, text: "Two Weeks"}, {value: 30, text: "One Month"}, {value: largestNum, text: "More than a month"}];
 
 function CheckboxOptionMenu(props) {
   const [checkedState, setCheckedState] = useState(new Array(props.filterItem.options.length).fill(false));
@@ -101,7 +102,7 @@ export function FilterMenu(props) {
   return (
      <section className="box filters">
       <div className="filter-border">
-        <h2 className="mb-2">Sort By:</h2>
+        <h2 className="mb-2">Filter By:</h2>
         <RadioOptionMenu handleRadioBtnCallback={handleRadioBtn} />
         {checkboxCategories}
         <button className="btn btn-info mt-2" type="button" onClick={() => props.handleFiltersCallback([radioValue, checkboxValues])}>Filter</button>

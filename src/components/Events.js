@@ -17,10 +17,9 @@ function EventCard({event}) {
   //     var bsCollapse = new Collapse(myCollapse, {toggle: false})
   //     toggle ? bsCollapse.show() : bsCollapse.hide()
   // })
-  let todayDate = new Date();
-  todayDate.setDate(todayDate.getDate() + event.upcoming_days);
-  const dateArray = todayDate.toDateString().split(" ");
-  const eventDate = dateArray[1] + ' ' + dateArray[2];
+  let eventDate = new Date(event.date);
+  const dateArray = eventDate.toDateString().split(" ");
+  const displayDate = dateArray[1] + ' ' + dateArray[2];
 
   return (
     <div className="event-card">
@@ -29,7 +28,7 @@ function EventCard({event}) {
         <h2><strong>{event.name}</strong></h2>
       </div>
       <div className="underImg">
-        <h2><strong>{eventDate}</strong></h2>
+        <h2><strong>{displayDate}</strong></h2>
       </div>
       <div className="btn_group">
         <Button className="btn btn-info" onClick={() => {setToggleDetail(!toggleDetail); setToggleShare(false)}} type="button" data-toggle="collapse" data-target="#collapseDetail" aria-expanded="false" aria-controls="collapseDetail">
@@ -67,11 +66,11 @@ function EventCard({event}) {
 }
 
 export function Events(props) {
-  
+
   const cards = props.events.map(event => {
     return <EventCard event={event} key={event.name} />
   });
-  
+
   /*
   const cards = props.eventKeys.map(eventKey => {
     const event = props.events[eventKey];
