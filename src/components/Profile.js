@@ -6,14 +6,25 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { getDatabase, ref, set as firebaseSet, onValue } from 'firebase/database';
 
 export function ProfileScreen() {
+    const [name, setName] = useState('');
+    const db = getDatabase();
+
     const [editBioIsDisplayed, setEditBioIsDisplayed] = useState('none');
     const [interestsFormIsDisplayed, setInterestsFormIsDisplayed] = useState('none');
     const [hobbiesFormIsDisplayed, setHobbiesFormIsDisplayed] = useState('none');
-    const [textValue, setTextValue] = useState(''); //text value for bio input
-    const [bioTextValue, setBioTextValue] = useState('');
-    const [interestsArray, setInterestsArray] = useState('');
+    
+    const [textValue, setTextValue] = useState(''); //text value for bio input. Send to db
+    const [bioTextValue, setBioTextValue] = useState(''); //download from db
+    
+    const [interestsArray, setInterestsArray] = useState(''); //download from db
+    const [interestInput0, setInterestInput0] = useState(''); //upload to db
+    const [interestInput1, setInterestInput1] = useState(''); //upload to db
+    const [interestInput2, setInterestInput2] = useState(''); //upload to db
+
     const [hobbiesArray, setHobbiesArray] = useState('');
-    const [name, setName] = useState('');
+    const [hobbieInput0, setHobbieInput0] = useState(''); //upload to db
+    const [hobbieInput1, setHobbieInput1] = useState(''); //upload to db
+    const [hobbieInput2, setHobbieInput2] = useState(''); //upload to db
 
     useEffect(() => {
         const profileRef = ref(db, "Profile");
@@ -36,12 +47,11 @@ export function ProfileScreen() {
     }
 
     let updateBio = () => {    //handle "check" button
-        let bioPar = document.getElementById('p-body');
-        let newBio= bioPar.textContent = textValue;
-
-        const bioRef = ref(db, "Profile/bio")
-        firebaseSet(bioRef, newBio);
-        setEditBioIsDisplayed('none');
+        if(!textValue == '') {
+            const bioRef = ref(db, "Profile/bio")
+            firebaseSet(bioRef, textValue);
+            setEditBioIsDisplayed('none');
+        }       
     }
 
     // interests form handlers show/close
@@ -50,14 +60,12 @@ export function ProfileScreen() {
     }
 
     const closeInterestsForm = () => {
-        const formValueArray = [];
-        const obj = document.querySelectorAll('.interestsClass input');
-        for (let i=0; i<obj.length;i++) {
-            formValueArray.push(obj[i].value);
-        };
-        console.log(formValueArray);
-        const interestsRef = ref(db, "Profile/interests");
-        firebaseSet(interestsRef, formValueArray);
+        const interestsRef0 = ref(db, "Profile/interests/0");
+        const interestsRef1 = ref(db, "Profile/interests/1");
+        const interestsRef2 = ref(db, "Profile/interests/2");
+        firebaseSet(interestsRef0, interestInput0);
+        firebaseSet(interestsRef1, interestInput1);
+        firebaseSet(interestsRef2, interestInput2);
         setInterestsFormIsDisplayed('none');
     }
 
@@ -67,19 +75,15 @@ export function ProfileScreen() {
     }
 
     const closeHobbiesForm = () => {
-        const formValueArray = [];
-        const obj = document.querySelectorAll('.hobbiesClass input');
-        for (let i=0; i<obj.length;i++) {
-            formValueArray.push(obj[i].value);
-        };
-        console.log(formValueArray);
-        const hobbiesRef = ref(db, "Profile/hobbies");
-        firebaseSet(hobbiesRef, formValueArray);
+        const hobbiesRef0 = ref(db, "Profile/hobbies/0");
+        const hobbiesRef1 = ref(db, "Profile/hobbies/1");
+        const hobbiesRef2 = ref(db, "Profile/hobbies/2");
+        firebaseSet(hobbiesRef0, hobbieInput0);
+        firebaseSet(hobbiesRef1, hobbieInput1);
+        firebaseSet(hobbiesRef2, hobbieInput2);
         setHobbiesFormIsDisplayed('none');
     }
     
-    const db = getDatabase();
-
     return (
         <React.Fragment>
             <section className='banner mb-2'>
@@ -123,9 +127,9 @@ export function ProfileScreen() {
                                         <li className="list-group-item">{interestsArray[2]}</li>
                                         <section className="form-popup" id="myForm" style={{display: interestsFormIsDisplayed}}>
                                             <form action="/action_page.php" className="form-container interestsClass">
-                                                <input type="text" className='form-control' placeholder="Interest #1"/>
-                                                <input type="text" className='form-control' placeholder="Interest #2"/>
-                                                <input type="text" className='form-control' placeholder="Interest #3"/>
+                                                <input type="text" value={interestInput0} onChange={(e) => setInterestInput0(e.target.value)} className='form-control' placeholder="Interest #1"/>
+                                                <input type="text" value={interestInput1} onChange={(e) => setInterestInput1(e.target.value)} className='form-control' placeholder="Interest #2"/>
+                                                <input type="text" value={interestInput2} onChange={(e) => setInterestInput2(e.target.value)} className='form-control' placeholder="Interest #3"/>
                                                 <button type="button" class="btn btn-danger mt-1" onClick={closeInterestsForm}>Done</button>
                                             </form>
                                         </section>
@@ -150,12 +154,12 @@ export function ProfileScreen() {
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item">{hobbiesArray[0]}</li>
                                         <li className="list-group-item">{hobbiesArray[1]}</li>
-                                        <li className="list-group-item" >{hobbiesArray[2]}</li>
+                                        <li className="list-group-item">{hobbiesArray[2]}</li>
                                         <section className="form-popup" id="myForm" style={{display: hobbiesFormIsDisplayed}}>
                                             <form action="/action_page.php" className="form-container hobbiesClass">
-                                                <input type="text" className='form-control' placeholder="Hobbie #1"/>
-                                                <input type="text" className='form-control' placeholder="Hobbie #2"/>
-                                                <input type="text" className='form-control' placeholder="Hobbie #3"/>
+                                                <input type="text" value={hobbieInput0} onChange={(e) => setHobbieInput0(e.target.value)} className='form-control' placeholder="Hobbie #1"/>
+                                                <input type="text" value={hobbieInput1} onChange={(e) => setHobbieInput1(e.target.value)} className='form-control' placeholder="Hobbie #2"/>
+                                                <input type="text" value={hobbieInput2} onChange={(e) => setHobbieInput2(e.target.value)} className='form-control' placeholder="Hobbie #3"/>
                                                 <button type="button" class="btn btn-danger mt-1" onClick={closeHobbiesForm}>Done</button>
                                             </form>
                                         </section>
