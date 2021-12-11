@@ -9,14 +9,7 @@ function EventCard({event}) {
   const [toggleShare, setToggleShare] = useState(false);
   const [currentFriends, setCurrentFriends] = useState([]);
   const [joinValue, setJoinValue] = useState("Join");
-  // const toggleCollapse = () => {
-  //   setToggle(!toggle);
-  // }
-  // useEffect(() => {
-  //     var myCollapse = document.getElementById('collapseTarget')
-  //     var bsCollapse = new Collapse(myCollapse, {toggle: false})
-  //     toggle ? bsCollapse.show() : bsCollapse.hide()
-  // })
+  
   let todayDate = new Date();
   todayDate.setDate(todayDate.getDate() + event.upcoming_days);
   const dateArray = todayDate.toDateString().split(" ");

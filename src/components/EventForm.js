@@ -18,7 +18,8 @@ export function EventForm(props) {
 
   
   function handleSubmit(){
-    let eventObj = {"name":name, "location":location, "date":date, "time":time, "detail":detail, "img":img};
+    let formatDate = date.slice(5,7) + "/" + date.slice(8,10) + "/" + date.slice(0,4) //1998-02-06
+    let eventObj = {"name":name, "location":location, "date":formatDate, "time":time, "detail":detail, "img":img};
     var index = props.events.length
     const eventRef = ref(db, "Events/" + index) //  dir/key for reference
     fbset(eventRef, eventObj);
