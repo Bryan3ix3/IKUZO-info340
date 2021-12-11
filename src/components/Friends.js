@@ -2,13 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database'
 
 function FriendChoice({friend}) {
+  const [showHobbies, setShowHobbies] = useState(false);
+  const [friendClicked, setFriendClicked] = useState(false);
+
   return (
-    <div className="friend-card">
+
+    <div className={`friend-card ${friendClicked? "friend-card-clicked" : ""}`} onClick={() =>  setFriendClicked(!friendClicked)}
+      onMouseEnter={() => setShowHobbies(true)}
+      onMouseLeave={() => setShowHobbies(false)}>
       <img src={friend.img} alt={friend.alt} />
-      <p><strong>{friend.name}</strong></p>
+      <div className="d-flex flex-column">
+        <p><strong>{friend.name}</strong></p>
+        {showHobbies && (
+          <p>
+            {friend.hobby}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
+
+
+
 
 export function FriendList(props) {
   const [userInterests, setUserInterests] = useState([{}]);

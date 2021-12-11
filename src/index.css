@@ -31,7 +31,7 @@ div, .general, .event-card, .btn_group > .btn, .friend-card, .navigation, .detai
   background-color: black;
 }
 
-.login-detail input::placeholder, .login-detail input:focus, .friend-card > p, .overImg > h2, .underImg > h2, .hamburger-menu, footer, .login-box {
+.login-detail input::placeholder, .login-detail input:focus, .friend-card > div > p, .overImg > h2, .underImg > h2, .hamburger-menu, footer, .login-box {
   color: white;
 }
 
@@ -172,13 +172,18 @@ footer, .login-img {
   border-radius: 35px;
   flex: 0 0 200px;
   padding: .5rem .5rem;
+  cursor: pointer;
+}
+
+.friend-card-clicked {
+  background-color: green;
 }
 
 .friend-card:hover {
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
-.friend-card > p {
+.friend-card > div > p {
   margin: 0.2rem .15rem .15rem 0.5rem;
 }
 
