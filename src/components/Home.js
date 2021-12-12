@@ -5,6 +5,7 @@ import { FilterMenu, FilterButton } from './Filter';
 import { Events } from './Events';
 import { FriendList, FriendsButton } from './Friends';
 import { getDatabase, ref, onValue } from 'firebase/database'
+import Modal from "react-modal";
 
 
 export function HomeScreen(props) {
@@ -12,6 +13,9 @@ export function HomeScreen(props) {
   const [filterWarning, setFilterWarning] = useState(false);
   const [currEventKeys, setCurrectEventKeys] = useState(Object.keys(props.events));
   const todayDate = new Date();
+  const [friendOpen, setFriendOpen] = useState(false);
+  const [filterOpen, setFilterOpen] = useState(false);
+
 
   const removePastEvents = (eventsArr) => {
     const result = eventsArr.filter((event) => {
@@ -104,15 +108,39 @@ export function HomeScreen(props) {
     }
   }
 
+  function toggleFriend() {
+    setFriendOpen(!friendOpen);
+    setFilterOpen(false);
+  }
+
+  function toggleFilter() {
+    setFilterOpen(!filterOpen);
+    setFriendOpen(false);
+  }
+
   return (
     <div>
       <FilterMenu handleFiltersCallback={handleFilters}/>
+      <Modal isOpen={filterOpen} onRequestClose={toggleFilter} contentLabel="filter options">
+        <FilterMenu handleFiltersCallback={handleFilters}/>
+        <button onClick={toggleFilter}>Close</button>
+      </Modal>
+      <button id="filter-icon" onClick={toggleFilter}>
+        <img src={"img/filter.png"} alt="Filter icon" />
+      </button>
+
       <div className="spacer"></div>
       <Events events={currentEvents} isActive={filterWarning} eventKeys={currEventKeys} />
       <div className="spacer"></div>
+
       <FriendList friends={props.friends} />
-      <FilterButton />
-      <FriendsButton />
+      <Modal isOpen={friendOpen} onRequestClose={toggleFriend} contentLabel="friends list">
+        <FriendList friends={props.friends} />
+        <button onClick={toggleFriend}>Close</button>
+      </Modal>
+      <button id="friend-icon" onClick={toggleFriend}>
+        <img src={"img/friend.png"} alt="Friend icon" />
+      </button>
     </div>
   );
 }
