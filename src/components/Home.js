@@ -121,10 +121,12 @@ export function HomeScreen(props) {
 
   return (
     <div>
-      <FilterMenu handleFiltersCallback={handleFilters}/>
-      <Modal isOpen={filterOpen} onRequestClose={toggleFilter} contentLabel="filter options">
-        <FilterMenu handleFiltersCallback={handleFilters}/>
-        <button onClick={toggleFilter}>Close</button>
+      <FilterMenu handleFiltersCallback={handleFilters} style={{}}/>
+      <Modal isOpen={filterOpen} onRequestClose={toggleFilter} contentLabel="filter options" ariaHideApp={false}>
+        <div id="modal">
+          <FilterMenu handleFiltersCallback={handleFilters} toggleFilterCallback={toggleFilter} style={{display: "block"}} />
+          {/* <button className="close-btn" onClick={toggleFilter}>Close</button> */}
+        </div>
       </Modal>
       <button id="filter-icon" onClick={toggleFilter}>
         <img src={"img/filter.png"} alt="Filter icon" />
@@ -135,7 +137,7 @@ export function HomeScreen(props) {
       <div className="spacer"></div>
 
       <FriendList friends={props.friends} />
-      <Modal isOpen={friendOpen} onRequestClose={toggleFriend} contentLabel="friends list">
+      <Modal isOpen={friendOpen} onRequestClose={toggleFriend} contentLabel="friends list" ariaHideApp={false}>
         <FriendList friends={props.friends} />
         <button onClick={toggleFriend}>Close</button>
       </Modal>

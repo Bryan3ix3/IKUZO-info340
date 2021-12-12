@@ -30,7 +30,7 @@ function EventCard({event}) {
         <button className="btn btn-share" onClick={() => {setToggleShare(!toggleShare); setToggleDetail(false)}} type="button" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare">
             Share
         </button>
-        <button className={`btn btn-info ${joinValue == "Joined"? "join-button-active" : ""}`} onClick={() => {if(joinValue === "Join") {setJoinValue("Joined");  } else {setJoinValue("Join")}}} type="button">
+        <button className={`btn btn-info ${joinValue === "Joined"? "join-button-active" : ""}`} onClick={() => {if(joinValue === "Join") {setJoinValue("Joined");  } else {setJoinValue("Join")}}} type="button">
             {joinValue}
         </button>
       </div>

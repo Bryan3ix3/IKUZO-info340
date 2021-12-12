@@ -19,7 +19,7 @@ div, .general, .event-card, .btn_group > .btn, .friend-card, .navigation, .detai
   flex: 1;
 }
 
-.filters, .friends, .search-box, .navigation-links {
+/* .filters,*/ .friends, .search-box, .navigation-links {
   display: none;
 }
 
@@ -39,7 +39,7 @@ div, .general, .event-card, .btn_group > .btn, .friend-card, .navigation, .detai
   padding: 30px;
 }
 
-.filter-border, .navigation, .detail-box, .login-box {
+.navigation, .detail-box, .login-box {
   align-items: center;
 }
 
@@ -81,6 +81,10 @@ footer, .login-img {
 
 .filters {
   flex-basis: 300px;
+}
+
+.filter-font {
+  font-size: 22px;
 }
 
 .events, .spacer, .btn_group > .btn {
@@ -159,7 +163,7 @@ footer, .login-img {
   color: none;
   background-color: green;
   box-shadow: none;
-  
+
 }
 
 .btn_group > .btn {
@@ -206,13 +210,19 @@ footer, .login-img {
   height: 55px;
 }
 
+.web-view {
+  display: none;
+}
+
 #filter-icon, #friend-icon {
   position: fixed;
   bottom: 10px;
+  border: 0;
   border-radius: 25px;
   width: 50px;
   height: 50px;
   background-color: #17a2b8;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.30);
 }
 
 #filter-icon {
@@ -226,6 +236,11 @@ footer, .login-img {
 
 #friend-icon {
   right: 10px;
+}
+
+#modal {
+  flex-direction: column;
+  width: 100%;
 }
 
 div > .overImg, div > .underImg {
@@ -403,7 +418,6 @@ footer {
 /* Media queries */
 
 @media (min-width: 768px) {
-
   .hamburger-menu {
     display: none;
   }
@@ -439,7 +453,11 @@ footer {
     height: 360px;
   }
 
-  .filters {
+  .filter-font {
+    font-size: 16px;
+  }
+
+  .web-view {
     display: block;
   }
 

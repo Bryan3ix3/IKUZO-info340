@@ -27,7 +27,7 @@ function CheckboxOptionMenu(props) {
   });
 
   return (
-    <div className="card mt-3 mb-3">
+    <div className="card mt-3 mb-3 filter-font">
       <div className="card-header">
         <strong>{props.filterItem.category}</strong>
       </div>
@@ -59,7 +59,7 @@ function RadioOptionMenu(props) {
   });
 
   return (
-    <div className="card mt-3 mb-3">
+    <div className="card mt-3 mb-3 filter-font">
       <div className="card-header">
         <strong>Upcoming Events</strong>
       </div>
@@ -98,13 +98,20 @@ export function FilterMenu(props) {
     return <CheckboxOptionMenu filterItem={item} key={item.category} handleCheckboxCallback={handleCheckbox} />
   });
 
+  const handleClick = () => {
+    props.handleFiltersCallback([radioValue, checkboxValues]);
+    if(props.toggleFilterCallback){
+      props.toggleFilterCallback();
+    }
+  }
+
   return (
-     <section className="box filters">
+     <section className="box filters web-view" style={props.style}>
       <div className="filter-border">
         <h2 className="mb-2">Filter By:</h2>
         <RadioOptionMenu handleRadioBtnCallback={handleRadioBtn} />
         {checkboxCategories}
-        <button className="btn btn-info mt-2" type="button" onClick={() => props.handleFiltersCallback([radioValue, checkboxValues])}>Filter</button>
+        <button className="btn btn-info mt-2" type="button" onClick={handleClick}>Filter</button>
       </div>
     </section>
   );
