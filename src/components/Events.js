@@ -12,7 +12,7 @@ function EventCard({event}) {
 
   let eventDate = new Date(event.date);
   const dateArray = eventDate.toDateString().split(" ");
-  const displayDate = dateArray[1] + ' ' + dateArray[2];
+  const displayDate = dateArray[1] + ' ' + dateArray[2] + ", " + dateArray[3];
 
   return (
     <div className="event-card">

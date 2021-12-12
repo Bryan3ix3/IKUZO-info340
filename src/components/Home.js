@@ -10,12 +10,12 @@ import Modal from "react-modal";
 
 export function HomeScreen(props) {
   const [currentEvents, setCurrentEvents] = useState([{}]);
+  const [allEvents, setAllEvents] = useState([{}]);
   const [filterWarning, setFilterWarning] = useState(false);
   const [currEventKeys, setCurrectEventKeys] = useState(Object.keys(props.events));
   const todayDate = new Date();
   const [friendOpen, setFriendOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
-
 
   const removePastEvents = (eventsArr) => {
     const result = eventsArr.filter((event) => {
@@ -33,6 +33,7 @@ export function HomeScreen(props) {
         return false;
       }
     });
+    setAllEvents(result);
     return result;
   }
 
@@ -55,7 +56,7 @@ export function HomeScreen(props) {
       setCurrentEvents(currentEvents);
     } else { //update current event cards
       let filteredEvents = [];
-      filteredEvents = props.events.filter((item) => {
+      filteredEvents = allEvents.filter((item) => {
         const eventRequirementsArray = [];
         let applicableFilters = 0;
         if("upcoming_event" in radioValueObj) {
