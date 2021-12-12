@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
 import ShareIcon from '@material-ui/icons/Share';
+import { getDatabase, ref, onValue } from 'firebase/database'
 import { Hidden } from '@material-ui/core';
 
 
@@ -13,6 +14,27 @@ function EventCard({event}) {
   let eventDate = new Date(event.date);
   const dateArray = eventDate.toDateString().split(" ");
   const displayDate = dateArray[1] + ' ' + dateArray[2] + ", " + dateArray[3];
+
+  
+  const db = getDatabase(); //get database address from firebase servers
+  useEffect(() => {
+    const friendArrRef = ref(db, "Friends") //  dir/key for reference
+    //addEventListener for database value change
+    onValue(friendArrRef, (snapshot) => {
+      var newValue = snapshot.val(); //extract the value from snapshot
+      newValue = newValue.filter(friend => friend.isFriend === true);
+      setCurrentFriends(newValue);
+    })
+  }, []);
+
+  const checkboxCategories = currentFriends.map((friend) => {
+    return (
+      <div>
+        <input type="checkbox" value={false} />
+        <label>{friend.name}</label>
+      </div>
+    )
+  });
 
   return (
     <div className="event-card">
@@ -47,7 +69,7 @@ function EventCard({event}) {
       <div className="collapse" id="collapseShare">
           <div className="card card-body">
             <p className="share-event">Share event with: </p>
-            {currentFriends}
+            {checkboxCategories}
             <button className="btn share-btn" onClick={() => {setToggleShare(!toggleShare); setToggleDetail(false)}} type="button" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare">
               <ShareIcon fontSize="small" />Share!
             </button>
