@@ -174,9 +174,10 @@ footer, .login-img {
 
 .friend-card {
   border-radius: 35px;
-  flex: 0 0 200px;
+  align-self: center;
   padding: .5rem .5rem;
   cursor: pointer;
+  width: 40%;
 }
 
 .friend-card-clicked {
@@ -193,6 +194,8 @@ footer, .login-img {
 
 .friends > div {
   justify-content: left;
+  align-items: center;
+  flex-direction: column;
 }
 
 .event-card > img, .friend-card img, #filter-icon img, #friend-icon, #friend-icon img {
@@ -206,13 +209,18 @@ footer, .login-img {
 
 .friend-card img {
   border-radius: 70px;
-  width: 55px;
-  height: 55px;
+  width: 70px;
+  height: 70px;
 }
 
-.web-view {
+.friend-font {
+  font-size: 20px;
+}
+
+.filter-web-view, .friend-web-view {
   display: none;
 }
+
 
 #filter-icon, #friend-icon {
   position: fixed;
@@ -428,12 +436,30 @@ footer {
 }
 
 @media (min-width: 992px) {
-  .friends {
+  .friend-web-view {
     display: block;
   }
 
   #friend-icon {
     display: none;
+  }
+
+  .friend-card {
+    flex: 0 0 200px;
+    width: 100%;
+  }
+
+  .friends > div {
+    flex-direction: row;
+  }
+
+  .friend-card img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .friend-font {
+    font-size: 16px;
   }
 
   .event-card > img {
@@ -457,7 +483,7 @@ footer {
     font-size: 16px;
   }
 
-  .web-view {
+  .filter-web-view {
     display: block;
   }
 

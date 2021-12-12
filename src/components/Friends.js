@@ -11,7 +11,7 @@ function FriendChoice({friend}) {
       onMouseEnter={() => setShowHobbies(true)}
       onMouseLeave={() => setShowHobbies(false)}>
       <img src={friend.img} alt={friend.alt} />
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column friend-font">
         <p><strong>{friend.name}</strong></p>
         {showHobbies && (
           <p>
@@ -55,7 +55,7 @@ export function FriendList(props) {
   });
 
   return (
-    <section className="box friends">
+    <section className="box friends friend-web-view" style={props.style}>
       <h1>Recommend Friends:</h1>
       <div>
         {recommendedFriends}

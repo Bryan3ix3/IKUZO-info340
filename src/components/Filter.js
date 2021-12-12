@@ -106,7 +106,7 @@ export function FilterMenu(props) {
   }
 
   return (
-     <section className="box filters web-view" style={props.style}>
+     <section className="box filters filter-web-view" style={props.style}>
       <div className="filter-border">
         <h2 className="mb-2">Filter By:</h2>
         <RadioOptionMenu handleRadioBtnCallback={handleRadioBtn} />

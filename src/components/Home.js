@@ -43,8 +43,8 @@ export function HomeScreen(props) {
     //addEventListener for database value change
     onValue(eventArrRef, (snapshot) => {
       var newValue = snapshot.val(); //extract the value from snapshot
-      newValue = newValue.sort((a, b) => parseInt(a.date.slice(6,)) - parseInt(b.date.slice(6,)) || 
-        parseInt(a.date.slice(3,)) - parseInt(b.date.slice(3,)) || 
+      newValue = newValue.sort((a, b) => parseInt(a.date.slice(6,)) - parseInt(b.date.slice(6,)) ||
+        parseInt(a.date.slice(3,)) - parseInt(b.date.slice(3,)) ||
         parseInt(a.date.slice(0,)) - parseInt(b.date.slice(0,)));
       console.log(newValue);
       const newValueKeyArr = Object.keys(newValue);
@@ -129,7 +129,6 @@ export function HomeScreen(props) {
       <Modal isOpen={filterOpen} onRequestClose={toggleFilter} contentLabel="filter options" ariaHideApp={false}>
         <div id="modal">
           <FilterMenu handleFiltersCallback={handleFilters} toggleFilterCallback={toggleFilter} style={{display: "block"}} />
-          {/* <button className="close-btn" onClick={toggleFilter}>Close</button> */}
         </div>
       </Modal>
       <button id="filter-icon" onClick={toggleFilter}>
@@ -140,10 +139,12 @@ export function HomeScreen(props) {
       <Events events={currentEvents} isActive={filterWarning} eventKeys={currEventKeys} />
       <div className="spacer"></div>
 
-      <FriendList friends={props.friends} />
+      <FriendList friends={props.friends} style={{}} />
       <Modal isOpen={friendOpen} onRequestClose={toggleFriend} contentLabel="friends list" ariaHideApp={false}>
-        <FriendList friends={props.friends} />
-        <button onClick={toggleFriend}>Close</button>
+        <div id="modal">
+          <FriendList friends={props.friends} style={{display: "block"}} />
+          <button className="btn btn-secondary" style={{color: "black"}} onClick={toggleFriend}>Close</button>
+        </div>
       </Modal>
       <button id="friend-icon" onClick={toggleFriend}>
         <img src={"img/friend.png"} alt="Friend icon" />
