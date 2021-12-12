@@ -13,9 +13,9 @@ export function HomeScreen(props) {
   const [allEvents, setAllEvents] = useState([{}]);
   const [filterWarning, setFilterWarning] = useState(false);
   const [currEventKeys, setCurrectEventKeys] = useState(Object.keys(props.events));
-  const todayDate = new Date();
   const [friendOpen, setFriendOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
+  const todayDate = new Date();
 
   const removePastEvents = (eventsArr) => {
     const result = eventsArr.filter((event) => {
