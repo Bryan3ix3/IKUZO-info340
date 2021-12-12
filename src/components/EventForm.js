@@ -16,11 +16,16 @@ export function EventForm(props) {
 
   const db = getDatabase(); //get database address from firebase servers
 
-  
+  function toRegularTime(militaryTime) {
+    const [hours, minutes, seconds] = militaryTime.split(':');
+    return `${(hours > 12) ? hours - 12 : hours}:${minutes}${seconds ? `:${seconds}` : ''} ${(hours >= 12) ? "PM" : "AM"}`;
+  }
+
   function handleSubmit(){
-    let formatDate = date.slice(5,7) + "/" + date.slice(8,10) + "/" + date.slice(0,4) //1998-02-06
-    let eventObj = {"name":name, "location":location, "date":formatDate, "time":time, "detail":detail, "img":img};
-    var index = props.events.length
+    let formatDate = date.slice(5,7) + "/" + date.slice(8,10) + "/" + date.slice(0,4); //1998-02-06
+    let formatTime = toRegularTime(time);
+    let eventObj = {"name":name, "location":location, "date":formatDate, "time":formatTime, "detail":detail, "img":img};
+    var index = props.events.length;
     const eventRef = ref(db, "Events/" + index) //  dir/key for reference
     fbset(eventRef, eventObj);
     return <Link exact to="/" ></Link>
