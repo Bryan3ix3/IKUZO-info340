@@ -30,8 +30,8 @@ function EventCard({event}) {
   const checkboxCategories = currentFriends.map((friend) => {
     return (
       <div>
-        <input type="checkbox" value={false} />
-        <label>{friend.name}</label>
+        <input type="checkbox" className="checkBox" value={false} />
+        <label >{friend.name}</label>
       </div>
     )
   });
