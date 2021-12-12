@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-const largestNum = Math.max();
 const checkboxOptions = [{category: "Location", options: ["IMA", "Denny Field", "Husky Track", "Golf Range", "Waterfront"], name: "locationRadioBtn"},{category: "Time of Day", options: ["Morning", "Afternoon", "Evening"], name: "timeOfDayRadioBtn"}];
-const radioOptions =[{value: 7, text: "One Week"}, {value: 14, text: "Two Weeks"}, {value: 30, text: "One Month"}, {value: largestNum, text: "More than a month"}];
+const radioOptions =[{value: 7, text: "One Week"}, {value: 14, text: "Two Weeks"}, {value: 30, text: "One Month"}, {value: "all", text: "All events"}];
 
 function CheckboxOptionMenu(props) {
   const [checkedState, setCheckedState] = useState(new Array(props.filterItem.options.length).fill(false));

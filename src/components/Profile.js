@@ -77,7 +77,7 @@ export function ProfileScreen() {
         firebaseSet(hobbiesRef, formValueArray);
         setHobbiesFormIsDisplayed('none');
     }
-    
+
     const db = getDatabase();
 
     return (

@@ -58,7 +58,7 @@ export function HomeScreen(props) {
           const eventDate = new Date(item.date);
           const differenceDays = Math.ceil(Math.abs(eventDate - todayDate) / (1000 * 60 * 60 * 24));
           const upcomingEventValue = radioValueObj.upcoming_event;
-          if(differenceDays <= upcomingEventValue) {
+          if(differenceDays <= upcomingEventValue || upcomingEventValue === "all") {
             applicableFilters++;
             eventRequirementsArray.push(true);
           } else {
