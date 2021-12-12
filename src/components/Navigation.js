@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export function NavBar() {
+  const customToggle = React.forwardRef(({ children, onClick }, ref) => (
+    <span ref={ref} onClick={e => {e.preventDefault(); onClick(e);}}>
+      {<span className="material-icons" style={{color: "white"}} aria-label="hamburger menu icon">menu</span>}
+      {children}
+    </span>
+  ))
   return (
     <header className="navigation">
         <p className="nav-brand-name"><Link exact to="/" className="text-white">Ikuzo</Link></p>
@@ -17,7 +24,20 @@ export function NavBar() {
             </ul>
         </nav>
         <div className="hamburger-menu">
-            <span className="material-icons" aria-label="hamburger menu icon">menu</span>
+          <Dropdown>
+            <Dropdown.Toggle as={customToggle} style={{backgroundColor: "black", border: "none"}} />
+            <Dropdown.Menu>
+              <Dropdown.Item className="dropdown-nav">
+                <NavLink to="/addEvent" className="dropdown-item">Add Event</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item className="dropdown-nav">
+                <NavLink to="/about" className="dropdown-item">About</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item className="dropdown-nav">
+                <NavLink to="/profile" className="dropdown-item">Profile</NavLink>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
     </header>
   );

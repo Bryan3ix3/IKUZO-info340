@@ -308,6 +308,17 @@ div > .underImg {
   font-size: 36px;
 }
 
+.dropdown-nav {
+  text-align: center;
+
+}
+
+.dropdown-item {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+}
+
 /* About Us page styles */
 .about-page {
   display: block;
