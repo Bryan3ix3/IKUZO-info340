@@ -15,7 +15,7 @@ function EventCard({event}) {
   const dateArray = eventDate.toDateString().split(" ");
   const displayDate = dateArray[1] + ' ' + dateArray[2] + ", " + dateArray[3];
 
-  
+
   const db = getDatabase(); //get database address from firebase servers
   useEffect(() => {
     const friendArrRef = ref(db, "Friends") //  dir/key for reference
@@ -35,6 +35,10 @@ function EventCard({event}) {
       </div>
     )
   });
+  let joinClass = "btn btn-info";
+  if(joinValue === "Joined") {
+    joinClass = "btn btn-info join-button-active";
+  }
 
   return (
     <div className="event-card">
@@ -52,7 +56,7 @@ function EventCard({event}) {
         <button className="btn btn-share" onClick={() => {setToggleShare(!toggleShare); setToggleDetail(false)}} type="button" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare">
             Share
         </button>
-        <button className={`btn btn-info ${joinValue === "Joined"? "join-button-active" : ""}`} onClick={() => {if(joinValue === "Join") {setJoinValue("Joined");  } else {setJoinValue("Join")}}} type="button">
+        <button className={joinClass} onClick={() => {if(joinValue === "Join") {setJoinValue("Joined");  } else {setJoinValue("Join")}}} type="button">
             {joinValue}
         </button>
       </div>

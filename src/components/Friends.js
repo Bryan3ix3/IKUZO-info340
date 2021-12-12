@@ -5,9 +5,15 @@ function FriendChoice({friend}) {
   const [showHobbies, setShowHobbies] = useState(false);
   const [friendClicked, setFriendClicked] = useState(false);
 
-  return (
+  let friendClass = "";
+  if(friendClicked) {
+    friendClass = "friend-card friend-card-clicked";
+  } else {
+    friendClass = "friend-card";
+  }
 
-    <div className={`friend-card ${friendClicked? "friend-card-clicked" : ""}`} onClick={() =>  setFriendClicked(!friendClicked)}
+  return (
+    <div className={friendClass} onClick={() =>  setFriendClicked(!friendClicked)}
       onMouseEnter={() => setShowHobbies(true)}
       onMouseLeave={() => setShowHobbies(false)}>
       <img src={friend.img} alt={friend.alt} />
