@@ -18,7 +18,18 @@ export function EventForm(props) {
 
   function toRegularTime(militaryTime) {
     const [hours, minutes, seconds] = militaryTime.split(':');
-    return `${(hours > 12) ? hours - 12 : hours}:${minutes}${seconds ? `:${seconds}` : ''} ${(hours >= 12) ? "PM" : "AM"}`;
+    let hr = "";
+    let min = "";
+    let day = "";
+    if(hours > 12){
+      hr = hours - 12;
+      day = "PM"
+    } else {
+      hr = hours;
+      day = "AM"
+    }
+    min = minutes;
+    return(hr+":"+min+" "+day);
   }
 
   function handleSubmit(){

@@ -238,7 +238,7 @@ footer, .login-img {
 }
 
 #filter-icon {
-  left: 10px;
+  margin: 0px 0px 110px 5px;
 }
 
 #filter-icon img, #friend-icon img {
@@ -247,7 +247,7 @@ footer, .login-img {
 }
 
 #friend-icon {
-  right: 10px;
+  margin: 0px 0px 165px 5px;
 }
 
 #modal {
