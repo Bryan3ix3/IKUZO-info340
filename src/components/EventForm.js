@@ -41,7 +41,7 @@ export function EventForm(props) {
     fbset(eventRef, eventObj);
     return <Link exact to="/" ></Link>
   }
-  
+
 
   return (
     <section className="eventForm">
@@ -52,43 +52,43 @@ export function EventForm(props) {
         <form>
             <div>
               <label>Event Name:</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={name}
-                onChange={(e) => setName(e.target.value)}/>  
+                onChange={(e) => setName(e.target.value)}/>
             </div>
             <div>
               <label>Location Name:</label>
-              <input 
+              <input
                 type="text"
                 value={location}
-                onChange={(e) => setLocation(e.target.value)}/> 
+                onChange={(e) => setLocation(e.target.value)}/>
             </div>
             <div>
               <label>Event Date:</label>
-              <input 
+              <input
                 type="date"
-                value={date} 
-                onChange={(e) => setDate(e.target.value)}/>  
+                value={date}
+                onChange={(e) => setDate(e.target.value)}/>
             </div>
             <div>
               <label>Event Time:</label>
-              <input 
+              <input
                 type="time"
-                value={time} 
-                onChange={(e) => setTime(e.target.value)}/>           
+                value={time}
+                onChange={(e) => setTime(e.target.value)}/>
             </div>
             <div>
               <label>Event Description:</label>
-              <textarea 
+              <textarea
                 type = "text" rows="4" cols="50"
                 value={detail}
-                onChange={(e) => setDetail(e.target.value)} />  
+                onChange={(e) => setDetail(e.target.value)} />
             </div>
             {/*<div>
               <label>Upload Image:</label>
-              <input 
-                className="imgUpload" type="file" 
+              <input
+                className="imgUpload" type="file"
                 value={img}
                 {/*onChange={(e) => setImg(e.target.value)}/>
             </div>*/}
