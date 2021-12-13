@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PhotoUpload  from './PhotoUpload';
 import ScriptTag from 'react-script-tag';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -13,6 +12,8 @@ export function ProfileScreen() {
     const [editBioPlaceHolder, setEditBioPlaceholder] = useState("Enter Bio Here");
     const [interestsFormIsDisplayed, setInterestsFormIsDisplayed] = useState(false);
     const [hobbiesFormIsDisplayed, setHobbiesFormIsDisplayed] = useState(false);
+    const [warningStyle, setWarningStyle] = useState('');
+    const [warningMessage, setWarningMessage] = useState(undefined);
 
     const [textValue, setTextValue] = useState(''); //text value for bio input. Send to db
     const [bioTextValue, setBioTextValue] = useState(''); //download from db
@@ -64,14 +65,19 @@ export function ProfileScreen() {
       setInterestsFormIsDisplayed(!interestsFormIsDisplayed);
     }
 
-    const closeInterestsForm = () => {
-      const interestsRef0 = ref(db, "Profile/interests/0");
-      const interestsRef1 = ref(db, "Profile/interests/1");
-      const interestsRef2 = ref(db, "Profile/interests/2");
-      firebaseSet(interestsRef0, interestInput0);
-      firebaseSet(interestsRef1, interestInput1);
-      firebaseSet(interestsRef2, interestInput2);
-      setInterestsFormIsDisplayed(false);
+    function closeInterestsForm() {
+      try {
+        const interestsRef0 = ref(db, "Profile/interests/0");
+        const interestsRef1 = ref(db, "Profile/interests/1");
+        const interestsRef2 = ref(db, "Profile/interests/2");
+        firebaseSet(interestsRef0, interestInput0);
+        firebaseSet(interestsRef1, interestInput1);
+        firebaseSet(interestsRef2, interestInput2);
+        setInterestsFormIsDisplayed(false);
+      } catch (error) {
+        setWarningStyle({display: "alert alert-primary"});
+        setWarningMessage(error);
+      }
     }
 
     // hobbies form handlers show/close
@@ -79,14 +85,19 @@ export function ProfileScreen() {
       setHobbiesFormIsDisplayed(!hobbiesFormIsDisplayed);
     }
 
-    const closeHobbiesForm = () => {
-      const hobbiesRef0 = ref(db, "Profile/hobbies/0");
-      const hobbiesRef1 = ref(db, "Profile/hobbies/1");
-      const hobbiesRef2 = ref(db, "Profile/hobbies/2");
-      firebaseSet(hobbiesRef0, hobbieInput0);
-      firebaseSet(hobbiesRef1, hobbieInput1);
-      firebaseSet(hobbiesRef2, hobbieInput2);
-      setHobbiesFormIsDisplayed(false);
+    function closeHobbiesForm() {
+      try {
+        const hobbiesRef0 = ref(db, "Profile/hobbies/0");
+        const hobbiesRef1 = ref(db, "Profile/hobbies/1");
+        const hobbiesRef2 = ref(db, "Profile/hobbies/2");
+        firebaseSet(hobbiesRef0, hobbieInput0);
+        firebaseSet(hobbiesRef1, hobbieInput1);
+        firebaseSet(hobbiesRef2, hobbieInput2);
+        setHobbiesFormIsDisplayed(false);
+      } catch (error) {
+        setWarningStyle({display: "alert alert-primary"});
+        setWarningMessage(error);
+      }
     }
 
     let editBioStyle = {display: 'none'};
@@ -106,9 +117,9 @@ export function ProfileScreen() {
       <React.Fragment>
         <section className='banner mb-2'>
             <img src="/img/pexels-tony-jamesandersson-1674752.jpg" className="profile-pic" alt="profiles"/>
-            <PhotoUpload/>
             <p className='userName'><strong>{name}</strong></p>
         </section>
+        <div className="warning-profile"><span className={warningStyle}>{warningMessage}</span></div>
         <section className="content">
           <section className="d-flex justify-content-center">
             <section className="card">

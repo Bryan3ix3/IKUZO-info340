@@ -21,7 +21,6 @@ const PhotoUpload = () => {
     inputFile.current.click();
   };
 
-  console.log("imageimage", image);
   return (
     <React.Fragment>
       <input
@@ -32,8 +31,8 @@ const PhotoUpload = () => {
         type="file"
         aria-label="select"
       />
-      <div className="btn btn-info uploadButton" onClick={handleClick} type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"><span className="fa fa-camera"></span>
-      </div>
+      <button className="btn btn-info uploadButton" onClick={handleClick} type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"><span className="fa fa-camera"></span>
+      </button>
     </React.Fragment>
   );
 };

@@ -4,50 +4,8 @@
 
 html, body {
     height: 100%;
-} 
-
-/* Navbar styles */
-/* .navigation {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: black;
 }
 
-.hidden {
-    display: none !important;
-}
-
-.nav-brand-name {
-    font-size: 28px;
-    font-family: "Reggae One", sans-serif;
-    margin-right: auto;
-    align-self: center;
-    padding-top: 15px;
-    padding-left: 20px;
-}
-
-.nav-brand-name a:link {
-    text-decoration: none;
-}
-
-.nav-brand-name a:hover {
-    text-shadow: 2px 2px 8px #6f7777;
-}
-
-.nav-link:hover {
-    background-color: #4382CD;
-}
-
-.hamburger-menu {
-    color: white;
-    margin-right: 20px;
-    font-size: 36px;
-} */
-
-.search-box {
-    display: none;
-}
 /*banner styles*/
 .banner {
     background-image: url("./img/johny-goerend-Oz2ZQ2j8We8-unsplash.jpg");
@@ -86,6 +44,12 @@ html, body {
 }
 
 /*friend profiles styles goes here*/
+.warning-profile {
+  justify-content: center;
+  margin: 10px;
+  font-size: 18px;
+  width: 40%;
+}
 
 /*content styles*/
 .content {
@@ -110,12 +74,7 @@ html, body {
     width: 100%;
     border-radius: 0;
 }
-/*can't figure out how to position right after content so I'll work on it later on in project
-.mark-box {
-    position: relative;
-    background-color: red;
-    display: none;
-} */
+
 
 .ikuzo-mark {
     font-family: "Reggae One", sans-serif;
@@ -159,20 +118,6 @@ html, body {
 }
 
 
-/* Footer styles */
-footer {
-    background-color: black;
-    text-align: center;
-    color: white;
-    width: 100%;
-    font-size: 15px;
-    padding: 20px;
-    font-family: inherit;
-    margin-top: 20px;
-    position: relative;
-    bottom: 0;
-}
-
 /*media queries*/
 
 @media (min-width: 992px) {
@@ -186,26 +131,5 @@ footer {
         width: 70rem;
     }
 }
-
-/* @media (prefers-color-scheme: dark) {
-    body {
-        background-color: black;
-        color: white;
-    }
-
-    .card {
-        background-color: black;
-    }
-
-    .accordion-button {
-        background-color: black;
-        color: white;
-    }
-
-    #flush-collapseOne {
-        background-color: black;
-        color: white;
-    }
-} */
 
 
