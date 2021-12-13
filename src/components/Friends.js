@@ -1,53 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, onValue } from 'firebase/database'
+import { getDatabase, ref, onValue, set as firebaseSet } from 'firebase/database'
 
-function FriendChoice({friend}) {
+function FriendChoice({friend, index}) {
   const [showHobbies, setShowHobbies] = useState(false);
   const [friendClicked, setFriendClicked] = useState(false);
-  const[isFriend, setIsFriend] = useState(false);
-  const[showActivity, setShowActivity] = useState(false);
-
+  // const[isFriend, setIsFriend] = useState(false);
+  // const[showActivity, setShowActivity] = useState(false);
   const db = getDatabase();
+  let friendClass = "friend-card";
+  const handleClick = async () => {
+    try {
+      const path = "Friends/" + index + "/isFriend";
+      const friendRef = ref(db, path);
+      setFriendClicked(!friendClicked);
+      await firebaseSet(friendRef, friendClicked);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-  let friendClass = "";
-
-  useEffect(() => {
-    const friendRef = ref(db, "Friends") //  dir/key for reference
-    //  dir/key for reference
-    //addEventListener for database value change
-    onValue(friendRef, (snapshot) => {
-      const allFriends = snapshot.val(); //extract the value from snapshot
-      const friendsKeyArray = Object.keys(allFriends);
-      let friendsArray = friendsKeyArray.map((friendKey) => {
-        const theFriend = allFriends[friendKey];
-        return theFriend;
-      })
-       friendsArray = friendsArray.map((friend) => {
-        if (friend.isFriend) {
-          console.log(true);
-          // setIsFriend(true);
-          // friendClass = "friend-card friend-card-clicked";
-        } else {
-          console.log(false);
-        }
-      });
-
-    })
-
-  }, []);
-
-  // if(isFriend) {
-  //   friendClass = "friend-card friend-card-clicked";
-  // }
-
-  if(friendClicked) {
+  if(friend.isFriend) {
     friendClass = "friend-card friend-card-clicked";
-  } else {
-    friendClass = "friend-card";
   }
 
   return (
-    <div className={friendClass} onClick={() =>  setFriendClicked(!friendClicked)} onMouseEnter={() => setShowHobbies(true)} onMouseLeave={() => setShowHobbies(false)}>
+    <div className={friendClass} onClick={handleClick} onMouseEnter={() => setShowHobbies(true)} onMouseLeave={() => setShowHobbies(false)}>
       <img src={friend.img} alt={friend.alt} />
       <div className="d-flex flex-column friend-font">
         {!showHobbies && (
@@ -89,15 +66,15 @@ export function FriendList(props) {
       offFunction2();
     }
   }, []);
-  const recommendedFriends = props.friends.map((item) => {
+  const recommendedFriends = props.friends.map((item, index) => {
     if (userInterests.includes(item.activity) || userHobbies.includes(item.hobby)) {
-      return <FriendChoice friend={item} key={item.name}/>
+      return <FriendChoice friend={item} key={item.name} index={index} />
     }
   });
 
   return (
     <section className="box friends friend-web-view" style={props.style}>
-      <h1>Recommend Friends:</h1>
+      <h2>Recommend Friends:</h2>
       <div>
         {recommendedFriends}
       </div>
