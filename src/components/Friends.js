@@ -16,7 +16,9 @@ function FriendChoice({friend}) {
     <div className={friendClass} onClick={() =>  setFriendClicked(!friendClicked)} onMouseEnter={() => setShowHobbies(true)} onMouseLeave={() => setShowHobbies(false)}>
       <img src={friend.img} alt={friend.alt} />
       <div className="d-flex flex-column friend-font">
-        <p><strong>{friend.name}</strong></p>
+        {!showHobbies && (
+          <p><strong>{friend.name}</strong></p>
+        )}
         {showHobbies && (
           <p>
             {friend.hobby}
