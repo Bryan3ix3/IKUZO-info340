@@ -5,6 +5,7 @@ function FriendChoice({friend}) {
   const [showHobbies, setShowHobbies] = useState(false);
   const [friendClicked, setFriendClicked] = useState(false);
   const[isFriend, setIsFriend] = useState(false);
+  const[showActivity, setShowActivity] = useState(false);
 
   const db = getDatabase();
 
@@ -54,7 +55,7 @@ function FriendChoice({friend}) {
         )}
         {showHobbies && (
           <p>
-            {friend.hobby}
+           H:{friend.hobby} A:{friend.activity}
           </p>
         )}
       </div>
