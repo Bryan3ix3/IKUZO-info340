@@ -46,7 +46,7 @@ function EventCard({event}) {
 
   return (
     <div className="event-card">
-      <img src={event.img} alt="Running event" />
+      <img src={event.img} alt="Event card" />
       <div className="overImg">
         <h2><strong>{event.name}</strong></h2>
       </div>

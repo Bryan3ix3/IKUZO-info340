@@ -4,10 +4,10 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 export function NavBar() {
   const customToggle = React.forwardRef(({ children, onClick }, ref) => (
-    <span ref={ref} onClick={e => {e.preventDefault(); onClick(e);}}>
+    <div ref={ref} onClick={e => {e.preventDefault(); onClick(e);}}>
       {<span className="material-icons" style={{color: "white"}} aria-label="hamburger menu icon">menu</span>}
       {children}
-    </span>
+    </div>
   ));
 
   return (

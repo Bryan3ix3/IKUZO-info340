@@ -37,7 +37,7 @@ export function FriendList(props) {
     const hobbyArrRef = ref(db, "Profile/hobbies") //  dir/key for reference
     //addEventListener for database value change
     const offFunction1 = onValue(interestArrRef, (snapshot) => {
-      var interests = snapshot.val(); //extract the value from snapshot
+      const interests = snapshot.val(); //extract the value from snapshot
       //const interestsKeyArr = Object.keys(interests); used for non index based mapping
       setUserInterests(interests);
       //setCurrectEventKeys(interestsKeyArr); used for non index based mapping
