@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 
-import { FilterMenu, FilterButton } from './Filter';
+import { FilterMenu } from './Filter';
 import { Events } from './Events';
-import { FriendList, FriendsButton } from './Friends';
+import { FriendList } from './Friends';
 import { getDatabase, ref, onValue } from 'firebase/database'
 import Modal from "react-modal";
 

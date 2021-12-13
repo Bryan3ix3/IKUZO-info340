@@ -4,8 +4,6 @@ import App from './components/App';
 import './profile.css';
 import './index.css';
 
-import SAMPLE_EVENTS from './data/events.json';
-import FRIENDS from './data/friends.json';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";

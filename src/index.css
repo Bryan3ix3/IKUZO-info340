@@ -111,6 +111,12 @@ footer, .login-img {
   background-color: rgb(241, 87, 87);
 }
 
+.warningSmall {
+  text-align: center;
+  font-size: 15px;
+  color: rgb(241, 87, 87);
+}
+
 .events > div, .friends > div {
   flex-wrap: wrap;
 }

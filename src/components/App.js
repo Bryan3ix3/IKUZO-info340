@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
-import { SignInScreen } from './SignIn';
 import { NavBar } from './Navigation';
 import { HomeScreen } from './Home';
 import { EventForm } from './EventForm';

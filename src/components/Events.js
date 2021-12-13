@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
 import ShareIcon from '@material-ui/icons/Share';
 import { getDatabase, ref, onValue } from 'firebase/database'
-import { Hidden } from '@material-ui/core';
-
 
 function EventCard({event}) {
   const [toggleDetail, setToggleDetail] = useState(false);
