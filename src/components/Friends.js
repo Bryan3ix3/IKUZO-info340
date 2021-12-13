@@ -55,7 +55,7 @@ function FriendChoice({friend}) {
         )}
         {showHobbies && (
           <p>
-           H:{friend.hobby} A:{friend.activity}
+            A:{friend.activity} H:{friend.hobby}
           </p>
         )}
       </div>
