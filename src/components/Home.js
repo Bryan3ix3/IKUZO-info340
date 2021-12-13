@@ -43,9 +43,9 @@ export function HomeScreen(props) {
     //addEventListener for database value change
     onValue(eventArrRef, (snapshot) => {
       let newValue = snapshot.val(); //extract the value from snapshot
-      newValue = newValue.sort((a, b) => parseInt(a.date.slice(6,)) - parseInt(b.date.slice(6,)) ||
-        parseInt(a.date.slice(3,)) - parseInt(b.date.slice(3,)) ||
-        parseInt(a.date.slice(0,)) - parseInt(b.date.slice(0,)));
+      newValue = newValue.sort((a, b) => parseInt(a.date.slice(3,)) - parseInt(b.date.slice(3,)));
+      newValue = newValue.sort((a, b) => parseInt(a.date.slice(0,)) - parseInt(b.date.slice(0,)));
+      newValue = newValue.sort((a, b) => parseInt(a.date.slice(6,)) - parseInt(b.date.slice(6,)));
       const newValueKeyArr = Object.keys(newValue);
       setCurrentEvents(removePastEvents(newValue));
       setCurrectEventKeys(newValueKeyArr);
