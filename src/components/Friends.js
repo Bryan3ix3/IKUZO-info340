@@ -4,8 +4,41 @@ import { getDatabase, ref, onValue } from 'firebase/database'
 function FriendChoice({friend}) {
   const [showHobbies, setShowHobbies] = useState(false);
   const [friendClicked, setFriendClicked] = useState(false);
+  const[isFriend, setIsFriend] = useState(false);
+  
+  const db = getDatabase();
 
   let friendClass = "";
+
+  useEffect(() => {
+    const friendRef = ref(db, "Friends") //  dir/key for reference
+    //  dir/key for reference
+    //addEventListener for database value change
+    onValue(friendRef, (snapshot) => {
+      const allFriends = snapshot.val(); //extract the value from snapshot
+      const friendsKeyArray = Object.keys(allFriends);
+      let friendsArray = friendsKeyArray.map((friendKey) => {
+        const theFriend = allFriends[friendKey];
+        return theFriend;
+      })
+       friendsArray = friendsArray.map((friend) => {
+        if (friend.isFriend) {
+          console.log(true);
+          // setIsFriend(true);
+          // friendClass = "friend-card friend-card-clicked";
+        } else {
+          console.log(false);
+        }
+      });
+
+    })
+   
+  }, []);
+  
+  // if(isFriend) {
+  //   friendClass = "friend-card friend-card-clicked";
+  // }
+
   if(friendClicked) {
     friendClass = "friend-card friend-card-clicked";
   } else {
