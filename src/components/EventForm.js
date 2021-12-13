@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { getDatabase, ref, set as fbset } from 'firebase/database'
-import { Link } from 'react-router-dom';
+import { getDatabase, ref, set as fbset } from 'firebase/database';
+import { useNavigate } from 'react-router-dom';
 
 //import { propTypes } from 'react-bootstrap/esm/Image';
 
 export function EventForm(props) {
-
   const [name, setName] = useState("");
   const [nameErr, setNameErr] = useState(false);
   const [location, setLocation] = useState("");
@@ -16,13 +15,16 @@ export function EventForm(props) {
   const [timeErr, setTimeErr] = useState(false);
   const [detail, setDetail] = useState("");
   const [detailErr, setDetailErr] = useState(false);
-  const [img, setImg] = useState("img/02.jpg");
+  const [buttonValue, setButtonValue] = useState("Create Event");
+  const [warning, setWarning] = useState("");
+  const [warningText, setWarningText] = useState("");
+  const img = "img/02.jpg";
+  const navigate = useNavigate();
   //const eventInfo = {name:"", location:"", date:"", time:"", detail:"", img:"img/running.jpg"}
-
   const db = getDatabase(); //get database address from firebase servers
 
   function toRegularTime(militaryTime) {
-    const [hours, minutes, seconds] = militaryTime.split(':');
+    const [hours, minutes] = militaryTime.split(':');
     let hr = "";
     let min = "";
     let day = "";
@@ -34,20 +36,37 @@ export function EventForm(props) {
       day = "AM"
     }
     min = minutes;
-    return(hr+":"+min+" "+day);
+    return(hr + ":" + min + " " + day);
   }
 
-  function handleSubmit(){
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(date);
     let formatDate = date.slice(5,7) + "/" + date.slice(8,10) + "/" + date.slice(0,4); //1998-02-06
     let formatTime = toRegularTime(time);
     let eventObj = {"name":name, "location":location, "date":formatDate, "time":formatTime, "detail":detail, "img":img};
-    var index = props.events.length;
-    const eventRef = ref(db, "Events/" + index) //  dir/key for reference
-    if((name!=="" && location!=="" && date!=="" && time!=="" && detail!==""))
-      fbset(eventRef, eventObj);
+    const index = props.events.length;
+    const eventRef = ref(db, "Events/" + index) //  dir/key htmlFor reference
+    if((name !== "" && location !== "" && date !== "" && time !== "" && detail !== "")) {
+      setButtonValue("Loading")
+      fbset(eventRef, eventObj)
+        .then(() => setButtonValue("Create Event"))
+        .then(response => navigate('/'))
+        .catch((error) => setButtonValue(error));
+    } else {
+      setWarning("alert alert-primary")
+      setWarningText("Please input all of your event details.");
+    }
+
   }
+  const changeWarning = () => {
+    setWarning("");
+    setWarningText("");
+  }
+
   function nameOnChange(text) {
     setName(text);
+    changeWarning();
     if(text === ""){
       setNameErr(true);
     }else{
@@ -56,48 +75,50 @@ export function EventForm(props) {
   }
   function locationOnChange(text) {
     setLocation(text);
+    changeWarning();
     if(text === ""){
       setLocationErr(true);
     }else{
-      setNameErr(false);
+      setLocationErr(false);
     }
   }
   function dateOnChange(text) {
     setDate(text);
-    console.log(text);
+    changeWarning();
     if(text === ""){
       setDateErr(true);
     }else{
-      setNameErr(false);
+      setDateErr(false);
     }
   }
   function timeOnChange(text) {
     setTime(text);
-    console.log(text);
+    changeWarning();
     if(text === ""){
       setTimeErr(true);
     }else{
-      setNameErr(false);
+      setTimeErr(false);
     }
   }
   function detailOnChange(text) {
     setDetail(text);
+    changeWarning();
     if(text === ""){
       setDetailErr(true);
     }else{
-      setNameErr(false);
+      setDetailErr(false);
     }
   }
 
   return (
     <section className="eventForm">
-      <h1> Events Form </h1>
-      <h2> Input event information and details below </h2>
-
+      <h1 style={{textDecoration: "underline", alignSelf: "center"}}> Events Form </h1>
       <div className="formContainer">
+      <h2> Input event information and details below </h2>
+      <div className={warning}>{warningText}</div>
         <form>
             <div>
-              <label for="nameIn">Event Name:</label>
+              <label htmlFor="nameIn">Event Name:</label>
               <input
                 type="text"
                 id="nameIn"
@@ -106,7 +127,7 @@ export function EventForm(props) {
               <div className={nameErr ? "warningSmall" : "hidden"}>*name required</div>
             </div>
             <div>
-              <label for="locationIn">Location Name:</label>
+              <label htmlFor="locationIn">Location Name:</label>
               <input
                 type="text"
                 id="locationIn"
@@ -115,7 +136,7 @@ export function EventForm(props) {
                 <div className={locationErr ? "warningSmall" : "hidden"}>*location required</div>
             </div>
             <div>
-              <label for="dateIn">Event Date:</label>
+              <label htmlFor="dateIn">Event Date:</label>
               <input
                 type="date"
                 id="dateIn"
@@ -124,7 +145,7 @@ export function EventForm(props) {
                 <div className={dateErr ? "warningSmall" : "hidden"}>*date required</div>
             </div>
             <div>
-              <label for="timeIn">Event Time:</label>
+              <label htmlFor="timeIn">Event Time:</label>
               <input
                 type="time"
                 id="timeIn"
@@ -133,7 +154,7 @@ export function EventForm(props) {
                 <div className={timeErr ? "warningSmall" : "hidden"}>*time required</div>
             </div>
             <div>
-              <label for="detailIn">Event Description:</label>
+              <label htmlFor="detailIn">Event Description:</label>
               <textarea
                 type = "text" rows="4" cols="50"
                 id="detailIn"
@@ -148,10 +169,10 @@ export function EventForm(props) {
                 value={img}
                 {/*onChange={(e) => setImg(e.target.value)}/>
             </div>*/}
-            <div>
-              <Link exact to="/" className="text-white">
-                <input type="submit" value="Create Event" onClick={() => handleSubmit()}/>
-              </Link>
+            <div className="create-event-container">
+              <button className="btn create-event-btn" type="submit" value={buttonValue} onClick={handleSubmit}>
+                Create Event
+              </button>
             </div>
           </form>
         </div>

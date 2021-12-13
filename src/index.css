@@ -441,6 +441,14 @@ footer {
   padding-top: 50px;
 }
 
+.formContainer {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-decoration: none;
+}
+
 .formContainer label, .formContainer input {
   display: inline-block;
   width:180px;
@@ -455,6 +463,15 @@ footer {
 
 .formContainer div {
   padding: 10px;
+}
+
+.create-event-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.create-event-btn {
+  align-self: center;
 }
 
 /* Media queries */
