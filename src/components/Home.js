@@ -41,8 +41,8 @@ export function HomeScreen(props) {
   useEffect(() => {
     const eventArrRef = ref(db, "Events") //  dir/key for reference
     //addEventListener for database value change
-    const offFunction = onValue(eventArrRef, (snapshot) => {
-      var newValue = snapshot.val(); //extract the value from snapshot
+    onValue(eventArrRef, (snapshot) => {
+      let newValue = snapshot.val(); //extract the value from snapshot
       newValue = newValue.sort((a, b) => parseInt(a.date.slice(6,)) - parseInt(b.date.slice(6,)) ||
         parseInt(a.date.slice(3,)) - parseInt(b.date.slice(3,)) ||
         parseInt(a.date.slice(0,)) - parseInt(b.date.slice(0,)));
@@ -50,9 +50,6 @@ export function HomeScreen(props) {
       setCurrentEvents(removePastEvents(newValue));
       setCurrectEventKeys(newValueKeyArr);
     });
-    return () => {
-      offFunction();
-    }
   }, []);
 
   const handleFilters = (selectedFiltersArray) => {

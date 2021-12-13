@@ -31,7 +31,12 @@ function App() {
     //addEventListener for database value change
     const offFunction = onValue(friendArrRef, (snapshot) => {
       const newFriends = snapshot.val(); //extract the value from snapshot
-      setFriendArr(newFriends);
+      const newFriendsKey = Object.keys(newFriends);
+      const newFriendsArray = newFriendsKey.map((friendKey) => {
+        const theFriend = newFriends[friendKey];
+        return theFriend;
+      })
+      setFriendArr(newFriendsArray);
     });
     return () => {
       offFunction();

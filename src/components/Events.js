@@ -19,9 +19,14 @@ function EventCard({event}) {
     const friendArrRef = ref(db, "Friends") //  dir/key for reference
     //addEventListener for database value change
     onValue(friendArrRef, (snapshot) => {
-      var newValue = snapshot.val(); //extract the value from snapshot
-      newValue = newValue.filter(friend => friend.isFriend === true);
-      setCurrentFriends(newValue);
+      const allEvents = snapshot.val(); //extract the value from snapshot
+      const eventKeyArray = Object.keys(allEvents);
+      let eventsArray = eventKeyArray.map((eventKey) => {
+        const theEvent = allEvents[eventKey];
+        return theEvent;
+      })
+      eventsArray = eventsArray.filter(friend => friend.isFriend === true);
+      setCurrentFriends(eventsArray);
     })
   }, []);
 

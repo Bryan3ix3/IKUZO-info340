@@ -9,7 +9,7 @@ const PhotoUpload = () => {
     if (files && files.length) {
       const filename = files[0].name;
 
-      var parts = filename.split(".");
+      let parts = filename.split(".");
       const fileType = parts[parts.length - 1];
       console.log("fileType", fileType); //ex: zip, rar, jpg, svg etc.
 

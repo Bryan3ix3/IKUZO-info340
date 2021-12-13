@@ -39,16 +39,15 @@ export function EventForm(props) {
     return(hr + ":" + min + " " + day);
   }
 
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
-    console.log(date);
     let formatDate = date.slice(5,7) + "/" + date.slice(8,10) + "/" + date.slice(0,4); //1998-02-06
     let formatTime = toRegularTime(time);
     let eventObj = {"name":name, "location":location, "date":formatDate, "time":formatTime, "detail":detail, "img":img};
     const index = props.events.length;
     const eventRef = ref(db, "Events/" + index) //  dir/key htmlFor reference
     if((name !== "" && location !== "" && date !== "" && time !== "" && detail !== "")) {
-      setButtonValue("Loading")
+      setButtonValue("Loading");
       fbset(eventRef, eventObj)
         .then(() => setButtonValue("Create Event"))
         .then(response => navigate('/'))
