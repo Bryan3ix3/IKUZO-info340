@@ -5,7 +5,7 @@ function FriendChoice({friend}) {
   const [showHobbies, setShowHobbies] = useState(false);
   const [friendClicked, setFriendClicked] = useState(false);
   const[isFriend, setIsFriend] = useState(false);
-  
+
   const db = getDatabase();
 
   let friendClass = "";
@@ -32,9 +32,9 @@ function FriendChoice({friend}) {
       });
 
     })
-   
+
   }, []);
-  
+
   // if(isFriend) {
   //   friendClass = "friend-card friend-card-clicked";
   // }
