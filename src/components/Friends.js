@@ -13,9 +13,7 @@ function FriendChoice({friend}) {
   }
 
   return (
-    <div className={friendClass} onClick={() =>  setFriendClicked(!friendClicked)}
-      onMouseEnter={() => setShowHobbies(true)}
-      onMouseLeave={() => setShowHobbies(false)}>
+    <div className={friendClass} onClick={() =>  setFriendClicked(!friendClicked)} onMouseEnter={() => setShowHobbies(true)} onMouseLeave={() => setShowHobbies(false)}>
       <img src={friend.img} alt={friend.alt} />
       <div className="d-flex flex-column friend-font">
         <p><strong>{friend.name}</strong></p>
@@ -29,29 +27,31 @@ function FriendChoice({friend}) {
   );
 }
 
-
-
-
 export function FriendList(props) {
   const [userInterests, setUserInterests] = useState([{}]);
   const [userHobbies, setUserHobbies] = useState([{}]);
   const db = getDatabase(); //get database address from firebase servers
+
   useEffect(() => {
     const interestArrRef = ref(db, "Profile/interests") //  dir/key for reference
     const hobbyArrRef = ref(db, "Profile/hobbies") //  dir/key for reference
     //addEventListener for database value change
-    onValue(interestArrRef, (snapshot) => {
+    const offFunction1 = onValue(interestArrRef, (snapshot) => {
       const interests = snapshot.val(); //extract the value from snapshot
       //const interestsKeyArr = Object.keys(interests); used for non index based mapping
       setUserInterests(interests);
       //setCurrectEventKeys(interestsKeyArr); used for non index based mapping
-    })
-    onValue(hobbyArrRef, (snapshot) => {
+    });
+    const offFunction2 = onValue(hobbyArrRef, (snapshot) => {
       const hobbies = snapshot.val(); //extract the value from snapshot
       //const interestsKeyArr = Object.keys(interests); used for non index based mapping
       setUserHobbies(hobbies);
       //setCurrectEventKeys(interestsKeyArr); used for non index based mapping
-    })
+    });
+    return () => {
+      offFunction1();
+      offFunction2();
+    }
   }, []);
 
   const recommendedFriends = props.friends.map((item) => {
@@ -69,13 +69,3 @@ export function FriendList(props) {
     </section>
   );
 }
-
-/*
-export function FriendsButton(props) {
-  return(
-    <button id="friend-icon" onClick={props.handleModalCallback}>
-        <img src={"img/friend.png"} alt="Friend icon" />
-    </button>
-  );
-}
-*/

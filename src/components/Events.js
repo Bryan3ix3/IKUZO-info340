@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
 import ShareIcon from '@material-ui/icons/Share';
-import { getDatabase, ref, onValue } from 'firebase/database'
-import { Hidden } from '@material-ui/core';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 
 function EventCard({event}) {
@@ -27,9 +26,10 @@ function EventCard({event}) {
     })
   }, []);
 
-  const checkboxCategories = currentFriends.map((friend) => {
+  const checkboxCategories = currentFriends.map((friend, index) => {
+    let elementKey = friend + index;
     return (
-      <div>
+      <div key={elementKey}>
         <input type="checkbox" className="checkBox" value={false} />
         <label >{friend.name}</label>
       </div>
@@ -85,18 +85,15 @@ function EventCard({event}) {
 }
 
 export function Events(props) {
-
-  const cards = props.events.map(event => {
-    return <EventCard event={event} key={event.name} />
+  const cards = props.events.map((event, index) => {
+    let eventCardKey = event + index;
+    return <EventCard event={event} key={eventCardKey} />
   });
-
   /*
   const cards = props.eventKeys.map(eventKey => {
     const event = props.events[eventKey];
     return <EventCard event={event} key={event.name} />
-  });
-  */
-
+  }); */
   return (
     <section className="box events">
       <div className={props.isActive ? "warning" : "hidden"}>No Events Found</div>

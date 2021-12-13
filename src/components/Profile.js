@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import PhotoUpload  from './PhotoUpload';
 import ScriptTag from 'react-script-tag';
+import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { getDatabase, ref, set as firebaseSet, onValue } from 'firebase/database';
 
@@ -47,7 +47,7 @@ export function ProfileScreen() {
     }
 
     let updateBio = () => {    //handle "check" button
-        if(!textValue == '') {
+        if(!textValue === '') {
             const bioRef = ref(db, "Profile/bio")
             firebaseSet(bioRef, textValue);
             setEditBioIsDisplayed('none');
@@ -129,7 +129,7 @@ export function ProfileScreen() {
                                                 <input type="text" value={interestInput0} onChange={(e) => setInterestInput0(e.target.value)} className='form-control' placeholder="Interest #1"/>
                                                 <input type="text" value={interestInput1} onChange={(e) => setInterestInput1(e.target.value)} className='form-control' placeholder="Interest #2"/>
                                                 <input type="text" value={interestInput2} onChange={(e) => setInterestInput2(e.target.value)} className='form-control' placeholder="Interest #3"/>
-                                                <button type="button" class="btn btn-danger mt-1" onClick={closeInterestsForm}>Done</button>
+                                                <button type="button" className="btn btn-danger mt-1" onClick={closeInterestsForm}>Done</button>
                                             </form>
                                         </section>
                                         <button className="btn btn-info fa fa-edit" onClick={showInterestsForm}></button>
@@ -159,7 +159,7 @@ export function ProfileScreen() {
                                                 <input type="text" value={hobbieInput0} onChange={(e) => setHobbieInput0(e.target.value)} className='form-control' placeholder="Hobbie #1"/>
                                                 <input type="text" value={hobbieInput1} onChange={(e) => setHobbieInput1(e.target.value)} className='form-control' placeholder="Hobbie #2"/>
                                                 <input type="text" value={hobbieInput2} onChange={(e) => setHobbieInput2(e.target.value)} className='form-control' placeholder="Hobbie #3"/>
-                                                <button type="button" class="btn btn-danger mt-1" onClick={closeHobbiesForm}>Done</button>
+                                                <button type="button" className="btn btn-danger mt-1" onClick={closeHobbiesForm}>Done</button>
                                             </form>
                                         </section>
                                         <button className="btn btn-info fa fa-edit" onClick={showHobbiesForm}></button>

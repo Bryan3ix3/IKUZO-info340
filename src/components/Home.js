@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 
-import { FilterMenu, FilterButton } from './Filter';
+import { FilterMenu } from './Filter';
 import { Events } from './Events';
-import { FriendList, FriendsButton } from './Friends';
+import { FriendList } from './Friends';
 import { getDatabase, ref, onValue } from 'firebase/database'
 import Modal from "react-modal";
 
@@ -41,16 +41,18 @@ export function HomeScreen(props) {
   useEffect(() => {
     const eventArrRef = ref(db, "Events") //  dir/key for reference
     //addEventListener for database value change
-    onValue(eventArrRef, (snapshot) => {
+    const offFunction = onValue(eventArrRef, (snapshot) => {
       var newValue = snapshot.val(); //extract the value from snapshot
       newValue = newValue.sort((a, b) => parseInt(a.date.slice(6,)) - parseInt(b.date.slice(6,)) ||
         parseInt(a.date.slice(3,)) - parseInt(b.date.slice(3,)) ||
         parseInt(a.date.slice(0,)) - parseInt(b.date.slice(0,)));
-      console.log(newValue);
       const newValueKeyArr = Object.keys(newValue);
       setCurrentEvents(removePastEvents(newValue));
       setCurrectEventKeys(newValueKeyArr);
-    })
+    });
+    return () => {
+      offFunction();
+    }
   }, []);
 
   const handleFilters = (selectedFiltersArray) => {

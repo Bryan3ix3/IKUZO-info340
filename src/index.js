@@ -4,12 +4,9 @@ import App from './components/App';
 import './profile.css';
 import './index.css';
 
-import SAMPLE_EVENTS from './data/events.json';
-import FRIENDS from './data/friends.json';
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,11 +20,9 @@ const firebaseConfig = {
   storageBucket: "info-340-final-project-17aa1.appspot.com",
   messagingSenderId: "759521387495",
   appId: "1:759521387495:web:c150824a5ad74c58a45342",
-  measurementId: "${config.measurementId}"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+initializeApp(firebaseConfig);
 
 ReactDOM.render(<App />, document.getElementById('root'));
