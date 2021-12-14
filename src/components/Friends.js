@@ -74,7 +74,7 @@ export function FriendList(props) {
 
   return (
     <section className="box friends friend-web-view" style={props.style}>
-      <h1>Recommend Friends:</h1>
+      <h2>Recommend Friends:</h2>
       <div>
         {recommendedFriends}
       </div>
