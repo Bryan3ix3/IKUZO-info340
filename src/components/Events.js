@@ -18,7 +18,7 @@ function EventCard({event}) {
   useEffect(() => {
     const friendArrRef = ref(db, "Friends") //  dir/key for reference
     //addEventListener for database value change
-    onValue(friendArrRef, (snapshot) => {
+    const offFunction = onValue(friendArrRef, (snapshot) => {
       const allEvents = snapshot.val(); //extract the value from snapshot
       const eventKeyArray = Object.keys(allEvents);
       let eventsArray = eventKeyArray.map((eventKey) => {
@@ -27,7 +27,10 @@ function EventCard({event}) {
       })
       eventsArray = eventsArray.filter(friend => friend.isFriend === true);
       setCurrentFriends(eventsArray);
-    })
+    });
+    return () => {
+      offFunction();
+    }
   }, []);
 
   const checkboxCategories = currentFriends.map((friend, index) => {
@@ -93,11 +96,7 @@ export function Events(props) {
     let eventCardKey = event + index;
     return <EventCard event={event} key={eventCardKey} />
   });
-  /*
-  const cards = props.eventKeys.map(eventKey => {
-    const event = props.events[eventKey];
-    return <EventCard event={event} key={event.name} />
-  }); */
+
   return (
     <section className="box events">
       <div className={props.isActive ? "warning" : "hidden"}>No Events Found</div>

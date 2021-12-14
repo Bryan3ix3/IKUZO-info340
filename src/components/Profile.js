@@ -116,7 +116,7 @@ export function ProfileScreen() {
     return (
       <React.Fragment>
         <section className='banner mb-2'>
-            <img src="/img/pexels-tony-jamesandersson-1674752.jpg" className="profile-pic" alt="profiles"/>
+            <img src="/img/pexels-tony-jamesandersson-1674752.jpg" className="profile-pic" alt="profile pic" />
             <p className='userName'><strong>{name}</strong></p>
         </section>
         <div className="warning-profile"><span className={warningStyle}>{warningMessage}</span></div>

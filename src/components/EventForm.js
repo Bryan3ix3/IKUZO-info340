@@ -20,7 +20,6 @@ export function EventForm(props) {
   const [warningText, setWarningText] = useState("");
   const img = "img/02.jpg";
   const navigate = useNavigate();
-  //const eventInfo = {name:"", location:"", date:"", time:"", detail:"", img:"img/running.jpg"}
   const db = getDatabase(); //get database address from firebase servers
 
   function toRegularTime(militaryTime) {
@@ -63,7 +62,7 @@ export function EventForm(props) {
     setWarningText("");
   }
 
-  function nameOnChange(text) {
+  const nameOnChange = (text) => {
     setName(text);
     changeWarning();
     if(text === ""){
@@ -72,7 +71,7 @@ export function EventForm(props) {
       setNameErr(false);
     }
   }
-  function locationOnChange(text) {
+  const locationOnChange = (text) => {
     setLocation(text);
     changeWarning();
     if(text === ""){
@@ -81,7 +80,7 @@ export function EventForm(props) {
       setLocationErr(false);
     }
   }
-  function dateOnChange(text) {
+  const dateOnChange = (text) => {
     setDate(text);
     changeWarning();
     if(text === ""){
@@ -90,7 +89,7 @@ export function EventForm(props) {
       setDateErr(false);
     }
   }
-  function timeOnChange(text) {
+  const timeOnChange = (text) => {
     setTime(text);
     changeWarning();
     if(text === ""){
@@ -99,7 +98,7 @@ export function EventForm(props) {
       setTimeErr(false);
     }
   }
-  function detailOnChange(text) {
+  const detailOnChange = (text) => {
     setDetail(text);
     changeWarning();
     if(text === ""){
@@ -161,13 +160,6 @@ export function EventForm(props) {
                 onChange={(e) => detailOnChange(e.target.value)} />
                 <div className={detailErr ? "warningSmall" : "hidden"}>*description required</div>
             </div>
-            {/*<div>
-              <label>Upload Image:</label>
-              <input
-                className="imgUpload" type="file"
-                value={img}
-                {/*onChange={(e) => setImg(e.target.value)}/>
-            </div>*/}
             <div className="create-event-container">
               <button className="btn create-event-btn" type="submit" value={buttonValue} onClick={handleSubmit}>
                 Create Event

@@ -116,11 +116,3 @@ export function FilterMenu(props) {
     </section>
   );
 }
-
-export function FilterButton() {
-  return(
-    <button id="filter-icon">
-      <img src={"img/filter.png"} alt="Filter icon" />
-    </button>
-  )
-}

@@ -5,20 +5,26 @@ function FriendChoice(props) {
   const [showInfo, setShowInfo] = useState(false);
   const [isFriend, setIsFriend] = useState(false);
   const db = getDatabase();
-  
+
   useEffect(() => {
-    const isFriendRef = ref(db, "Friends/"+props.count+"/isFriend"); //  dir/key for reference
+    const isFriendRef = ref(db, "Friends/" + props.count + "/isFriend"); //  dir/key for reference
     //addEventListener for database value change
-    onValue(isFriendRef, (snapshot) => {
+    const offFunction = onValue(isFriendRef, (snapshot) => {
       const isF = snapshot.val(); //extract the value from snapshot
-      //const interestsKeyArr = Object.keys(interests); used for non index based mapping
       setIsFriend(isF);
     });
+    return () => {
+      offFunction();
+    }
   }, []);
 
-  function friendClick(){
-    const isFriendArrRef = ref(db, "Friends/"+props.count+"/isFriend");
-    fbset(isFriendArrRef, !isFriend);
+  function friendClick() {
+    try {
+      const isFriendArrRef = ref(db, "Friends/" + props.count + "/isFriend");
+      fbset(isFriendArrRef, !isFriend);
+    } catch (error) {
+      props.friend.activity = error;
+    }
   }
 
   return (
@@ -50,25 +56,21 @@ export function FriendList(props) {
     //addEventListener for database value change
     const offFunction1 = onValue(interestArrRef, (snapshot) => {
       const interests = snapshot.val(); //extract the value from snapshot
-      //const interestsKeyArr = Object.keys(interests); used for non index based mapping
       setUserInterests(interests);
-      //setCurrectEventKeys(interestsKeyArr); used for non index based mapping
     });
     const offFunction2 = onValue(hobbyArrRef, (snapshot) => {
       const hobbies = snapshot.val(); //extract the value from snapshot
-      //const interestsKeyArr = Object.keys(interests); used for non index based mapping
       setUserHobbies(hobbies);
-      //setCurrectEventKeys(interestsKeyArr); used for non index based mapping
     });
     return () => {
       offFunction1();
       offFunction2();
     }
   }, []);
+
   const recommendedFriends = props.friends.map((item, index) => {
-    var index = index + 1;
     if (userInterests.includes(item.activity) || userHobbies.includes(item.hobby)) {
-      return <FriendChoice friend={item} key={item.name} count={index-1}/>
+      return <FriendChoice friend={item} key={item.name} count={index} />
     }
   });
 
