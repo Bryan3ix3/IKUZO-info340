@@ -1,60 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, onValue } from 'firebase/database'
+import { getDatabase, ref, onValue, set as fbset } from 'firebase/database'
 
-function FriendChoice({friend}) {
-  const [showHobbies, setShowHobbies] = useState(false);
-  const [friendClicked, setFriendClicked] = useState(false);
-  const[isFriend, setIsFriend] = useState(false);
-  
+function FriendChoice(props) {
+  const [showInfo, setShowInfo] = useState(false);
+  const [isFriend, setIsFriend] = useState(false);
   const db = getDatabase();
-
-  let friendClass = "";
-
-  useEffect(() => {
-    const friendRef = ref(db, "Friends") //  dir/key for reference
-    //  dir/key for reference
-    //addEventListener for database value change
-    onValue(friendRef, (snapshot) => {
-      const allFriends = snapshot.val(); //extract the value from snapshot
-      const friendsKeyArray = Object.keys(allFriends);
-      let friendsArray = friendsKeyArray.map((friendKey) => {
-        const theFriend = allFriends[friendKey];
-        return theFriend;
-      })
-       friendsArray = friendsArray.map((friend) => {
-        if (friend.isFriend) {
-          console.log(true);
-          // setIsFriend(true);
-          // friendClass = "friend-card friend-card-clicked";
-        } else {
-          console.log(false);
-        }
-      });
-
-    })
-   
-  }, []);
   
-  // if(isFriend) {
-  //   friendClass = "friend-card friend-card-clicked";
-  // }
+  useEffect(() => {
+    const isFriendRef = ref(db, "Friends/"+props.count+"/isFriend"); //  dir/key for reference
+    //addEventListener for database value change
+    onValue(isFriendRef, (snapshot) => {
+      const isF = snapshot.val(); //extract the value from snapshot
+      //const interestsKeyArr = Object.keys(interests); used for non index based mapping
+      setIsFriend(isF);
+    });
+  }, []);
 
-  if(friendClicked) {
-    friendClass = "friend-card friend-card-clicked";
-  } else {
-    friendClass = "friend-card";
+  function friendClick(){
+    const isFriendArrRef = ref(db, "Friends/"+props.count+"/isFriend");
+    fbset(isFriendArrRef, !isFriend);
   }
 
   return (
-    <div className={friendClass} onClick={() =>  setFriendClicked(!friendClicked)} onMouseEnter={() => setShowHobbies(true)} onMouseLeave={() => setShowHobbies(false)}>
-      <img src={friend.img} alt={friend.alt} />
+    <div className={props.friend.isFriend ? "friend-card friend-card-clicked" : "friend-card"} onClick={() =>  friendClick()} onMouseEnter={() => setShowInfo(true)} onMouseLeave={() => setShowInfo(false)}>
+      <img src={props.friend.img} alt={props.friend.alt} />
       <div className="d-flex flex-column friend-font">
-        {!showHobbies && (
-          <p><strong>{friend.name}</strong></p>
+        {!showInfo && (
+          <p><strong>{props.friend.name}</strong></p>
         )}
-        {showHobbies && (
+        {showInfo && (
           <p>
-            {friend.hobby}
+            <strong>A: {props.friend.activity}</strong><br/>
+            <strong>H: {props.friend.hobby}</strong>
           </p>
         )}
       </div>
@@ -68,8 +45,8 @@ export function FriendList(props) {
   const db = getDatabase(); //get database address from firebase servers
 
   useEffect(() => {
-    const interestArrRef = ref(db, "Profile/interests") //  dir/key for reference
-    const hobbyArrRef = ref(db, "Profile/hobbies") //  dir/key for reference
+    const interestArrRef = ref(db, "Profile/interests"); //  dir/key for reference
+    const hobbyArrRef = ref(db, "Profile/hobbies"); //  dir/key for reference
     //addEventListener for database value change
     const offFunction1 = onValue(interestArrRef, (snapshot) => {
       const interests = snapshot.val(); //extract the value from snapshot
@@ -88,9 +65,10 @@ export function FriendList(props) {
       offFunction2();
     }
   }, []);
-  const recommendedFriends = props.friends.map((item) => {
+  const recommendedFriends = props.friends.map((item, index) => {
+    var index = index + 1;
     if (userInterests.includes(item.activity) || userHobbies.includes(item.hobby)) {
-      return <FriendChoice friend={item} key={item.name}/>
+      return <FriendChoice friend={item} key={item.name} count={index-1}/>
     }
   });
 
