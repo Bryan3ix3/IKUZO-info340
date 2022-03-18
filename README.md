@@ -1,5 +1,7 @@
 # INFO 340 Project
 
+Link to page: https://info-340-final-project-17aa1.web.app/profile
+
 Our project, Ikuzo, allows users to look at outdoor activity events on the home screen. Users can read more about what the purpose of our website aims to achieve on the About Us page. Our website has three main interactions:
   1) Filtering out events: The filter section has three separate categories.
     a) In the first section, selecting a value in the upcoming events filter all the cards based on the date. For example, picking the one-week value will filter out all events within one week. We calculate the value of the event’s date by subtracting it from today’s date to see if it’s under the selected upcoming event value.
